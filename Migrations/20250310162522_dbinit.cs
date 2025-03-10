@@ -88,20 +88,20 @@ namespace DemoGym.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Salary",
+                name: "Salaries",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     role = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WorkingDay = table.Column<int>(type: "int", nullable: false),
-                    SalaryE = table.Column<double>(type: "float", nullable: false),
+                    SalaryE = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Salary", x => x.Id);
+                    table.PrimaryKey("PK_Salaries", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Salary_employees_EmployeeId",
+                        name: "FK_Salaries_employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "employees",
                         principalColumn: "Id",
@@ -118,18 +118,11 @@ namespace DemoGym.Migrations
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PackageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BranchId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    PackageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_members", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_members_branches_BranchId",
-                        column: x => x.BranchId,
-                        principalTable: "branches",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_members_packages_PackageId",
                         column: x => x.PackageId,
@@ -158,7 +151,32 @@ namespace DemoGym.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DevicesList",
+                name: "PTMembers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PTMembers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PTMembers_employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "employees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PTMembers_members_MemberId",
+                        column: x => x.MemberId,
+                        principalTable: "members",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "devicesLists",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -169,9 +187,9 @@ namespace DemoGym.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DevicesList", x => x.Id);
+                    table.PrimaryKey("PK_devicesLists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DevicesList_devices_DeviceId",
+                        name: "FK_devicesLists_devices_DeviceId",
                         column: x => x.DeviceId,
                         principalTable: "devices",
                         principalColumn: "Id",
@@ -184,19 +202,14 @@ namespace DemoGym.Migrations
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DevicesList_DeviceId",
-                table: "DevicesList",
+                name: "IX_devicesLists_DeviceId",
+                table: "devicesLists",
                 column: "DeviceId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_employees_BranchId",
                 table: "employees",
-                column: "BranchId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_members_BranchId",
-                table: "members",
                 column: "BranchId");
 
             migrationBuilder.CreateIndex(
@@ -211,13 +224,24 @@ namespace DemoGym.Migrations
                 column: "BranchId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PTMembers_EmployeeId",
+                table: "PTMembers",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PTMembers_MemberId",
+                table: "PTMembers",
+                column: "MemberId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_rooms_BranchId",
                 table: "rooms",
                 column: "BranchId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Salary_EmployeeId",
-                table: "Salary",
+                name: "IX_Salaries_EmployeeId",
+                table: "Salaries",
                 column: "EmployeeId",
                 unique: true);
         }
@@ -226,25 +250,28 @@ namespace DemoGym.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DevicesList");
+                name: "devicesLists");
 
             migrationBuilder.DropTable(
-                name: "members");
+                name: "PTMembers");
 
             migrationBuilder.DropTable(
-                name: "Salary");
+                name: "Salaries");
 
             migrationBuilder.DropTable(
                 name: "devices");
 
             migrationBuilder.DropTable(
-                name: "packages");
+                name: "members");
 
             migrationBuilder.DropTable(
                 name: "employees");
 
             migrationBuilder.DropTable(
                 name: "rooms");
+
+            migrationBuilder.DropTable(
+                name: "packages");
 
             migrationBuilder.DropTable(
                 name: "branches");

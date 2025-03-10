@@ -3,64 +3,64 @@
   "WorkspaceRootPath": "E:\\DATN\\DemoGym\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\DATN\\DemoGym\\Migrations\\20250310071700_dbinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250310071700_dbinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\DATN\\DemoGym\\Migrations\\20250310162522_dbinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250310162522_dbinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\packagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\packagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\salarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\salarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\devicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\devicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\DATN\\DemoGym\\Migrations\\20250310035434_dbinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250310035434_dbinit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\deviceslistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\deviceslistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\memberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\memberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\packagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\packagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\branchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\branchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\deviceslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\deviceslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\devicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\devicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\devicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\devicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\packagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\packagesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,32 +71,20 @@
       "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\controllers\\packagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\packagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\ptmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\ptmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\branchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\branchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\dtos\\salarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\salarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demogym\\entities\\salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:entities\\salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -131,131 +119,116 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20250310071700_dbinit.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Migrations\\20250310071700_dbinit.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250310071700_dbinit.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Migrations\\20250310071700_dbinit.cs",
-              "RelativeToolTip": "Migrations\\20250310071700_dbinit.cs",
+              "Title": "20250310162522_dbinit.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Migrations\\20250310162522_dbinit.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250310162522_dbinit.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Migrations\\20250310162522_dbinit.cs",
+              "RelativeToolTip": "Migrations\\20250310162522_dbinit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T07:17:00.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SalaryDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\SalaryDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\SalaryDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\SalaryDTO.cs",
-              "RelativeToolTip": "Dtos\\SalaryDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T07:16:05.529Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Salary.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Salary.cs",
-              "RelativeDocumentMoniker": "Entities\\Salary.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Salary.cs",
-              "RelativeToolTip": "Entities\\Salary.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T07:12:03.17Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DeviceDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\DeviceDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\DeviceDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\DeviceDTO.cs",
-              "RelativeToolTip": "Dtos\\DeviceDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:24:12.642Z",
+              "WhenOpened": "2025-03-10T16:25:22.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAWwFQAAAAoAAAAAAAAAA==",
+              "Title": "PackagesController.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\PackagesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PackagesController.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\PackagesController.cs",
+              "RelativeToolTip": "Controllers\\PackagesController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwFcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:19:35.546Z",
+              "WhenOpened": "2025-03-10T16:25:07.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20250310035434_dbinit.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Migrations\\20250310035434_dbinit.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250310035434_dbinit.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Migrations\\20250310035434_dbinit.cs",
-              "RelativeToolTip": "Migrations\\20250310035434_dbinit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MembersController.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\MembersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MembersController.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\MembersController.cs",
+              "RelativeToolTip": "Controllers\\MembersController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAASwFgAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:54:34.459Z",
+              "WhenOpened": "2025-03-10T16:24:49.558Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Database\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Database\\AppDbContext.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Database\\AppDbContext.cs",
-              "RelativeToolTip": "Database\\AppDbContext.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAmwCsAAAAIAAAAAAAAAA==",
+              "Title": "BranchController.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\BranchController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BranchController.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\BranchController.cs",
+              "RelativeToolTip": "Controllers\\BranchController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T13:08:32.749Z",
+              "WhenOpened": "2025-03-10T16:19:03.393Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EmployeeDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\EmployeeDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\EmployeeDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\EmployeeDTO.cs",
-              "RelativeToolTip": "Dtos\\EmployeeDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Branch.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Branch.cs",
+              "RelativeDocumentMoniker": "Entities\\Branch.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Branch.cs",
+              "RelativeToolTip": "Entities\\Branch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:18:55.716Z",
+              "WhenOpened": "2025-03-10T15:23:07.613Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "MemberDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\MemberDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\MemberDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\MemberDTO.cs",
-              "RelativeToolTip": "Dtos\\MemberDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Title": "Device.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Device.cs",
+              "RelativeDocumentMoniker": "Entities\\Device.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Device.cs",
+              "RelativeToolTip": "Entities\\Device.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T13:16:10.308Z",
+              "WhenOpened": "2025-03-10T15:23:01.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DevicesList.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\DevicesList.cs",
+              "RelativeDocumentMoniker": "Entities\\DevicesList.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\DevicesList.cs",
+              "RelativeToolTip": "Entities\\DevicesList.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:57.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PackagesDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\PackagesDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\PackagesDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\PackagesDTO.cs",
-              "RelativeToolTip": "Dtos\\PackagesDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "Entities\\Employee.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Employee.cs",
+              "RelativeToolTip": "Entities\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:10:05.074Z",
+              "WhenOpened": "2025-03-10T15:22:36.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Member.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Member.cs",
+              "RelativeDocumentMoniker": "Entities\\Member.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Member.cs",
+              "RelativeToolTip": "Entities\\Member.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:25.003Z",
               "EditorCaption": ""
             },
             {
@@ -266,172 +239,9 @@
               "RelativeDocumentMoniker": "Entities\\Package.cs",
               "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Package.cs",
               "RelativeToolTip": "Entities\\Package.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:12:28.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DevicesController.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\DevicesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DevicesController.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\DevicesController.cs",
-              "RelativeToolTip": "Controllers\\DevicesController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAuwFYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:24:51.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "PackagesController.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\PackagesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PackagesController.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\PackagesController.cs",
-              "RelativeToolTip": "Controllers\\PackagesController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAuwFcAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:28:36.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "BranchController.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Controllers\\BranchController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BranchController.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Controllers\\BranchController.cs",
-              "RelativeToolTip": "Controllers\\BranchController.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAADwv1UAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T13:07:06.687Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Member.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Member.cs",
-              "RelativeDocumentMoniker": "Entities\\Member.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Member.cs",
-              "RelativeToolTip": "Entities\\Member.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:15:58.952Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RoomDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\RoomDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\RoomDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\RoomDTO.cs",
-              "RelativeToolTip": "Dtos\\RoomDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:05:41.693Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "BranchDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\BranchDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\BranchDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\BranchDTO.cs",
-              "RelativeToolTip": "Dtos\\BranchDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T13:09:28.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAwwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T13:03:49.846Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "E:\\DATN\\DemoGym\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-08T13:05:03.299Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 262,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DevicesListDTO.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\DevicesListDTO.cs",
-              "RelativeDocumentMoniker": "Dtos\\DevicesListDTO.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\DevicesListDTO.cs",
-              "RelativeToolTip": "Dtos\\DevicesListDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:47:45.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Device.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Device.cs",
-              "RelativeDocumentMoniker": "Entities\\Device.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Device.cs",
-              "RelativeToolTip": "Entities\\Device.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:26:06.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Employee.cs",
-              "RelativeDocumentMoniker": "Entities\\Employee.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Employee.cs",
-              "RelativeToolTip": "Entities\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:22:07.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DevicesList.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\DevicesList.cs",
-              "RelativeDocumentMoniker": "Entities\\DevicesList.cs",
-              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\DevicesList.cs",
-              "RelativeToolTip": "Entities\\DevicesList.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:43:40.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-10T15:22:19.526Z"
             },
             {
               "$type": "Document",
@@ -441,10 +251,138 @@
               "RelativeDocumentMoniker": "Entities\\Room.cs",
               "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Room.cs",
               "RelativeToolTip": "Entities\\Room.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T14:02:43.265Z",
+              "WhenOpened": "2025-03-10T15:21:58.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Salary.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\Salary.cs",
+              "RelativeDocumentMoniker": "Entities\\Salary.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\Salary.cs",
+              "RelativeToolTip": "Entities\\Salary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:21:20.091Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 338,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Database\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Database\\AppDbContext.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Database\\AppDbContext.cs",
+              "RelativeToolTip": "Database\\AppDbContext.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:24:27.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BranchDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\BranchDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\BranchDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\BranchDTO.cs",
+              "RelativeToolTip": "Dtos\\BranchDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:23:05.616Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DeviceDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\DeviceDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\DeviceDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\DeviceDTO.cs",
+              "RelativeToolTip": "Dtos\\DeviceDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:23:02.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeeDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\EmployeeDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\EmployeeDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\EmployeeDTO.cs",
+              "RelativeToolTip": "Dtos\\EmployeeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:34.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MemberDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\MemberDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\MemberDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\MemberDTO.cs",
+              "RelativeToolTip": "Dtos\\MemberDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:28.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PackagesDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\PackagesDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\PackagesDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\PackagesDTO.cs",
+              "RelativeToolTip": "Dtos\\PackagesDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:17.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PTMember.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Entities\\PTMember.cs",
+              "RelativeDocumentMoniker": "Entities\\PTMember.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Entities\\PTMember.cs",
+              "RelativeToolTip": "Entities\\PTMember.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:08.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RoomDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\RoomDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\RoomDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\RoomDTO.cs",
+              "RelativeToolTip": "Dtos\\RoomDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:22:03.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SalaryDTO.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoGym\\Dtos\\SalaryDTO.cs",
+              "RelativeDocumentMoniker": "Dtos\\SalaryDTO.cs",
+              "ToolTip": "E:\\DATN\\DemoGym\\Dtos\\SalaryDTO.cs",
+              "RelativeToolTip": "Dtos\\SalaryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T15:21:24.029Z"
             }
           ]
         }

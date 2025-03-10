@@ -1,4 +1,5 @@
-﻿using SMG.Entities;
+﻿using DemoGym.Entities;
+using SMG.Entities;
 using System.Text.Json.Serialization;
 
 namespace DemoGym.Dtos
@@ -15,9 +16,10 @@ namespace DemoGym.Dtos
 
         public string? PhoneNumber { get; set; }
         public Guid PackageId { get; set; }
-        public Guid BranchId { get; set; }
         [JsonIgnore]
         public Package? Package { get; set; }
+        [JsonIgnore]
+        public virtual PTMember? PTMember { get; set; }
 
     }
 }

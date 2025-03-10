@@ -1,6 +1,7 @@
 ﻿using DemoGym.Entities;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SMG.Entities;
 
@@ -18,5 +19,8 @@ public partial class Employee
 
     public string? PhoneNumber { get; set; }
     public Guid BranchId { get; set; }
+    [JsonIgnore]
     public virtual Salary? Salary { get; set; }
+    [JsonIgnore]
+    public virtual ICollection<PTMember> PTMembers { get; set; } = new List<PTMember>();
 }

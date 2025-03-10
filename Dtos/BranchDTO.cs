@@ -9,8 +9,6 @@ namespace DemoGym.Dtos
 
         public string Address { get; set; } = null!;
         [JsonIgnore]
-        public List<Member>? Members { get; set; }
-        [JsonIgnore]
         public List<Employee>? Employees { get; set; }
         [JsonIgnore]
         public List<RoomDTO>? Rooms { get; set; }

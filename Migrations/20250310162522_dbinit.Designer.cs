@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoGym.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250310071700_dbinit")]
+    [Migration("20250310162522_dbinit")]
     partial class dbinit
     {
         /// <inheritdoc />
@@ -48,7 +48,29 @@ namespace DemoGym.Migrations
                     b.HasIndex("DeviceId")
                         .IsUnique();
 
-                    b.ToTable("DevicesList");
+                    b.ToTable("devicesLists");
+                });
+
+            modelBuilder.Entity("DemoGym.Entities.PTMember", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("MemberId")
+                        .IsUnique();
+
+                    b.ToTable("PTMembers");
                 });
 
             modelBuilder.Entity("DemoGym.Entities.Salary", b =>
@@ -60,8 +82,8 @@ namespace DemoGym.Migrations
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double>("SalaryE")
-                        .HasColumnType("float");
+                    b.Property<decimal>("SalaryE")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("WorkingDay")
                         .HasColumnType("int");
@@ -74,7 +96,7 @@ namespace DemoGym.Migrations
                     b.HasIndex("EmployeeId")
                         .IsUnique();
 
-                    b.ToTable("Salary");
+                    b.ToTable("Salaries");
                 });
 
             modelBuilder.Entity("SMG.Entities.Branch", b =>
@@ -160,9 +182,6 @@ namespace DemoGym.Migrations
                     b.Property<DateOnly?>("Birthday")
                         .HasColumnType("date");
 
-                    b.Property<Guid>("BranchId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -177,8 +196,6 @@ namespace DemoGym.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BranchId");
 
                     b.HasIndex("PackageId")
                         .IsUnique();
@@ -243,6 +260,25 @@ namespace DemoGym.Migrations
                     b.Navigation("Device");
                 });
 
+            modelBuilder.Entity("DemoGym.Entities.PTMember", b =>
+                {
+                    b.HasOne("SMG.Entities.Employee", "Employee")
+                        .WithMany("PTMembers")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SMG.Entities.Member", "Member")
+                        .WithOne("PTMember")
+                        .HasForeignKey("DemoGym.Entities.PTMember", "MemberId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Member");
+                });
+
             modelBuilder.Entity("DemoGym.Entities.Salary", b =>
                 {
                     b.HasOne("SMG.Entities.Employee", "Employee")
@@ -274,12 +310,6 @@ namespace DemoGym.Migrations
 
             modelBuilder.Entity("SMG.Entities.Member", b =>
                 {
-                    b.HasOne("SMG.Entities.Branch", null)
-                        .WithMany("Members")
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SMG.Entities.Package", "Package")
                         .WithOne("Member")
                         .HasForeignKey("SMG.Entities.Member", "PackageId")
@@ -311,8 +341,6 @@ namespace DemoGym.Migrations
                 {
                     b.Navigation("Employees");
 
-                    b.Navigation("Members");
-
                     b.Navigation("Packages");
 
                     b.Navigation("Rooms");
@@ -325,7 +353,14 @@ namespace DemoGym.Migrations
 
             modelBuilder.Entity("SMG.Entities.Employee", b =>
                 {
+                    b.Navigation("PTMembers");
+
                     b.Navigation("Salary");
+                });
+
+            modelBuilder.Entity("SMG.Entities.Member", b =>
+                {
+                    b.Navigation("PTMember");
                 });
 
             modelBuilder.Entity("SMG.Entities.Package", b =>

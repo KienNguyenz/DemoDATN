@@ -1,4 +1,5 @@
 ﻿using SMG.Entities;
+using System.Text.Json.Serialization;
 
 namespace DemoGym.Dtos
 {
@@ -8,6 +9,7 @@ namespace DemoGym.Dtos
         public int Quantity { get; set; }
         public string? Origin { get; set; }
         public Guid DeviceId { get; set; }
+        [JsonIgnore]
         public virtual Device? Device { get; set; }
     }
 }

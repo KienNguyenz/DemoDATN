@@ -21,12 +21,14 @@ namespace Demo.Database
         public DbSet<Room> rooms { get; set; }
         public DbSet<DevicesList> devicesLists { get; set; }
         public DbSet<Salary> Salaries { get; set; }
+        public DbSet<PTMember> PTMembers { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            // --- Cấu hình bảng Member ---
             modelBuilder.Entity<Member>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -38,11 +40,18 @@ namespace Demo.Database
                 entity.Property(e => e.PhoneNumber);
 
                 entity.HasOne(e => e.Package)
-                .WithOne(p => p.Member)
-                .HasForeignKey<Member>(m => m.PackageId)
-                .OnDelete(DeleteBehavior.Restrict);
+                    .WithOne(p => p.Member)
+                    .HasForeignKey<Member>(m => m.PackageId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                // Một Member chỉ có 1 PT (One-to-Many)
+                entity.HasOne<PTMember>()
+                    .WithOne(pm => pm.Member)
+                    .HasForeignKey<PTMember>(pm => pm.MemberId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
+            // --- Cấu hình bảng DevicesList ---
             modelBuilder.Entity<DevicesList>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -52,10 +61,38 @@ namespace Demo.Database
                 entity.Property(e => e.Origin);
 
                 entity.HasOne(e => e.Device)
-                .WithOne(p => p.DevicesList)
-                .HasForeignKey<DevicesList>(m => m.DeviceId)
-                .OnDelete(DeleteBehavior.Restrict);
+                    .WithOne(p => p.DevicesList)
+                    .HasForeignKey<DevicesList>(m => m.DeviceId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // --- Cấu hình bảng Employee ---
+            modelBuilder.Entity<Employee>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.HasMany(e => e.PTMembers) // Một PT có thể hướng dẫn nhiều Member
+                    .WithOne(pm => pm.Employee)
+                    .HasForeignKey(pm => pm.EmployeeId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // --- Cấu hình bảng PTMember ---
+            modelBuilder.Entity<PTMember>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.HasOne(e => e.Member)
+                    .WithOne(pm => pm.PTMember)
+                    .HasForeignKey<PTMember>(pm => pm.MemberId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(e => e.Employee)
+                    .WithMany(e => e.PTMembers) // Một PT có thể có nhiều Member
+                    .HasForeignKey(e => e.EmployeeId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
         }
+
     }
 }

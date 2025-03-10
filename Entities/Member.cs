@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoGym.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -18,7 +19,8 @@ public partial class Member
 
     public string? PhoneNumber { get; set; }
     public Guid PackageId { get; set; }
-    public Guid BranchId { get; set; }
     [JsonIgnore]
     public  Package? Package { get; set; }
+    [JsonIgnore]
+    public virtual PTMember? PTMember { get; set; } 
 }

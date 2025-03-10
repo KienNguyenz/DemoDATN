@@ -87,7 +87,6 @@ namespace DemoGym.Controllers
                 Gender = memberDTO.Gender,
                 Address = memberDTO.Address,
                 PhoneNumber = memberDTO.PhoneNumber,
-                BranchId = memberDTO.BranchId,
                 PackageId = memberDTO.PackageId
 
             };

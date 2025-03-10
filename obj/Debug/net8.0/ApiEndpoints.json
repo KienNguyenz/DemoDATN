@@ -218,6 +218,115 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DemoGym.Controllers.DevicesListsController",
+    "Method": "GetdevicesLists",
+    "RelativePath": "api/DevicesLists",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.DevicesList, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesListsController",
+    "Method": "PostDevicesList",
+    "RelativePath": "api/DevicesLists",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "devicesListDTO",
+        "Type": "DemoGym.Dtos.DevicesListDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Entities.DevicesList",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesListsController",
+    "Method": "GetDevicesList",
+    "RelativePath": "api/DevicesLists/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Entities.DevicesList",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesListsController",
+    "Method": "PutDevicesList",
+    "RelativePath": "api/DevicesLists/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "devicesList",
+        "Type": "DemoGym.Entities.DevicesList",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesListsController",
+    "Method": "DeleteDevicesList",
+    "RelativePath": "api/DevicesLists/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DemoGym.Controllers.EmployeesController",
     "Method": "Getemployees",
     "RelativePath": "api/Employees",
@@ -641,6 +750,115 @@
     "ContainingType": "DemoGym.Controllers.RoomsController",
     "Method": "DeleteRoom",
     "RelativePath": "api/Rooms/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.SalariesController",
+    "Method": "GetSalaries",
+    "RelativePath": "api/Salaries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Salary, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.SalariesController",
+    "Method": "PostSalary",
+    "RelativePath": "api/Salaries",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "salaryDTO",
+        "Type": "DemoGym.Dtos.SalaryDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Entities.Salary",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.SalariesController",
+    "Method": "GetSalary",
+    "RelativePath": "api/Salaries/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Entities.Salary",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.SalariesController",
+    "Method": "PutSalary",
+    "RelativePath": "api/Salaries/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "salary",
+        "Type": "DemoGym.Entities.Salary",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.SalariesController",
+    "Method": "DeleteSalary",
+    "RelativePath": "api/Salaries/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

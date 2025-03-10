@@ -1,4 +1,7 @@
-﻿namespace DemoGym.Dtos
+﻿using DemoGym.Entities;
+using System.Text.Json.Serialization;
+
+namespace DemoGym.Dtos
 {
     public class EmployeeDTO
     {
@@ -14,5 +17,9 @@
 
         public string? PhoneNumber { get; set; }
         public Guid BranchId { get; set; }
+        [JsonIgnore]
+        public virtual Salary? Salary { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<PTMember> PTMembers { get; set; } = new List<PTMember>();
     }
 }
