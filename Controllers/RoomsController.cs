@@ -13,47 +13,47 @@ namespace DemoGym.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MembersController : ControllerBase
+    public class RoomsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public MembersController(AppDbContext context)
+        public RoomsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Members
+        // GET: api/Rooms
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Member>>> Getmembers()
+        public async Task<ActionResult<IEnumerable<Room>>> Getrooms()
         {
-            return await _context.members.ToListAsync();
+            return await _context.rooms.ToListAsync();
         }
 
-        // GET: api/Members/5
+        // GET: api/Rooms/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Member>> GetMember(Guid id)
+        public async Task<ActionResult<Room>> GetRoom(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
+            var room = await _context.rooms.FindAsync(id);
 
-            if (member == null)
+            if (room == null)
             {
                 return NotFound();
             }
 
-            return member;
+            return room;
         }
 
-        // PUT: api/Members/5
+        // PUT: api/Rooms/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMember(Guid id, Member member)
+        public async Task<IActionResult> PutRoom(Guid id, Room room)
         {
-            if (id != member.Id)
+            if (id != room.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(member).State = EntityState.Modified;
+            _context.Entry(room).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace DemoGym.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MemberExists(id))
+                if (!RoomExists(id))
                 {
                     return NotFound();
                 }
@@ -74,49 +74,43 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        // POST: api/Members
+        // POST: api/Rooms
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Member>> PostMember(MemberDTO memberDTO)
+        public async Task<ActionResult<Room>> PostRoom(RoomDTO roomDTO)
         {
-            var member = new Member
+            var rooms = new Room
             {
                 Id = Guid.NewGuid(),
-                MemName = memberDTO.MemName,
-                Birthday = memberDTO.Birthday,
-                Gender = memberDTO.Gender,
-                Address = memberDTO.Address,
-                PhoneNumber = memberDTO.PhoneNumber,
-                BranchId = memberDTO.BranchId,
-                PackageId = memberDTO.PackageId
-
+                RoomName = roomDTO.RoomName,
+                BranchId = roomDTO.BranchId
             };
-
-            _context.members.Add(member);
+            
+            _context.rooms.Add(rooms);
             await _context.SaveChangesAsync();
 
-            return Ok(member);
+            return Ok(rooms);
         }
 
-        // DELETE: api/Members/5
+        // DELETE: api/Rooms/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMember(Guid id)
+        public async Task<IActionResult> DeleteRoom(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
-            if (member == null)
+            var room = await _context.rooms.FindAsync(id);
+            if (room == null)
             {
                 return NotFound();
             }
 
-            _context.members.Remove(member);
+            _context.rooms.Remove(room);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MemberExists(Guid id)
+        private bool RoomExists(Guid id)
         {
-            return _context.members.Any(e => e.Id == id);
+            return _context.rooms.Any(e => e.Id == id);
         }
     }
 }

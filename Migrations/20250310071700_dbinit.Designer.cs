@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoGym.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250308140409_adddbinit")]
-    partial class adddbinit
+    [Migration("20250310071700_dbinit")]
+    partial class dbinit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,58 @@ namespace DemoGym.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("DemoGym.Entities.DevicesList", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DeviceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DeviceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Origin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId")
+                        .IsUnique();
+
+                    b.ToTable("DevicesList");
+                });
+
+            modelBuilder.Entity("DemoGym.Entities.Salary", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("SalaryE")
+                        .HasColumnType("float");
+
+                    b.Property<int>("WorkingDay")
+                        .HasColumnType("int");
+
+                    b.Property<string>("role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId")
+                        .IsUnique();
+
+                    b.ToTable("Salary");
+                });
 
             modelBuilder.Entity("SMG.Entities.Branch", b =>
                 {
@@ -50,24 +102,12 @@ namespace DemoGym.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DeviceName")
+                    b.Property<string>("DeviceType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Origin")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("RoomId")
+                    b.Property<Guid>("RoomId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -88,7 +128,7 @@ namespace DemoGym.Migrations
                     b.Property<DateOnly?>("Birthday")
                         .HasColumnType("date");
 
-                    b.Property<Guid?>("BranchId")
+                    b.Property<Guid>("BranchId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Gender")
@@ -99,9 +139,6 @@ namespace DemoGym.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Position")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -123,7 +160,7 @@ namespace DemoGym.Migrations
                     b.Property<DateOnly?>("Birthday")
                         .HasColumnType("date");
 
-                    b.Property<Guid?>("BranchId")
+                    b.Property<Guid>("BranchId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Gender")
@@ -133,12 +170,18 @@ namespace DemoGym.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("PackageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BranchId");
+
+                    b.HasIndex("PackageId")
+                        .IsUnique();
 
                     b.ToTable("members");
                 });
@@ -149,8 +192,11 @@ namespace DemoGym.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Duration")
-                        .HasColumnType("int");
+                    b.Property<Guid>("BranchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PackageName")
                         .IsRequired()
@@ -159,12 +205,9 @@ namespace DemoGym.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid?>("RoomId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomId");
+                    b.HasIndex("BranchId");
 
                     b.ToTable("packages");
                 });
@@ -175,7 +218,7 @@ namespace DemoGym.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("BranchId")
+                    b.Property<Guid>("BranchId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("RoomName")
@@ -189,39 +232,79 @@ namespace DemoGym.Migrations
                     b.ToTable("rooms");
                 });
 
+            modelBuilder.Entity("DemoGym.Entities.DevicesList", b =>
+                {
+                    b.HasOne("SMG.Entities.Device", "Device")
+                        .WithOne("DevicesList")
+                        .HasForeignKey("DemoGym.Entities.DevicesList", "DeviceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Device");
+                });
+
+            modelBuilder.Entity("DemoGym.Entities.Salary", b =>
+                {
+                    b.HasOne("SMG.Entities.Employee", "Employee")
+                        .WithOne("Salary")
+                        .HasForeignKey("DemoGym.Entities.Salary", "EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("SMG.Entities.Device", b =>
                 {
                     b.HasOne("SMG.Entities.Room", null)
                         .WithMany("Device")
-                        .HasForeignKey("RoomId");
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SMG.Entities.Employee", b =>
                 {
                     b.HasOne("SMG.Entities.Branch", null)
                         .WithMany("Employees")
-                        .HasForeignKey("BranchId");
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SMG.Entities.Member", b =>
                 {
                     b.HasOne("SMG.Entities.Branch", null)
                         .WithMany("Members")
-                        .HasForeignKey("BranchId");
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SMG.Entities.Package", "Package")
+                        .WithOne("Member")
+                        .HasForeignKey("SMG.Entities.Member", "PackageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Package");
                 });
 
             modelBuilder.Entity("SMG.Entities.Package", b =>
                 {
-                    b.HasOne("SMG.Entities.Room", null)
-                        .WithMany("packages")
-                        .HasForeignKey("RoomId");
+                    b.HasOne("SMG.Entities.Branch", null)
+                        .WithMany("Packages")
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SMG.Entities.Room", b =>
                 {
                     b.HasOne("SMG.Entities.Branch", null)
                         .WithMany("Rooms")
-                        .HasForeignKey("BranchId");
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SMG.Entities.Branch", b =>
@@ -230,14 +313,29 @@ namespace DemoGym.Migrations
 
                     b.Navigation("Members");
 
+                    b.Navigation("Packages");
+
                     b.Navigation("Rooms");
+                });
+
+            modelBuilder.Entity("SMG.Entities.Device", b =>
+                {
+                    b.Navigation("DevicesList");
+                });
+
+            modelBuilder.Entity("SMG.Entities.Employee", b =>
+                {
+                    b.Navigation("Salary");
+                });
+
+            modelBuilder.Entity("SMG.Entities.Package", b =>
+                {
+                    b.Navigation("Member");
                 });
 
             modelBuilder.Entity("SMG.Entities.Room", b =>
                 {
                     b.Navigation("Device");
-
-                    b.Navigation("packages");
                 });
 #pragma warning restore 612, 618
         }

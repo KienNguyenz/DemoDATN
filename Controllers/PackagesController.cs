@@ -13,47 +13,47 @@ namespace DemoGym.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MembersController : ControllerBase
+    public class PackagesController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public MembersController(AppDbContext context)
+        public PackagesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Members
+        // GET: api/Packages
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Member>>> Getmembers()
+        public async Task<ActionResult<IEnumerable<Package>>> Getpackages()
         {
-            return await _context.members.ToListAsync();
+            return await _context.packages.ToListAsync();
         }
 
-        // GET: api/Members/5
+        // GET: api/Packages/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Member>> GetMember(Guid id)
+        public async Task<ActionResult<Package>> GetPackage(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
+            var package = await _context.packages.FindAsync(id);
 
-            if (member == null)
+            if (package == null)
             {
                 return NotFound();
             }
 
-            return member;
+            return package;
         }
 
-        // PUT: api/Members/5
+        // PUT: api/Packages/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMember(Guid id, Member member)
+        public async Task<IActionResult> PutPackage(Guid id, Package package)
         {
-            if (id != member.Id)
+            if (id != package.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(member).State = EntityState.Modified;
+            _context.Entry(package).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace DemoGym.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MemberExists(id))
+                if (!PackageExists(id))
                 {
                     return NotFound();
                 }
@@ -74,49 +74,46 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        // POST: api/Members
+        // POST: api/Packages
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Member>> PostMember(MemberDTO memberDTO)
+        public async Task<ActionResult<Member>> PostPackage(PackagesDTO packagesDTO)
         {
-            var member = new Member
+            var packages = new Package
             {
                 Id = Guid.NewGuid(),
-                MemName = memberDTO.MemName,
-                Birthday = memberDTO.Birthday,
-                Gender = memberDTO.Gender,
-                Address = memberDTO.Address,
-                PhoneNumber = memberDTO.PhoneNumber,
-                BranchId = memberDTO.BranchId,
-                PackageId = memberDTO.PackageId
+                PackageName = packagesDTO.PackageName,
+                Price = packagesDTO.Price,
+                Duration = packagesDTO.Duration,
+                BranchId = packagesDTO.BranchId
 
             };
 
-            _context.members.Add(member);
+            _context.packages.Add(packages);
             await _context.SaveChangesAsync();
 
-            return Ok(member);
+            return Ok(packages);
         }
 
-        // DELETE: api/Members/5
+        // DELETE: api/Packages/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMember(Guid id)
+        public async Task<IActionResult> DeletePackage(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
-            if (member == null)
+            var package = await _context.packages.FindAsync(id);
+            if (package == null)
             {
                 return NotFound();
             }
 
-            _context.members.Remove(member);
+            _context.packages.Remove(package);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MemberExists(Guid id)
+        private bool PackageExists(Guid id)
         {
-            return _context.members.Any(e => e.Id == id);
+            return _context.packages.Any(e => e.Id == id);
         }
     }
 }

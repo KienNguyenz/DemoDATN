@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SMG.Entities;
 
@@ -11,6 +12,8 @@ public partial class Package
 
     public decimal? Price { get; set; }
 
-    public int? Duration { get; set; }
-
+    public string? Duration { get; set; }
+    public Guid BranchId { get; set; } 
+    [JsonIgnore]
+    public virtual Member? Member { get; set; }
 }

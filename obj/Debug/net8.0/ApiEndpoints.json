@@ -109,6 +109,224 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "Getdevices",
+    "RelativePath": "api/Devices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Device, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "PostDevice",
+    "RelativePath": "api/Devices",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "deviceDTO",
+        "Type": "DemoGym.Dtos.DeviceDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Device",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "GetDevice",
+    "RelativePath": "api/Devices/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Device",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "PutDevice",
+    "RelativePath": "api/Devices/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "device",
+        "Type": "SMG.Entities.Device",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "DeleteDevice",
+    "RelativePath": "api/Devices/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.EmployeesController",
+    "Method": "Getemployees",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Employee, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.EmployeesController",
+    "Method": "PostEmpoyees",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeDTO",
+        "Type": "DemoGym.Dtos.EmployeeDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Employee",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.EmployeesController",
+    "Method": "GetEmployee",
+    "RelativePath": "api/Employees/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Employee",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.EmployeesController",
+    "Method": "PutEmployee",
+    "RelativePath": "api/Employees/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "employee",
+        "Type": "SMG.Entities.Employee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.EmployeesController",
+    "Method": "DeleteEmployee",
+    "RelativePath": "api/Employees/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DemoGym.Controllers.MembersController",
     "Method": "Getmembers",
     "RelativePath": "api/Members",
@@ -130,7 +348,7 @@
   },
   {
     "ContainingType": "DemoGym.Controllers.MembersController",
-    "Method": "PostBranch",
+    "Method": "PostMember",
     "RelativePath": "api/Members",
     "HttpMethod": "POST",
     "IsController": true,
@@ -205,6 +423,224 @@
     "ContainingType": "DemoGym.Controllers.MembersController",
     "Method": "DeleteMember",
     "RelativePath": "api/Members/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.PackagesController",
+    "Method": "Getpackages",
+    "RelativePath": "api/Packages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Package, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.PackagesController",
+    "Method": "PostPackage",
+    "RelativePath": "api/Packages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "packagesDTO",
+        "Type": "DemoGym.Dtos.PackagesDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Member",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.PackagesController",
+    "Method": "GetPackage",
+    "RelativePath": "api/Packages/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Package",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.PackagesController",
+    "Method": "PutPackage",
+    "RelativePath": "api/Packages/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "package",
+        "Type": "SMG.Entities.Package",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.PackagesController",
+    "Method": "DeletePackage",
+    "RelativePath": "api/Packages/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RoomsController",
+    "Method": "Getrooms",
+    "RelativePath": "api/Rooms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Room, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RoomsController",
+    "Method": "PostRoom",
+    "RelativePath": "api/Rooms",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomDTO",
+        "Type": "DemoGym.Dtos.RoomDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Room",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RoomsController",
+    "Method": "GetRoom",
+    "RelativePath": "api/Rooms/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMG.Entities.Room",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RoomsController",
+    "Method": "PutRoom",
+    "RelativePath": "api/Rooms/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "room",
+        "Type": "SMG.Entities.Room",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RoomsController",
+    "Method": "DeleteRoom",
+    "RelativePath": "api/Rooms/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

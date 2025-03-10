@@ -13,6 +13,8 @@ namespace DemoGym.Dtos
         [JsonIgnore]
         public List<Employee>? Employees { get; set; }
         [JsonIgnore]
-        public List<Room>? Rooms { get; set; }
+        public List<RoomDTO>? Rooms { get; set; }
+        [JsonIgnore]
+        public List<Package>? Packages { get; set; }
     }
 }

@@ -1,3 +1,11 @@
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.csproj.AssemblyReference.cache
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.GeneratedMSBuildEditorConfig.editorconfig
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.AssemblyInfoInputs.cache
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.AssemblyInfo.cs
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.csproj.CoreCompileInputs.cache
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.MvcApplicationPartsAssemblyInfo.cs
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.MvcApplicationPartsAssemblyInfo.cache
+E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.sourcelink.json
 E:\DATN\DemoGym\bin\Debug\net8.0\appsettings.Development.json
 E:\DATN\DemoGym\bin\Debug\net8.0\appsettings.json
 E:\DATN\DemoGym\bin\Debug\net8.0\DemoGym.staticwebassets.endpoints.json
@@ -9,6 +17,7 @@ E:\DATN\DemoGym\bin\Debug\net8.0\DemoGym.pdb
 E:\DATN\DemoGym\bin\Debug\net8.0\Azure.Core.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\Azure.Identity.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\Humanizer.dll
+E:\DATN\DemoGym\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\Microsoft.Build.dll
@@ -237,13 +246,6 @@ E:\DATN\DemoGym\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.d
 E:\DATN\DemoGym\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 E:\DATN\DemoGym\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.csproj.AssemblyReference.cache
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.GeneratedMSBuildEditorConfig.editorconfig
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.AssemblyInfoInputs.cache
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.AssemblyInfo.cs
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.csproj.CoreCompileInputs.cache
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.MvcApplicationPartsAssemblyInfo.cs
-E:\DATN\DemoGym\obj\Debug\net8.0\DemoGym.MvcApplicationPartsAssemblyInfo.cache
 E:\DATN\DemoGym\obj\Debug\net8.0\scopedcss\bundle\DemoGym.styles.css
 E:\DATN\DemoGym\obj\Debug\net8.0\staticwebassets.build.json
 E:\DATN\DemoGym\obj\Debug\net8.0\staticwebassets.development.json

@@ -13,47 +13,47 @@ namespace DemoGym.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MembersController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public MembersController(AppDbContext context)
+        public EmployeesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Members
+        // GET: api/Employees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Member>>> Getmembers()
+        public async Task<ActionResult<IEnumerable<Employee>>> Getemployees()
         {
-            return await _context.members.ToListAsync();
+            return await _context.employees.ToListAsync();
         }
 
-        // GET: api/Members/5
+        // GET: api/Employees/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Member>> GetMember(Guid id)
+        public async Task<ActionResult<Employee>> GetEmployee(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
+            var employee = await _context.employees.FindAsync(id);
 
-            if (member == null)
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return member;
+            return employee;
         }
 
-        // PUT: api/Members/5
+        // PUT: api/Employees/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMember(Guid id, Member member)
+        public async Task<IActionResult> PutEmployee(Guid id, Employee employee)
         {
-            if (id != member.Id)
+            if (id != employee.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(member).State = EntityState.Modified;
+            _context.Entry(employee).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace DemoGym.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MemberExists(id))
+                if (!EmployeeExists(id))
                 {
                     return NotFound();
                 }
@@ -74,49 +74,47 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        // POST: api/Members
+        // POST: api/Employees
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Member>> PostMember(MemberDTO memberDTO)
+        public async Task<ActionResult<Employee>> PostEmpoyees(EmployeeDTO employeeDTO)
         {
-            var member = new Member
+            var employees = new Employee
             {
                 Id = Guid.NewGuid(),
-                MemName = memberDTO.MemName,
-                Birthday = memberDTO.Birthday,
-                Gender = memberDTO.Gender,
-                Address = memberDTO.Address,
-                PhoneNumber = memberDTO.PhoneNumber,
-                BranchId = memberDTO.BranchId,
-                PackageId = memberDTO.PackageId
-
+                Name = employeeDTO.Name,
+                Birthday = employeeDTO.Birthday,
+                Gender = employeeDTO.Gender,
+                Address = employeeDTO.Address,
+                PhoneNumber = employeeDTO.PhoneNumber,
+                BranchId = employeeDTO.BranchId,
             };
 
-            _context.members.Add(member);
+            _context.employees.Add(employees);
             await _context.SaveChangesAsync();
 
-            return Ok(member);
+            return Ok(employees);
         }
 
-        // DELETE: api/Members/5
+        // DELETE: api/Employees/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMember(Guid id)
+        public async Task<IActionResult> DeleteEmployee(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
-            if (member == null)
+            var employee = await _context.employees.FindAsync(id);
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            _context.members.Remove(member);
+            _context.employees.Remove(employee);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MemberExists(Guid id)
+        private bool EmployeeExists(Guid id)
         {
-            return _context.members.Any(e => e.Id == id);
+            return _context.employees.Any(e => e.Id == id);
         }
     }
 }

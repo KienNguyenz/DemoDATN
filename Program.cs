@@ -1,6 +1,7 @@
 
 using Demo.Database;
 using Microsoft.EntityFrameworkCore;
+using DemoGym.Controllers;
 
 namespace DemoGym
 {
@@ -35,6 +36,7 @@ namespace DemoGym
 
 
             app.MapControllers();
+
 
             app.Run();
         }

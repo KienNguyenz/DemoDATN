@@ -13,47 +13,47 @@ namespace DemoGym.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MembersController : ControllerBase
+    public class DevicesController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public MembersController(AppDbContext context)
+        public DevicesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Members
+        // GET: api/Devices
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Member>>> Getmembers()
+        public async Task<ActionResult<IEnumerable<Device>>> Getdevices()
         {
-            return await _context.members.ToListAsync();
+            return await _context.devices.ToListAsync();
         }
 
-        // GET: api/Members/5
+        // GET: api/Devices/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Member>> GetMember(Guid id)
+        public async Task<ActionResult<Device>> GetDevice(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
+            var device = await _context.devices.FindAsync(id);
 
-            if (member == null)
+            if (device == null)
             {
                 return NotFound();
             }
 
-            return member;
+            return device;
         }
 
-        // PUT: api/Members/5
+        // PUT: api/Devices/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMember(Guid id, Member member)
+        public async Task<IActionResult> PutDevice(Guid id, Device device)
         {
-            if (id != member.Id)
+            if (id != device.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(member).State = EntityState.Modified;
+            _context.Entry(device).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace DemoGym.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MemberExists(id))
+                if (!DeviceExists(id))
                 {
                     return NotFound();
                 }
@@ -74,49 +74,44 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        // POST: api/Members
+        // POST: api/Devices
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Member>> PostMember(MemberDTO memberDTO)
+        public async Task<ActionResult<Device>> PostDevice(DeviceDTO deviceDTO)
         {
-            var member = new Member
+            var devices = new Device
             {
                 Id = Guid.NewGuid(),
-                MemName = memberDTO.MemName,
-                Birthday = memberDTO.Birthday,
-                Gender = memberDTO.Gender,
-                Address = memberDTO.Address,
-                PhoneNumber = memberDTO.PhoneNumber,
-                BranchId = memberDTO.BranchId,
-                PackageId = memberDTO.PackageId
+                DeviceType = deviceDTO.DeviceType,
+                RoomId = deviceDTO.RoomId,
+
 
             };
-
-            _context.members.Add(member);
+            _context.devices.Add(devices);
             await _context.SaveChangesAsync();
 
-            return Ok(member);
+            return Ok(devices);
         }
 
-        // DELETE: api/Members/5
+        // DELETE: api/Devices/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMember(Guid id)
+        public async Task<IActionResult> DeleteDevice(Guid id)
         {
-            var member = await _context.members.FindAsync(id);
-            if (member == null)
+            var device = await _context.devices.FindAsync(id);
+            if (device == null)
             {
                 return NotFound();
             }
 
-            _context.members.Remove(member);
+            _context.devices.Remove(device);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MemberExists(Guid id)
+        private bool DeviceExists(Guid id)
         {
-            return _context.members.Any(e => e.Id == id);
+            return _context.devices.Any(e => e.Id == id);
         }
     }
 }
