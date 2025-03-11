@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Demo.Database;
 using SMG.Entities;
 using DemoGym.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Demo.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class BranchController : ControllerBase

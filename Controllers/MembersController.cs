@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Demo.Database;
 using SMG.Entities;
 using DemoGym.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DemoGym.Controllers
 {
+    [Authorize(Roles = "Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class MembersController : ControllerBase

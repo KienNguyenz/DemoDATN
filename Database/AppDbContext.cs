@@ -1,4 +1,5 @@
 ﻿using DemoGym.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SMG.Entities;
@@ -6,7 +7,7 @@ using SMG.Entities;
 namespace Demo.Database
    
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUsers>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
