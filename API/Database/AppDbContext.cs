@@ -1,4 +1,5 @@
-﻿using DemoGym.Entities;
+﻿using DemoGym.Dtos;
+using DemoGym.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;

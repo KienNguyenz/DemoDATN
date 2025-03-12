@@ -36,14 +36,16 @@ namespace DemoGym.Services
             }
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, model.Email),
+                new Claim("email", user.Email), // Đổi ClaimTypes.Email thành "email"
+                new Claim("name", $"{user.FirstName}"), // Gộp FirstName + LastName
+                new Claim("nameid", user.Id), // Đổi ClaimTypes.NameIdentifier thành "nameid"
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
             var userRoles = await userManager.GetRolesAsync(user);
             foreach(var role in userRoles)
             {
-                authClaims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+                authClaims.Add(new Claim("role", role.ToString()));
             }
             var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
 
@@ -60,6 +62,7 @@ namespace DemoGym.Services
 
         public async Task<IdentityResult> SignUpAsync(SignUpModel model)
         {
+            
             var user = new ApplicationUsers
             {
                 FirstName = model.FirstName,
@@ -70,6 +73,7 @@ namespace DemoGym.Services
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
+
             if (result.Succeeded)
     {
 
@@ -83,7 +87,7 @@ namespace DemoGym.Services
                 model.Role = "Member";
                 break;
             default:
-                model.Role = "Guest";
+                model.Role = "Member";
                 break;
         }
 
