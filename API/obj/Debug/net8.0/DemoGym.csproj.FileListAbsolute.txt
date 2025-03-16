@@ -805,3 +805,8 @@ E:\DATN\DemoDATN\API\obj\Debug\net8.0\refint\DemoGym.dll
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\DemoGym.pdb
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\DemoGym.genruntimeconfig.cache
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\ref\DemoGym.dll
+E:\DATN\DemoDATN\API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+E:\DATN\DemoDATN\API\bin\Debug\net8.0\MailKit.dll
+E:\DATN\DemoDATN\API\bin\Debug\net8.0\MimeKit.dll
+E:\DATN\DemoDATN\API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\DATN\DemoDATN\API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

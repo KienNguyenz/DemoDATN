@@ -2,6 +2,7 @@
 using DemoGym.Models;
 using DemoGym.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Common;
 
@@ -51,5 +52,6 @@ namespace DemoGym.Controllers
                 Message = "Login Success."
             });
         }
+        
     }
 }

@@ -62,6 +62,7 @@ namespace DemoGym
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+            builder.Services.AddScoped<EmailService>();
 
             builder.Services.AddAuthentication(options =>
             {

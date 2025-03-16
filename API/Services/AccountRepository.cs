@@ -3,9 +3,12 @@ using DemoGym.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using MimeKit;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 namespace DemoGym.Services
 {
@@ -25,6 +28,7 @@ namespace DemoGym.Services
             this.configuration = configuration;
             this.roleManager = roleManager;
         }
+
         public async Task<string> SignInAsync(SignInModel model)
         {
             var user = await userManager.FindByEmailAsync(model.Email);

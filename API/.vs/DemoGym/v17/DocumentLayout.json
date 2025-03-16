@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "E:\\DATN\\DemoDATN\\API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\controllers\\forgotpasswordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\forgotpasswordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\services\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:services\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\services\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:services\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|e:\\datn\\demodatn\\api\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74AE7D56-A851-4630-BBFF-3A119EDD8471}|DemoGym.csproj|solutionrelative:database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\DATN\\DemoDATN\\API\\Migrations\\20250312074309_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250312074309_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 338,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,88 +54,55 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\DATN\\DemoDATN\\API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-16T16:31:40.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Services\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "Services\\IAccountRepository.cs",
-              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Services\\IAccountRepository.cs",
-              "RelativeToolTip": "Services\\IAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\EmailService.cs",
+              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\EmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T10:43:50.385Z"
+              "WhenOpened": "2025-03-16T15:05:38.476Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwFIAAAAPAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ForgotPasswordController.cs",
+              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Controllers\\ForgotPasswordController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ForgotPasswordController.cs",
+              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Controllers\\ForgotPasswordController.cs",
+              "RelativeToolTip": "Controllers\\ForgotPasswordController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBsAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T09:00:44.914Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Database\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Database\\AppDbContext.cs",
-              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Database\\AppDbContext.cs",
-              "RelativeToolTip": "Database\\AppDbContext.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABkAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T07:43:26.207Z"
+              "WhenOpened": "2025-03-16T15:12:39.843Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T06:45:29.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "AccountRepository.cs",
               "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Services\\AccountRepository.cs",
               "RelativeDocumentMoniker": "Services\\AccountRepository.cs",
               "ToolTip": "E:\\DATN\\DemoDATN\\API\\Services\\AccountRepository.cs",
               "RelativeToolTip": "Services\\AccountRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBYAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwGwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T06:33:36.212Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "20250312074309_update.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Migrations\\20250312074309_update.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250312074309_update.cs",
-              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Migrations\\20250312074309_update.cs",
-              "RelativeToolTip": "Migrations\\20250312074309_update.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T07:43:09.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthResponseDto.cs",
-              "DocumentMoniker": "E:\\DATN\\DemoDATN\\API\\Dtos\\AuthResponseDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\AuthResponseDto.cs",
-              "ToolTip": "E:\\DATN\\DemoDATN\\API\\Dtos\\AuthResponseDto.cs",
-              "RelativeToolTip": "Dtos\\AuthResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T06:54:34.864Z"
             }
           ]
         }
