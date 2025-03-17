@@ -76,11 +76,12 @@ export class AuthService {
   };
 
   private getToken = ():string|null => localStorage.getItem(this.tokenKey) || '';
-  forgotPassword(data: { email: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}forgot-password`, data);
+
+  forgotPassword(data: { email: string }) {
+    return this.http.post<{ message: string }>(`${this.apiUrl}auth/forgot-password`, data);
   }
   resetPassword(data: { password: string; confirmPassword: string; token: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}reset-password`, data);
+    return this.http.post(`${this.apiUrl}auth/reset-password`, data);
   }
 }
 

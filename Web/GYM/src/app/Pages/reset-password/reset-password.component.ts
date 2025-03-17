@@ -1,16 +1,17 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reset-password',
   standalone: true,
-  imports: [MatInputModule,RouterModule, MatIconModule, MatSnackBarModule, ReactiveFormsModule, CommonModule],
+  imports: [MatInputModule, RouterModule, MatIconModule, MatSnackBarModule, CommonModule,ReactiveFormsModule],
   templateUrl: './reset-password.component.html',
   styleUrl: './reset-password.component.css'
 })
@@ -24,21 +25,46 @@ export class ResetPasswordComponent implements OnInit {
   hidePassword = true;
   hideConfirmPassword = true;
   token: string = '';
-  mismatch: any;
+
+  ngOnInit(): void {
+    // Lấy token từ URL
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'] || '';
+    });
+
+    this.form = this.fb.group({
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]]
+    }, { validators: this.passwordMatchValidator });
+  }
+
+  // Validator kiểm tra password có khớp không
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { mismatch: true };
+  }
 
   resetPassword() {
     if (this.form.valid) {
-      const data = { ...this.form.value, token: this.token };
+      const data = { 
+        email: this.route.snapshot.queryParams['email'] || '',
+        password: this.form.value.password, 
+        confirmPassword: this.form.value.confirmPassword,
+        token: decodeURIComponent(this.token.trim()) 
+      };
+
       this.authService.resetPassword(data).subscribe({
-        next: (response) => {
-          this.matSnackBar.open(response.message, 'Close', {
+        next: () => {
+          this.matSnackBar.open('Mật khẩu đã được đổi thành công!', 'Close', {
             duration: 3000,
             horizontalPosition: 'center',
           });
           this.router.navigate(['/login']);
         },
         error: (error) => {
-          this.matSnackBar.open(error.error.message, 'Close', {
+          console.log('Error Response:', error);
+          this.matSnackBar.open(error.error?.message || 'Lỗi khi đặt lại mật khẩu', 'Close', {
             duration: 3000,
             horizontalPosition: 'center',
           });
@@ -46,22 +72,4 @@ export class ResetPasswordComponent implements OnInit {
       });
     }
   }
-
-  ngOnInit(): void {
-    // Lấy token từ URL (thường được gửi qua email)
-    this.token = this.route.snapshot.queryParams['token'] || '';
-
-    this.form = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]],
-    }, { validators: this.passwordMatchValidator });
-  }
-
-  // Custom validator để kiểm tra mật khẩu nhập lại
-  passwordMatchValidator(group: FormGroup) {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { ['mismatch']: true };
-  }
-  
 }

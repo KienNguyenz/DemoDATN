@@ -29,7 +29,7 @@ public class AuthController : ControllerBase
 
         await _emailService.SendResetPasswordEmail(model.Email, resetLink);
 
-        return Ok("Link đặt lại mật khẩu đã được gửi đến email của bạn.");
+        return Ok(new { message = "Link đặt lại mật khẩu đã được gửi!" });
     }
     [HttpPost("reset-password")]
     public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
@@ -37,12 +37,12 @@ public class AuthController : ControllerBase
         var user = await _userManager.FindByEmailAsync(model.Email);
         if (user == null)
             return BadRequest("Tài khoản không tồn tại!");
-
-        var result = await _userManager.ResetPasswordAsync(user, model.Token, model.NewPassword);
+        var decodedToken = System.Web.HttpUtility.UrlDecode(model.Token).Replace(" ", "+");
+        var result = await _userManager.ResetPasswordAsync(user, decodedToken, model.Password);
         if (!result.Succeeded)
             return BadRequest("Mã token không hợp lệ hoặc đã hết hạn!");
 
-        return Ok("Mật khẩu đã được đặt lại thành công.");
+        return Ok(new { message = "Mật khẩu đã được đổi thành công" });
     }
 
 }

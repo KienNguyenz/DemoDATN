@@ -23,15 +23,16 @@ export class ForgotPasswordComponent implements OnInit {
   sendResetLink() {
     if (this.form.valid) {
       this.authService.forgotPassword(this.form.value).subscribe({
-        next: (response) => {
-          this.matSnackBar.open(response.message, 'Close', {
+        next: () => {
+          this.matSnackBar.open('Link đặt lại mật khẩu đã được gửi!', 'Close', {
             duration: 3000,
             horizontalPosition: 'center',
           });
           this.router.navigate(['/login']);
         },
         error: (error) => {
-          this.matSnackBar.open(error.error.message, 'Close', {
+          const errorMessage = error.error?.message || 'Email không tồn tại hoặc có lỗi xảy ra';
+          this.matSnackBar.open(errorMessage, 'Close', {
             duration: 3000,
             horizontalPosition: 'center',
           });
@@ -39,7 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
       });
     }
   }
-
+  
   ngOnInit(): void {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
