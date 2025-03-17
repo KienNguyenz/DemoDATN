@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l2JcArpXcz4=",
+  "dgSpecHash": "z5IAJVJfu88=",
   "success": true,
   "projectFilePath": "E:\\DATN\\DemoDATN\\API\\DemoGym.csproj",
   "expectedPackageFiles": [
@@ -58,6 +58,7 @@
     "C:\\Users\\kien0\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\mailkit\\4.11.0\\mailkit.4.11.0.nupkg.sha512",
+    "C:\\Users\\kien0\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\8.0.12\\microsoft.aspnetcore.authentication.facebook.8.0.12.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.12\\microsoft.aspnetcore.authentication.jwtbearer.8.0.12.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.12\\microsoft.aspnetcore.cryptography.internal.8.0.12.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.12\\microsoft.aspnetcore.cryptography.keyderivation.8.0.12.nupkg.sha512",

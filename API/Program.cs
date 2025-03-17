@@ -58,9 +58,11 @@ namespace DemoGym
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             option.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
+
             builder.Services.AddIdentity<ApplicationUsers, IdentityRole>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
+
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
             builder.Services.AddScoped<EmailService>();
 
@@ -81,6 +83,11 @@ namespace DemoGym
                     ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
                 };
+            })
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = "643475595073375";
+                facebookOptions.AppSecret = "90f11b9f245a196587aeb62fa5d312e4";
             });
 
             var app = builder.Build();

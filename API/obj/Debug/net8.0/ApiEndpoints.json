@@ -32,6 +32,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DemoGym.Controllers.AuthController",
+    "Method": "FacebookLogin",
+    "RelativePath": "api/auth/facebook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authDto",
+        "Type": "DemoGym.Controllers.FacebookAuthDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AuthController",
     "Method": "ForgotPassword",
     "RelativePath": "api/auth/forgot-password",
