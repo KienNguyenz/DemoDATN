@@ -53,8 +53,13 @@ namespace DemoGym
             }); ;
 
 
-            builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-            policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy => policy.AllowAnyOrigin()
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader());
+            });
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             option.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
@@ -98,7 +103,7 @@ namespace DemoGym
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseCors();
+            app.UseCors("AllowAll");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

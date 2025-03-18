@@ -30,23 +30,34 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
-
-    // Khởi tạo Facebook SDK
-    (window as any).fbAsyncInit = function () {
-      FB.init({
-        appId: '643475595073375', // 🔹 Thay thế bằng Facebook App ID của bạn
-        cookie: true,
-        xfbml: true,
-        version: 'v17.0'
-      });
-    };
-
+  
+    // Kiểm tra xem SDK đã tồn tại chưa, nếu có thì không tải lại
+    if ((window as any).FB) {
+      this.initializeFacebookSDK();
+      return;
+    }
+  
     // Tải SDK Facebook
     let script = document.createElement('script');
     script.src = 'https://connect.facebook.net/en_US/sdk.js';
     script.async = true;
     script.defer = true;
+    script.onload = () => {
+      this.initializeFacebookSDK();
+    };
+    
     document.body.appendChild(script);
+  }
+  
+  initializeFacebookSDK() {
+    FB.init({
+      appId: '643475595073375', // 🔹 Thay thế bằng Facebook App ID của bạn
+      cookie: true,
+      xfbml: true,
+      version: 'v17.0' // Đảm bảo version hợp lệ
+    });
+  
+    console.log('Facebook SDK Initialized');
   }
 
   login() {
@@ -79,7 +90,7 @@ export class LoginComponent implements OnInit {
               duration: 3000,
               horizontalPosition: 'center'
             });
-            localStorage.setItem('jwt', res.token);
+            localStorage.setItem('token', res.token);
             this.router.navigate(['/']);
           },
           error: (error) => {

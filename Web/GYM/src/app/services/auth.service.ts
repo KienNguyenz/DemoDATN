@@ -48,7 +48,7 @@ export class AuthService {
     if(!token) return null;
     const decodedToken:any = jwtDecode(token);
     const userDetail = {
-      if: decodedToken.jti,
+      id: decodedToken.jti,
       email: decodedToken.email,
       fullName:decodedToken.name,
       roles:decodedToken.role || [],
