@@ -6,6 +6,7 @@ import { AuthResponse } from '../interfaces/auth-response';
 import { LoginRequest } from '../interfaces/login-request';
 import { jwtDecode } from 'jwt-decode';
 import { RegisterComponent } from '../Pages/register/register.component';
+import { accountDetail } from '../interfaces/account-detail';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,9 @@ export class AuthService {
     );
   }
 
+  getDetail=() : Observable<accountDetail> =>
+    this.http.get<accountDetail>(`${this.apiUrl}account/detail`);
+
   getUserDetail=()=>{
     const token = this.getToken();
     if(!token) return null;
@@ -51,7 +55,9 @@ export class AuthService {
       id: decodedToken.jti,
       email: decodedToken.email,
       fullName:decodedToken.name,
-      roles:decodedToken.role || [],
+      phoneNumber:decodedToken.phoneNumber,
+      // roles:decodedToken.role || [],
+      roles: Array.isArray(decodedToken.role) ? decodedToken.role : [decodedToken.role],
     }
     return userDetail;
   }

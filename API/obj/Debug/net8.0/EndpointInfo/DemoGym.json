@@ -2089,6 +2089,7 @@
           "firstName",
           "lastName",
           "password",
+          "phoneNumber",
           "role"
         ],
         "type": "object",
@@ -2111,6 +2112,10 @@
             "type": "string"
           },
           "confirmPassword": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "phoneNumber": {
             "minLength": 1,
             "type": "string"
           },

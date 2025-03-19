@@ -40,9 +40,10 @@ namespace DemoGym.Services
             }
             var authClaims = new List<Claim>
             {
-                new Claim("email", user.Email), // Đổi ClaimTypes.Email thành "email"
-                new Claim("name", $"{user.FirstName}"), // Gộp FirstName + LastName
-                new Claim("nameid", user.Id), // Đổi ClaimTypes.NameIdentifier thành "nameid"
+                new Claim("email", user.Email), 
+                new Claim("name", user.FirstName), 
+                new Claim("nameid", user.Id), 
+                new Claim("phoneNumber", user.PhoneNumber),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
@@ -73,6 +74,7 @@ namespace DemoGym.Services
                 LastName = model.LastName,
                 Email = model.Email,
                 UserName = model.Email,
+                PhoneNumber = model.PhoneNumber,
                 Role = model.Role
             };
 

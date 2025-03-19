@@ -4,6 +4,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Pages/reset-password/reset-password.component';
+import { AccountComponent } from './Pages/account/account.component';
 
 export const routes: Routes = [
     {
@@ -21,4 +22,6 @@ export const routes: Routes = [
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
     { path: 'reset-password/:token', component: ResetPasswordComponent },
+    { path: 'account/:id', component: AccountComponent },
+
 ];
