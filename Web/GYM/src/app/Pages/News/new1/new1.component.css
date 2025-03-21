@@ -1,0 +1,19 @@
+p {
+    line-height: 2.4;       /* Tăng khoảng cách dòng giữa các đoạn văn */
+  }
+  
+  .mb-4 {
+    margin-bottom: 2rem;    /* Khoảng cách phía dưới 1rem */
+  }
+  
+  .mb-6 {
+    margin-bottom: 1.5rem;  /* Khoảng cách phía dưới lớn hơn */
+  }
+  
+  .mt-8 {
+    margin-top: 2rem;       /* Tạo khoảng cách phía trên cho các tiêu đề */
+  }
+  
+  .block {
+    display: block;         /* Đảm bảo thẻ <b> căn chỉnh độc lập như một đoạn văn */
+  }

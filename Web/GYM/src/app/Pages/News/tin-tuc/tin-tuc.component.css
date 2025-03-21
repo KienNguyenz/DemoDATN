@@ -1,0 +1,84 @@
+/* CSS */
+/* .search-bar {
+
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex: 1;
+    padding: 5px;
+  }
+  
+  .search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-bar img {
+    width: 20px;
+    height: 20px;
+  }
+   */
+
+
+   .menu-item {
+    position: relative;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px 20px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .menu-item::before,
+  .menu-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #d3d3d3;
+  }
+  
+  .menu-item::before {
+    left: -10px;
+    transform: skewX(25deg);
+  }
+  
+  .menu-item::after {
+    right: -10px;
+    transform: skewX(-25deg);
+  }
+  
+  .menu-text {
+    display: block;
+    padding-bottom: 5px;
+  }
+  
+  .menu-line {
+    height: 2px;
+    background-color: black;
+    width: 0;
+    transition: width 0.3s ease;
+    margin: auto;
+  }
+  
+  .menu-item:hover {
+    color: rgb(240, 190, 75);
+  }
+  
+  .menu-item.active .menu-line,
+  .menu-item:hover .menu-line {
+    width: 100%;
+  }

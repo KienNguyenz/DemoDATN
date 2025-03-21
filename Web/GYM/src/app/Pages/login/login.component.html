@@ -1,8 +1,8 @@
 <div class="h-screen flex items-center justify-center bg-gray-100">
     <form class="shadow-lg rounded-lg p-6 bg-white max-w-md min-w-[320px]" [formGroup]="form" (ngSubmit)="login()">
         <div class="py-4 text-center">
-            <h1 class="font-bold text-2xl">Login</h1>
-            <h6 class="text-slate-600 text-base">Login to your account</h6>
+            <h1 class="font-bold text-2xl">Đăng nhập</h1>
+            <h6 class="text-slate-600 text-base">Đăng nhập vào tài khoản của bạn</h6>
         </div>
 
         <!-- Email Input -->
@@ -25,13 +25,13 @@
         <!-- Submit Button -->
         <button type="submit" [disabled]="!form.valid"
             class="w-full border border-slate-200 disabled:bg-purple-400 py-2 px-3 bg-purple-700 text-white font-bold rounded-md">
-            Login
+            Đăng nhập
         </button>
 
         <!-- Divider with "Or" -->
         <div class="my-5 flex items-center">
             <hr class="flex-grow border-t border-slate-300">
-            <span class="px-3 text-slate-600 text-sm">Or</span>
+            <span class="px-3 text-slate-600 text-sm">Hoặc</span>
             <hr class="flex-grow border-t border-slate-300">
         </div>
 
@@ -48,14 +48,14 @@
         <!-- Forgot Password -->
         <div class="my-3 text-center">
             <a [routerLink]="['/forgot-password']" class="text-purple-700 hover:underline">
-                Forgot Password?
+                Quên mật khẩu?
             </a>
         </div>
 
         <!-- Register Link -->
         <div class="my-5 text-center">
-            <span class="text-slate-600">Don't have an account? </span>
-            <a class="text-purple-700 hover:underline" [routerLink]="['/register']">Register</a>
+            <span class="text-slate-600">Bạn chưa có tài khoản? </span>
+            <a class="text-purple-700 hover:underline" [routerLink]="['/register']">Đăng ký ngay</a>
         </div>
     </form>
 </div>

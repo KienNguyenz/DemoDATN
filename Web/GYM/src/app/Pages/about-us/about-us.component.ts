@@ -68,7 +68,7 @@ export class AboutUsComponent {
   ngOnInit() {
     setInterval(() => {
       this.changeStory();
-    }, 5000); // 3 giây tự động chuyển câu chuyện
+    }, 5000); // 5 giây tự động chuyển câu chuyện
   }
 
   changeStory() {
