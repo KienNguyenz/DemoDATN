@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +19,7 @@ import { HttpClient } from '@angular/common/http';
 export class AboutUsComponent {
   authService = inject(AuthService);
   matSnackBar = inject(MatSnackBar);
+  fadeState: string = 'fade-in';
   hide = true;
   form!: FormGroup;
   fb = inject(FormBuilder);
@@ -65,12 +65,25 @@ export class AboutUsComponent {
     return this.stories[this.currentIndex];
   }
 
+  ngOnInit() {
+    setInterval(() => {
+      this.changeStory();
+    }, 5000); // 3 giây tự động chuyển câu chuyện
+  }
+
+  changeStory() {
+    this.fadeState = 'fade-out'; // Bắt đầu hiệu ứng mờ dần
+    setTimeout(() => {
+      this.nextStory(); // Chuyển câu chuyện khi hiệu ứng fade-out hoàn thành
+      this.fadeState = 'fade-in'; // Chuyển lại trạng thái fade-in sau đó
+    }, 500); // Đợi 500ms để hoàn tất hiệu ứng mờ dần trước khi chuyển story
+  }
+
   nextStory() {
     this.currentIndex = (this.currentIndex + 1) % this.stories.length;
   }
 
   previousStory() {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.stories.length) % this.stories.length;
+    this.currentIndex = (this.currentIndex - 1 + this.stories.length) % this.stories.length;
   }
 }

@@ -107,5 +107,15 @@ html{
     transition: transform 0.3s ease;
   }
   
-  
+  /* Hiệu ứng fade-in và fade-out */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Hiệu ứng mờ dần trong 0.5s */
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Hiệu ứng mờ đi trong 0.5s */
+}
+
   

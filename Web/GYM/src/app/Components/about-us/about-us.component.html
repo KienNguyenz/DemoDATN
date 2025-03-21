@@ -206,46 +206,41 @@
     </div>
   </div>
 </div>
-<!-- Câu chuyện hội viên -->
 <div id="stories" class="mt-16">
-    <div class="underline-container text-center mb-6">
-      <h1 class="font-bold text-gray-500 text-4xl">CÂU CHUYỆN HỘI VIÊN</h1>
-      <div class="underline mx-auto w-16 border-b-4 border-yellow-500 mt-2"></div>
+  <div class="underline-container text-center mb-6">
+    <h1 class="font-bold text-gray-500 text-4xl">CÂU CHUYỆN HỘI VIÊN</h1>
+    <div class="underline mx-auto w-16 border-b-4 border-yellow-500 mt-2"></div>
+  </div>
+
+  <div class="container mx-auto px-6">
+    <div [ngClass]="fadeState" class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow-lg p-6">
+      <!-- Hình ảnh bên trái -->
+      <div class="flex justify-center items-center">
+        <img title="xyz" [src]="currentStory.image" [alt]="currentStory.alt" class="rounded-lg w-full object-cover max-w-md" />
+      </div>
+
+      <!-- Văn bản bên phải -->
+      <div class="text-justify text-gray-700">
+        <p class="text-xl font-bold">{{ currentStory.name }}</p>
+        <p class="text-sm text-gray-500 mb-4">{{ currentStory.subtitle }}</p>
+
+        <div class="sapo">
+          <p *ngFor="let paragraph of currentStory.content" class="block text-lg" [innerHTML]="paragraph">
+            {{ paragraph }}
+          </p>
+        </div>
+      </div>
     </div>
-  
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow-lg p-6">
-        <!-- Hình ảnh bên trái -->
-        <div class="flex justify-center items-center">
-          <img
-          title="abc"
-            [src]="currentStory.image"
-            [alt]="currentStory.alt"
-            class="rounded-lg w-full object-cover max-w-md"
-          />
-        </div>
-  
-        <!-- Văn bản bên phải -->
-        <div class="text-justify text-gray-700">
-          <p class="text-xl font-bold">{{ currentStory.name }}</p>
-          <p class="text-sm text-gray-500 mb-4">{{ currentStory.subtitle }}</p>
-  
-          <div class="sapo">
-            <p *ngFor="let paragraph of currentStory.content" class="block text-lg" [innerHTML]="paragraph">
-              {{ paragraph }}
-            </p>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Nút Previous và Next -->
-      <div class="mt-6 flex justify-center gap-4">
-        <button (click)="previousStory()">
-          <img src="assets/About-us/previous.png" alt="previous" class="w-8 h-8" />
-        </button>
-        <button (click)="nextStory()">
-          <img src="assets/About-us/next.png" alt="next" class="w-8 h-8" />
-        </button>
-      </div>
+
+    <!-- Nút Previous và Next -->
+    <div class="mt-6 flex justify-center gap-4">
+      <button (click)="previousStory()">
+        <img src="assets/About-us/previous.png" alt="previous" class="w-12 h-12" />
+      </button>
+      <button (click)="nextStory()">
+        <img src="assets/About-us/next.png" alt="next" class="w-12 h-12" />
+      </button>
     </div>
   </div>
+</div>
+
