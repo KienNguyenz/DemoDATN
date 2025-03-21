@@ -1,0 +1,111 @@
+html{
+    scroll-behavior: smooth;
+}
+.menu-item {
+    position: relative;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px 20px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .menu-item::before,
+  .menu-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #d3d3d3;
+  }
+  
+  .menu-item::before {
+    left: -10px;
+    transform: skewX(25deg);
+  }
+  
+  .menu-item::after {
+    right: -10px;
+    transform: skewX(-25deg);
+  }
+  
+  .menu-text {
+    display: block;
+    padding-bottom: 5px;
+  }
+  
+  .menu-line {
+    height: 2px;
+    background-color: black;
+    width: 0;
+    transition: width 0.3s ease;
+    margin: auto;
+  }
+  
+  .menu-item:hover {
+    color: rgb(240, 190, 75);
+  }
+  
+  .menu-item.active .menu-line,
+  .menu-item:hover .menu-line {
+    width: 100%;
+  }
+  
+  /* Gạch chân dưới tiêu đề */
+  .underline-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 8.5rem;
+  }
+  
+  .underline {
+    position: absolute;
+    height: 4px;
+    background-color: rgb(240, 190, 75); /* Màu gạch chân */
+    bottom: -5px; /* Khoảng cách dòng gạch chân phía dưới */
+    left: 8.5rem;
+    width: 66%; /* Chiều dài gạch chân */
+  }
+  
+  /* Thiết lập khung hình và ảnh */
+  .image-container {
+    width: 100%;                    /* Chiều rộng đầy đủ */
+    max-width: 500px;               /* Giới hạn kích thước tối đa */
+    height: 300px;                  /* Chiều cao cố định cho tất cả ảnh */
+    border: 1px solid rgb(240, 190, 75); /* Đặt viền cho khung ảnh */
+    display: flex;                  /* Sử dụng flexbox */
+    justify-content: center;        /* Căn giữa ảnh theo chiều ngang */
+    align-items: center;            /* Căn giữa ảnh theo chiều dọc */
+    background-color: #fff;         /* Nền trắng tùy chọn */
+  }
+  
+  .image-content {
+    width: auto;                    /* Không ép theo chiều ngang */
+    height: 100%;                   /* Chiều cao lấp đầy khung */
+    object-fit: contain;            /* Giữ tỷ lệ mà không bị cắt */
+    display: block;                 /* Tránh khoảng trống dưới ảnh */
+  }
+  
+  
+  #stories {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  img {
+    transition: transform 0.3s ease;
+  }
+  
+  
+  

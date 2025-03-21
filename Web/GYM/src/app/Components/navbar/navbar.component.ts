@@ -26,7 +26,7 @@ export class NavbarComponent {
   logout = () => {
     this.authService.logout();
     this.matSnackBar.open('Logout Success', "Close", {
-      duration: 300,
+      duration: 3000,
       horizontalPosition: 'center',
     });
     this.router.navigate(['/login']);

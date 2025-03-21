@@ -1,0 +1,33 @@
+
+  .bg-color{
+    background-color: rgb(180, 145, 70);
+  }
+  /* Container căn giữa nội dung */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-icon {
+    width: 40px;
+    margin-right: 8px;
+  }
+  
+  p {
+    margin: 10px 0;
+  }
+  
+  h5 {
+    font-weight: bold;
+  }
+  

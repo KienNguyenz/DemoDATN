@@ -1,0 +1,23 @@
+.custom-button {
+    position: relative; /* Để dòng kẻ đặt chính xác */
+    text-decoration: none; /* Bỏ gạch chân mặc định */
+  }
+  
+  .custom-button::after {
+    content: ''; 
+    position: absolute;
+    left: 50%;   /* Bắt đầu ở giữa */
+    bottom: -5px; /* Đặt dòng kẻ ngay dưới text */
+    width: 0;    /* Bắt đầu từ width 0 */
+    height: 2px; /* Độ dày dòng kẻ */
+    background-color: rgb(180, 145, 70); /* Màu dòng kẻ */
+    transform: translateX(-50%); /* Để căn chính giữa */
+    transition: width 0.3s ease-in-out; /* Hiệu ứng mượt mà */
+  }
+  .custom-button:hover {
+    color: rgb(180, 145, 70); /* Đổi màu chữ khi hover */
+}
+  .custom-button:hover::after {
+    width: 100%; /* Mở rộng dòng từ giữa sang hai bên */
+  }
+  

@@ -70,8 +70,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAQwEAAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T05:18:39.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T05:18:39.971Z"
             },
             {
               "$type": "Document",
@@ -81,7 +80,7 @@
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
               "ToolTip": "E:\\DATN\\DemoDATN\\API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAYwEkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T05:18:28.876Z",
               "EditorCaption": ""
@@ -96,8 +95,7 @@
               "RelativeToolTip": "Models\\SignUpModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T07:17:00.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T07:17:00.395Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "Services\\AccountRepository.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAgwDsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T07:17:29.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T07:17:29.077Z"
             },
             {
               "$type": "Document",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "Controllers\\AccountController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwB0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T05:18:25.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-18T05:18:25.933Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "Entities\\ApplicationUsers.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T08:36:25.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T08:36:25.822Z"
             }
           ]
         }
