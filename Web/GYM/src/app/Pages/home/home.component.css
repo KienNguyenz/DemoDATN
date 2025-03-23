@@ -1,0 +1,18 @@
+img {
+    height: 90%; /* Kích thước ảnh to hơn khi chưa hover */
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; /* Thêm hiệu ứng hover */
+  }
+  
+  /* Hiệu ứng hover để phóng to ảnh hơn nữa */
+  img:hover {
+    height: 100%; /* Khi hover, ảnh to lên */
+    transform: scale(1.1); /* Phóng to thêm 10% */
+  }
+  .more-content{
+    color: rgb(180,145,75);
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  .more-content:hover{
+
+    transform: scale(1.05);
+  }

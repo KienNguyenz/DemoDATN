@@ -1,24 +1,33 @@
 .custom-button {
-    position: relative; /* Để dòng kẻ đặt chính xác */
-    text-decoration: none; /* Bỏ gạch chân mặc định */
-  }
-  
-  .custom-button::after {
-    content: ''; 
-    position: absolute;
-    left: 50%;   /* Bắt đầu ở giữa */
-    bottom: -5px; /* Đặt dòng kẻ ngay dưới text */
-    width: 0;    /* Bắt đầu từ width 0 */
-    height: 2px; /* Độ dày dòng kẻ */
-    background-color: rgb(180, 145, 70); /* Màu dòng kẻ */
-    transform: translateX(-50%); /* Để căn chính giữa */
-    transition: width 0.3s ease-in-out; /* Hiệu ứng mượt mà */
-  }
-  .custom-button:hover {
-    color: rgb(180, 145, 70); /* Đổi màu chữ khi hover */
+  position: relative;
+  text-decoration: none;
 }
-  .custom-button:hover::after {
-    width: 100%; /* Mở rộng dòng từ giữa sang hai bên */
-  }
 
-  
+.custom-button::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: rgb(180, 145, 70);
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+  color: rgb(180, 145, 70);
+}
+
+.custom-button:hover::after {
+  width: 100%;
+}
+
+/* Khi đang ở trang hiện tại, giữ màu vàng hoặc màu nổi bật */
+.active-button {
+  color: rgb(180, 145, 70) !important; /* Thay đổi màu chữ cho mục đang active */
+}
+
+.active-button::after {
+  width: 100%; /* Hiển thị dòng kẻ dài khi active */
+}

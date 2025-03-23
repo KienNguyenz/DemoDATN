@@ -1,27 +1,215 @@
-<div class="flex items-center flex-col pt-56 h-screen">
-    <div class="h-screen">
-        <h1 class="text-4xl text-center font-bold my-10">
-            Welcome to
-           <span class="text-5xl text-green-800">MyApp</span>
-     </h1>
-     <div class="flex flex-col items-center gap-5 justify-center">
-        @if(authService.getUserDetail()){
-            <h1 class="text-2xl">
-                You are logged in as <span class="font-bold bg-blue-600 rounded-md p-3 text-white">
-                    {{authService.getUserDetail()?.fullName}}
-                </span>
-            </h1>
-        }
-        @else {
-            <h1 class="text-2xl">You are not logged in</h1>
-            <a routerLink="/login">
-                <button class="
-                bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
-                    Login
-                </button>
-            </a>
-        }
- 
-     </div>
+<div class="mx-28">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/XuanDieu.jpg"
+        alt="Elite Fitness Xuân Diệu"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Xuân Diệu</h2>
+        <p class="text-sm text-gray-600">Hotline: 02473020888</p>
+        <p class="text-sm text-gray-600">51 Xuân Diệu, Tây Hồ, Hà Nội</p>
+        <div class="mt-2 flex items-center">
+          <a
+            title="Zalo"
+            href="https://zalo.me/2046271800456983348"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
     </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/BaTrieu.jpg"
+        alt="Elite Fitness Bà Triệu"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Bà Triệu</h2>
+        <p class="text-sm text-gray-600">Hotline: 02439749191</p>
+        <p class="text-sm text-gray-600">
+          Tầng 6, Tháp C, Vincom Center, 191 Bà Triệu, Hà Nội
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            title="Zalo"
+            href="https://zalo.me/2522067418345312211"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/NguyenChiThanh.jpg"
+        alt="Elite Fitness Nguyễn Chí Thanh"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Nguyễn Chí Thanh</h2>
+        <p class="text-sm text-gray-600">Hotline: 02473078889</p>
+        <p class="text-sm text-gray-600">
+          Tầng 6, Vinhomes 54A Nguyễn Chí Thanh, Hà Nội
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            title="Zalo"
+            href="https://zalo.me/2040318013709799481"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/PhamNgocThach.jpg"
+        alt="Elite Fitness Phạm Ngọc Thạch"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Phạm Ngọc Thạch</h2>
+        <p class="text-sm text-gray-600">Hotline: 02473079898</p>
+        <p class="text-sm text-gray-600">
+          Tầng 7 Vincom Center, số 2 Phạm Ngọc Thạch, Hà Nội
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            href="https://zalo.me/4008938018109326227"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/HoGuom.jpg"
+        alt="Elite Fitness Hồ Gươm "
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Hồ Gươm</h2>
+        <p class="text-sm text-gray-600">Hotline: 02473055858</p>
+        <p class="text-sm text-gray-600">
+          Tầng 5 Hồ Gươm Plaza, 110 Trần Phú, Hà Đông
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            title="Zalo"
+            href="https://zalo.me/446340267169910704"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/LongBien.jpg"
+        alt="Elite Fitness Long Biên"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Long Biên</h2>
+        <p class="text-sm text-gray-600">Hotline: 02473026696</p>
+        <p class="text-sm text-gray-600">
+          Tầng 2, tòa N03 Berriver Long Biên, số 390 Nguyễn Văn Cừ
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            title="Zalo"
+            href="https://zalo.me/4158854602895532240"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/ThangLong.jpg"
+        alt="Elite Fitness Thăng Long"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Thăng Long</h2>
+        <p class="text-sm text-gray-600">Hotline: 02473066655</p>
+        <p class="text-sm text-gray-600">
+          Tầng 3, Toà A Thăng Long Number1, số 1 Đại Lộ Thăng Long, Hà Nội
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            title="Zalo"
+            href="https://zalo.me/2955534045842425340"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+
+    <div class="flex items-center border rounded-lg shadow-md p-4 min-h-56">
+      <img
+        src="assets/Home/XuanThuy.jpg"
+        alt="Elite Fitness Xuân Thuỷ"
+        class="w-32 h-32 object-cover rounded-md"
+      />
+      <div class="ml-4">
+        <h2 class="text-lg font-bold">Elite Fitness Xuân Thuỷ</h2>
+        <p class="text-sm text-gray-600">Hotline: 02437886688</p>
+        <p class="text-sm text-gray-600">
+          Tầng 4, TTTM The Loop, 241 Xuân Thuỷ-Dịch Vọng Hậu, Cầu Giấy, Hà Nội
+        </p>
+        <div class="mt-2 flex items-center">
+          <a
+            href="https://zalo.me/3571648938030961010"
+            class="text-blue-500 text-sm ml-2"
+          >
+            <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          </a>
+        </div>
+        <a title="Zalo" href="#" class="more-content text-sm mt-2 block"
+          >XEM CHI TIẾT &gt;</a
+        >
+      </div>
+    </div>
+  </div>
 </div>
