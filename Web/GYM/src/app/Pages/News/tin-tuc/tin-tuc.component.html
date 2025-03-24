@@ -1,63 +1,10 @@
-<!-- <div class="search-bar">
-    <input type="text" placeholder="Tìm kiếm" [(ngModel)]="searchQuery" />
-    <button (click)="onSearch()">
-      <img src="assets/News/search_icon.png" title="search icon" />
-    </button>
-  </div>
-  <div #contentToSearch>
-    <b id="item1">Câu chuyện hội viên: Đây là một nội dung ví dụ để tìm kiếm.</b>
-    <b id="item2">Hội viên Elite Fitness luôn được khuyến khích rèn luyện sức khỏe.</b>
-    <b id="item3">Tập luyện là con đường dẫn đến sự thành công và năng lượng tích cực.</b>
-  </div>
-  
-
-  <b *ngIf="searchResult.length === 0 && searchQuery">Không tìm thấy kết quả nào!</b>
-  <div *ngIf="searchResult.length > 0">
-    <h3>Kết quả tìm kiếm:</h3>
-    <ul>
-      <li *ngFor="let result of searchResult">{{ result }}</li>
-    </ul>
-  </div>
-
-   -->
-
   <!-- Menu và Navigation -->
   <div class="container mx-auto my-8 px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
+      
         <div class="image-container">
-          <a href="#">
-            <img
-              src="assets/News/ban-co-biet-les-mills-body-pump-giup-co-the-deo-dai-hon-01.jpg"
-              title="ban-co-biet-les-mills-body-pump-giup-co-the-deo-dai-hon"
-              class="image-content"
-            />
-          </a>
-        </div>
-        <b class="mt-4 text-justify text-gray-700">
-          Bạn có biết LES Mills body pump giúp cơ thể dẻo dai hơn.
-        </b>
-      </div>
-  
-      <div class="flex flex-col items-center">
-        <div class="image-container">
-          <a href="#">
-            <img
-              src="assets/News/ly-do-les-mills-body-attack-la-bai-tap-hoan-hao-de-phat-trien-co-bap-toan-dien-01.jpg"
-              title="ly-do-les-mills-body-attack-la-bai-tap-hoan-hao-de-phat-trien-co-bap-toan-dien.jpg"
-              class="image-content"
-            />
-          </a>
-        </div>
-        <b class="mt-4 text-justify text-gray-700">
-          Lý do Les Mills body attack là bài tập hoàn hảo để phát triển cơ bắp toàn diện.
-        </b>
-      </div>
-  
-      <div class="flex flex-col items-center">
-        <div class="image-container">
-          <a href="http://localhost:4200/news1">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/Nhung-ly-do-ban-nen-tap-thu-les-mills-body-pump-ngay-hom-nay-01.jpg"
               title="Nhung-ly-do-ban-nen-tap-thu-les-mills-body-pump-ngay-hom-nay"
@@ -66,13 +13,50 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news1']" class="menu-item">
           Những lý do bạn nên tập thử Les Mills body pump ngay hôm nay.
+        </button>
+        </b>
+      </div>
+
+      <div id="newsContainer"class="flex flex-col items-center">
+        <div class="image-container">
+          <a [routerLink]="['/news/news2']">
+            <img
+              src="assets/News/ban-co-biet-les-mills-body-pump-giup-co-the-deo-dai-hon-01.jpg"
+              title="ban-co-biet-les-mills-body-pump-giup-co-the-deo-dai-hon"
+              class="image-content"
+            />
+          </a>
+        </div>
+        <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news2']" class="menu-item">
+          Bạn có biết LES Mills body pump giúp cơ thể dẻo dai hơn.
+        </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news3']">
+            <img
+              src="assets/News/ly-do-les-mills-body-attack-la-bai-tap-hoan-hao-de-phat-trien-co-bap-toan-dien-01.jpg"
+              title="ly-do-les-mills-body-attack-la-bai-tap-hoan-hao-de-phat-trien-co-bap-toan-dien.jpg"
+              class="image-content"
+            />
+          </a>
+        </div>
+        <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news3']" class="menu-item">
+          Lý do Les Mills body attack là bài tập hoàn hảo để phát triển cơ bắp toàn diện.
+        </button>
+        </b>
+      </div>
+
+  
+      <div id="newsContainer"class="flex flex-col items-center">
+        <div class="image-container">
+          <a [routerLink]="['/news/news4']">
             <img
               src="assets/News/nhung-tac-dong-tich-cuc-den-suc-khoe-khi-tap-les-mills-body-combat-01.jpg"
               title="nhung-tac-dong-tich-cuc-den-suc-khoe-khi-tap-les-mills-body-combat"
@@ -81,13 +65,15 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news4']" class="menu-item">
           Những tác động tích cực đến sức khoẻ khi tập Les Mills body combat.
+        </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/tai-sao-les-mills-body-attack-la-bo-mon-giup-cai-thien-suc-ben-tim-mach-01.jpg"
               title="tai-sao-les-mills-body-attack-la-bo-mon-giup-cai-thien-suc-ben-tim-mach"
@@ -96,13 +82,15 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
-          Tại sao Les Mills body attack là bộ môn giúp cải thiện sức bền tim mạch.
+          <button [routerLink]="['/news/news4\1']" class="menu-item">
+            Tại sao Les Mills body attack là bộ môn giúp cải thiện sức bền tim mạch.
+          </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/tap-les-mills-body-combat-co-the-dot-bao-nhieu-calo-moi-buoi-su-that-bat-ngo-01.jpg"
               title="tap-les-mills-body-combat-co-the-dot-bao-nhieu-calo-moi-buoi-su-that-bat-ngo"
@@ -111,13 +99,15 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news4\1']" class="menu-item">
           Tập Les Mills body combat có thể đốt bao nhiêu calo mỗi buổi, sự thật bất ngờ.
+        </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/tap-les-mills-body-pump-co-giup-tang-co-khong-cach-toi-uu-hoa-ket-qua-01.jpg"
               title="tap-les-mills-body-pump-co-giup-tang-co-khong-cach-toi-uu-hoa-ket-qua"
@@ -126,13 +116,15 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news4\1']" class="menu-item">
           Tập Les Mills body pump có giúp tăng cơ không? Cách tối ưu hoá kết quả.
+        </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/tap-les-mills-body-pump-co-loi-ich-gi-nhung-ly-do-ban-nen-bat-dau-ngay-hom-nay-01.jpg"
               title="tap-les-mills-body-pump-co-loi-ich-gi-nhung-ly-do-ban-nen-bat-dau-ngay-hom-nay"
@@ -141,13 +133,15 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news4\1']" class="menu-item">
           Tập Les Mills body pump có lợi ích gì? Những lý do bạn nên bắt đầu ngay hôm nay.
+        </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/tap-les-mills-body-pump-o-dau-de-dat-hieu-qua-toi-uu-01.jpg"
               title="tap-les-mills-body-pump-o-dau-de-dat-hieu-qua-toi-uu"
@@ -156,13 +150,15 @@
           </a>
         </div>
         <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news4\1']" class="menu-item">
           Tập Les Mills body pump ở đâu để đạt hiệu quả tối ưu?
+        </button>
         </b>
       </div>
   
-      <div class="flex flex-col items-center">
+      <div id="newsContainer"class="flex flex-col items-center">
         <div class="image-container">
-          <a href="#">
+          <a [routerLink]="['/news/news1']">
             <img
               src="assets/News/AVA WEB_Mahadetox.jpg"
               title="AVA WEB_Mahadetox"
@@ -170,11 +166,13 @@
             />
           </a>
         </div>
-        <b class="mt-4 text-justify text-gray-700">Demo</b>
+        <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="['/news/news4\1']" class="menu-item">Demo</button>
+        </b>
       </div>
   
     </div>
   </div>
+
+
   
-  
-    

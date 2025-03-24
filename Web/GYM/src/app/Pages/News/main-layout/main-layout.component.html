@@ -1,0 +1,70 @@
+<!-- <div class="flex justify-center items-center my-4">
+  <div class="relative w-full max-w-lg">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Tìm kiếm"
+      class="w-full p-3 border border-gray-300 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+      (keyup)="filterNews($event)" />
+
+    <div class="absolute top-0 right-0 h-full flex items-center pr-3">
+      <button (click)="filterNews()" title="Tìm kiếm">
+        <img src="assets/News/search_icon.png" title="Search" class="image-content" />
+      </button>
+    </div>
+  </div>
+</div> -->
+<div class=" border-b-4">
+<div class="flex justify-end items-right my-4 ">
+    <div class="relative w-full max-w-lg">
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="Tìm kiếm"
+        class="w-full p-3 border border-gray-300 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+        />
+        
+        <div class="absolute top-0 right-0 h-full flex items-center pr-3 ">
+            <button (click)="filterNews()" title="Tìm kiếm">
+                <img
+                src="assets/News/search_icon.png"
+                title="Search"
+                class="image-content"
+                />
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="w-full flex justify-center items-center my-4 ">
+  <div
+    class="flex gap-8 border border-gray-200 p-2 rounded-lg bg-white shadow-md border-b-4"
+  >
+    <a
+      routerLink="/news"
+      routerLinkActive="active-button"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="custom-button"
+      >TIN TỨC</a
+    >
+
+    <a
+      routerLink="/news/train"
+      routerLinkActive="active-button"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="custom-button"
+      >TẬP LUYỆN</a
+    >
+
+    <a
+      routerLink="/news/nutrition"
+      routerLinkActive="active-button"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="custom-button"
+      >DINH DƯỠNG</a
+    >
+  </div>
+</div>
+<!-- Nơi sẽ hiển thị các nội dung của từng mục -->
+<router-outlet></router-outlet>

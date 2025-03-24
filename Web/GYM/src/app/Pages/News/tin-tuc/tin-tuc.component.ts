@@ -2,30 +2,36 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-tin-tuc',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './tin-tuc.component.html',
-  styleUrl: './tin-tuc.component.css'
+  styleUrl: '../new.component.css'
 })
 export class TinTucComponent {
   authService = inject(AuthService)
-  searchQuery: string = ''; // Lưu chuỗi tìm kiếm từ thanh input
-  searchResult: string[] = []; // Lưu kết quả tìm kiếm
+  // ngAfterViewInit(): void {
+  //   // Sau khi Angular render xong DOM, lắng nghe sự kiện keyup trong trường hợp Enter
+  //   const input = document.getElementById('searchInput') as HTMLInputElement;
+  //   input?.addEventListener('keyup', (event) => {
+  //     if (event.key === 'Enter') {
+  //       input.blur();
+  //     }
+  //   });
+  // }
 
-  @ViewChild('contentToSearch') contentToSearch!: ElementRef; // Tham chiếu đến phần nội dung HTML
+  // filterNews(event?: any): void {
+  //   const filter = event?.target.value.toLowerCase() || '';
+  //   const newsItems = document.querySelectorAll('#newsContainer');
 
-  onSearch() {
-    this.searchResult = []; // Reset kết quả tìm kiếm mỗi lần nhấn nút
+  //   // Duyệt từng mục tin tức trong DOM
+  //   newsItems.forEach((item: any) => {
+  //     const text = item.querySelector('b').innerText.toLowerCase();
+  //     item.style.display = text.includes(filter) ? '' : 'none';
+  //   });
+  // }
 
-    const elements = this.contentToSearch.nativeElement.querySelectorAll('p'); // Tìm tất cả các thẻ <p>
-
-    elements.forEach((element: HTMLElement) => {
-      if (element.innerText.toLowerCase().includes(this.searchQuery.toLowerCase())) {
-        this.searchResult.push(element.innerText); // Thêm các đoạn text khớp vào kết quả
-      }
-    });
-  }
 }

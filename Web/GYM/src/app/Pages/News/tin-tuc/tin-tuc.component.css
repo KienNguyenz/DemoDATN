@@ -1,35 +1,3 @@
-/* CSS */
-/* .search-bar {
-
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    padding: 5px 15px;
-    width: 300px;
-  }
-  
-  .search-bar input {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    flex: 1;
-    padding: 5px;
-  }
-  
-  .search-bar button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .search-bar img {
-    width: 20px;
-    height: 20px;
-  }
-   */
-
-
    .menu-item {
     position: relative;
     text-align: center;
@@ -81,4 +49,22 @@
   .menu-item.active .menu-line,
   .menu-item:hover .menu-line {
     width: 100%;
+  }
+  .image-container {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    border: 1px solid rgb(240, 190, 75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+  
+  .image-content {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    object-fit: contain;
   }
