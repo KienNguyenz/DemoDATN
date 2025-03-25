@@ -1,0 +1,89 @@
+/* Tổng thể container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+/* Khung của từng bước - nền trắng */
+.step-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff; /* Nền trắng */
+    border: 2px solid rgb(240, 190, 75); /* Border màu yêu cầu */
+    border-radius: 8px;
+}
+
+/* Phần số bước và border phải để chia tách */
+.step-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-right: 2px solid rgb(240, 190, 75); /* Tách số bước và nội dung */
+}
+
+.step-title,
+.step-count {
+    color: rgb(240, 190, 75);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.step-content {
+    margin-left: 16px;
+}
+
+/* Tiêu đề các bước (in đậm) */
+.step-header {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Phần nội dung: text nghiêng */
+.step-content p {
+    font-style: italic;
+}
+.image-container {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    border: 1px solid rgb(240, 190, 75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+.image-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    object-fit: fill;
+  }
+  .image-container:hover{
+    scale: 1.05;
+  }
+  .underline-container {
+    display: inline-flexbox;
+    position: relative;
+  
+  }
+  
+  .underline {
+    position: absolute;
+    height: 4px;
+    background-color: rgb(240, 190, 75);
+    bottom: -5px;
+    width: 30%;
+  }

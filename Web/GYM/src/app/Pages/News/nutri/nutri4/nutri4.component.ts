@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './nutri4.component.html',
-  styleUrl: './nutri4.component.css'
+  styleUrl: '../../new.component.css'
 })
 export class Nutri4Component {
 

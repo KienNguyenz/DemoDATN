@@ -26,6 +26,7 @@
 /* Khi đang ở trang hiện tại, giữ màu vàng hoặc màu nổi bật */
 .active-button {
   color: rgb(180, 145, 70) !important; /* Thay đổi màu chữ cho mục đang active */
+  scale: 120%;
 }
 
 .active-button::after {

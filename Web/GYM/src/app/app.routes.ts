@@ -22,6 +22,15 @@ import { Nutri1Component } from './Pages/News/nutri/nutri1/nutri1.component';
 import { Nutri2Component } from './Pages/News/nutri/nutri2/nutri2.component';
 import { Nutri3Component } from './Pages/News/nutri/nutri3/nutri3.component';
 import { Nutri4Component } from './Pages/News/nutri/nutri4/nutri4.component';
+import { Nutri10Component } from './Pages/News/nutri/nutri10/nutri10.component';
+import { Nutri5Component } from './Pages/News/nutri/nutri5/nutri5.component';
+import { Nutri6Component } from './Pages/News/nutri/nutri6/nutri6.component';
+import { Nutri7Component } from './Pages/News/nutri/nutri7/nutri7.component';
+import { Nutri8Component } from './Pages/News/nutri/nutri8/nutri8.component';
+import { Nutri9Component } from './Pages/News/nutri/nutri9/nutri9.component';
+import { PersonalTrainerComponent } from './Pages/personal-trainer/personal-trainer.component';
+import { HopeComponent } from './Pages/hope/hope.component';
+import { PromotionalComponent } from './Pages/promotional/promotional.component';
 
 export const routes: Routes = [
     {path: '',component: HomeComponent},
@@ -44,12 +53,21 @@ export const routes: Routes = [
     { path: 'news/nutrition2', component: Nutri2Component },
     { path: 'news/nutrition3', component: Nutri3Component },
     { path: 'news/nutrition4', component: Nutri4Component },
+    { path: 'news/nutrition5', component: Nutri5Component },
+    { path: 'news/nutrition6', component: Nutri6Component },
+    { path: 'news/nutrition7', component: Nutri7Component },
+    { path: 'news/nutrition8', component: Nutri8Component },
+    { path: 'news/nutrition9', component: Nutri9Component },
+    { path: 'news/nutrition10', component: Nutri10Component },
     {path: 'news',
-    component: MainLayoutComponent, // Layout chứa menu và thanh tìm kiếm
+    component: MainLayoutComponent, 
     children: [
       { path: '', component: TinTucComponent },
-      { path: 'train', component: TrainingComponent }, // news/train
-      { path: 'nutrition', component: NutritionComponent }, // news/nutrition
+      { path: 'train', component: TrainingComponent }, 
+      { path: 'nutrition', component: NutritionComponent }, 
     ],
   },
+  { path: 'personal-trainer', component: PersonalTrainerComponent },
+  { path: 'hope', component: HopeComponent },
+  { path: 'promotional', component: PromotionalComponent },
 ];

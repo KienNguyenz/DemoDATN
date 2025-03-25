@@ -1,0 +1,193 @@
+<div class="border-2">
+  <h1 class="text-black w-3/4 mx-auto font-bold text-3xl text-center">
+    ELITE FITNESS | WE ARE STRONG TOGETHER | SERIES BÀI TẬP PILATES & YOGA DÀNH
+    CHO BỆNH NHÂN UNG THƯ
+  </h1>
+</div>
+
+<div class="relative h-[600px] w-full flex justify-center p-5 bg-gray-200">
+  <div class="absolute inset-0 flex items-center justify-center">
+    <img
+      class="image-overlap object-fill w-3/4 max-h-full"
+      src="assets/Hope/ava web-01.png"
+       alt=""
+    />
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto my-5 px-6">
+  <br />
+  <a class="flex mx-auto text-xl justify-center text-center max-w-4xl">
+    <b
+      >ELITE FITNESS | WE ARE STRONG TOGETHER
+      <br />
+      SERIES BÀI TẬP PILATES & YOGA DÀNH CHO BỆNH NHÂN UNG THƯ</b
+    >
+  </a>
+  <p class="mb-5 indent-8">
+    Trải qua hơn 12 năm hoạt động, Elite Fitness tự hào là một thương hiệu luôn
+    đặt giá trị của mình gắn liền với trách nhiệm xã hội. Để làm được điều đó,
+    suốt thời gian qua, Elite Fitness không ngừng lan tỏa những điều tốt đẹp
+    nhất đến với cộng đồng và kiến tạo ra những giá trị nhân văn.
+  </p>
+
+  <p class="mb-5">
+    Thấu hiểu việc khi con người đối diện với căn bệnh ung thư sẽ đều trải qua
+    những khủng hoảng về mặt tâm lý như: sợ hãi điều trị, lo lắng về sự bất
+    định, sợ hãi ung thư tái phát sau điều trị, lo lắng về sự thay đổi các mối
+    quan hệ… Nhằm cổ vũ các bệnh nhân ung thư với một thông điệp yêu thương “We
+    are strong together”, đội ngũ Elite Fitness đã chuẩn bị một chuỗi các bài
+    tập luyện Pilates dành riêng cho những ai đang phải đối diện với hoàn cảnh
+    đó.
+  </p>
+  <p class="mb-5">
+    “We are strong together” minh chứng một điều rằng Elite Fitness luôn ở đây
+    để đồng hành cùng các bệnh nhân vượt qua được nỗi sợ hãi bởi lẽ ung thư
+    không phải là dấu chấm hết. Elite Fitness hy vọng rằng, chuỗi bài tập
+    Pilates này sẽ truyền cảm hứng cũng như tiếp thêm sức mạnh để các bệnh nhân
+    ung thư có thể chiến thắng được căn bệnh và hình thành một thói quen tập
+    luyện mỗi ngày.
+  </p>
+  <p class="mb-5">
+    “We are strong together” là dự án chuỗi 10 video hướng dẫn tập luyện Pilates
+    và Yoga cùng đội ngũ Huấn luyện viên của Elite Fitness. Các video sẽ hướng
+    dẫn từ cơ bản cho đến chuyên sâu vào từng nhóm cơ cụ thể để giúp mọi người
+    có thể tập luyện và nâng cao sức khỏe mỗi ngày.
+  </p>
+  <p class="mb-5">
+    Pilates và Yoga không chỉ giúp chúng ta khỏe mạnh hơn, mà còn đem lại sự an
+    lạc trong tâm trí - điều mà bệnh nhân ung thư rất cần để vượt qua những bi
+    quan và đau đớn trong quá trình điều trị. Qua bài tập luyện này, Elite mong
+    muốn những ai đang phải đối diện với hoàn cảnh đó có thể rèn luyện cả về thể
+    chất lẫn tinh thần để nâng cao sức khỏe, cải thiện được cảm xúc và tâm
+    trạng. Đặc biệt là hình thành được một thói quen tập luyện mỗi ngày.
+  </p>
+  <p class="mb-5">
+    Các Hội viên thân mến! Chúng ta hãy cùng nhau lan tỏa thông điệp tích cực
+    “We are strong together” bằng cách chia sẻ video này đến những bệnh nhân ung
+    thư mà chúng ta biết kèm theo những lời chúc, những lời động viên thân
+    thương nhé!
+  </p>
+  <hr class="divider" />
+  <!-- <hr class="justify-center mx-auto max-w-2"> -->
+  <p class="mx-auto flex justify-center">------------------</p>
+  <p class="flex mx-auto justify-center text-center">
+    Elite Fitness<br />Hotline: 1900 9091
+  </p>
+
+</div>
+<div class="video-container w-3/4 mx-auto">
+  <div class="main-video">
+    <video id="mainVideo" controls>
+      <source src="assets/Hope/bai1.mp4" type="video/mp4" />
+      Trình duyệt của bạn không hỗ trợ thẻ video.
+    </video>
+    <h3 id="videoTitle">Các bài tập cơ trọng tâm</h3>
+  </div>
+
+  <div class="video-list">
+    <div
+      class="video-item active"
+      #videoItem1
+      (click)="
+        changeVideo(
+          'assets/Hope/bai1.mp4',
+          'Các bài tập cơ trọng tâm',
+          videoItem1
+        )
+      "
+    >
+      <img src="assets/Hope/bai1.png" class="rounded-lg w-20"   alt="Thumbnail 1" />
+      <p>Các bài tập cơ trọng tâm</p>
+    </div>
+
+    <div
+      class="video-item"
+      #videoItem2
+      (click)="
+        changeVideo(
+          'assets/Hope/bai2.mp4',
+          'Các bài tập đơn giản tại nhà',
+          videoItem2
+        )
+      "
+    >
+      <img src="assets/Hope/bai2.png" class="rounded-lg w-20"   alt="Thumbnail 2" />
+      <p>Các bài tập đơn giản tại nhà</p>
+    </div>
+
+    <div
+      class="video-item"
+      #videoItem3
+      (click)="
+        changeVideo(
+          'assets/Hope/bai3.mp4',
+          'Bài tập vùng cơ trọng tâm',
+          videoItem3
+        )
+      "
+    >
+      <img src="assets/Hope/bai3.png" class="rounded-lg w-20"   alt="Thumbnail 3" />
+      <p>Bài tập vùng cơ trọng tâm</p>
+    </div>
+
+    <div
+      class="video-item"
+      #videoItem4
+      (click)="
+        changeVideo(
+          'assets/Hope/bai4.mp4',
+          'Bài tập làm khỏe nhóm cơ mông và đùi',
+          videoItem4
+        )
+      "
+    >
+      <img src="assets/Hope/bai4.png" class="rounded-lg w-20"   alt="Thumbnail 4" />
+      <p>Bài tập làm khỏe nhóm cơ mông và đùi</p>
+    </div>
+    <div
+      class="video-item"
+      #videoItem5
+      (click)="
+        changeVideo(
+          'assets/Hope/bai5.mp4',
+          'Bài tập làm khỏe nhóm cơ trọng tâm',
+          videoItem5
+        )
+      "
+    >
+      <img src="assets/Hope/bai5.png" class="rounded-lg w-20"   alt="Thumbnail 5" />
+      <p>Bài tập làm khỏe nhóm cơ trọng tâm</p>
+    </div>
+
+    <div
+      class="video-item"
+      #videoItem6
+      (click)="
+        changeVideo(
+          'assets/Hope/bai6.mp4',
+          'Bài tập làm khỏe cơ mông, đùi & vai',
+          videoItem6
+        )
+      "
+    >
+      <img src="assets/Hope/bai6.png" class="rounded-lg w-20"   alt="Thumbnail 6" />
+      <p>Bài tập làm khỏe cơ mông, đùi & vai</p>
+    </div>
+
+    <div
+      class="video-item"
+      #videoItem7
+      (click)="
+        changeVideo(
+          'assets/Hope/bai7.mp4',
+          'Các bài tập Yoga nâng cao sức khỏe',
+          videoItem7
+        )
+      "
+    >
+      <img src="assets/Hope/bai7.png" class="rounded-lg w-20"   alt="Thumbnail 7" />
+      <p>Các bài tập Yoga nâng cao sức khỏe</p>
+    </div>
+  </div>
+</div>

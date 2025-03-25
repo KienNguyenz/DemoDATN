@@ -1,22 +1,6 @@
 p {
   line-height: 2.4;       /* Tăng khoảng cách dòng giữa các đoạn văn */
 }
-
-.mb-4 {
-  margin-bottom: 2rem;    /* Khoảng cách phía dưới 1rem */
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;  /* Khoảng cách phía dưới lớn hơn */
-}
-
-.mt-8 {
-  margin-top: 2rem;       /* Tạo khoảng cách phía trên cho các tiêu đề */
-}
-
-.block {
-  display: block;         /* Đảm bảo thẻ <b> căn chỉnh độc lập như một đoạn văn */
-}
 .menu-item {
     position: relative;
     text-align: center;
@@ -120,6 +104,7 @@ p {
   .numbered-list li {
     position: relative;
     margin-bottom: 10px;
+    margin-left: 24px;
     padding-left: 30px;
     counter-increment: list-counter; 
   }
@@ -128,5 +113,15 @@ p {
     content: counter(list-counter) ". "; 
     position: absolute; 
     left: 0;
+  }
+  .image-overlap {
+    position: absolute;
+    top: 20px;   /* Đẩy hình ảnh lên trên */
+    left: 50%;    /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%);
+    transition: transform 0.4s ease-in-out;
+  }
+  .image-overlap:hover{
+    transform: translateX(-50%) scale(1.05);
   }
   
