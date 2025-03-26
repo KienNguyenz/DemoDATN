@@ -41,20 +41,38 @@
       <span class="menu-text">Về Elite Fitness</span>
       <div class="menu-line"></div>
     </a>
-    <a
-      href="http://localhost:4200/about-us#achievement"
+    <!-- <a
+    routerLink="/about-us#achievement" 
       class="menu-item text-gray-500"
+      type="button"
     >
       <span class="menu-text">Thành tựu</span>
       <div class="menu-line"></div>
     </a>
     <a
-      href="http://localhost:4200/about-us#stories"
+    routerLink="/about-us#achievement" 
       class="menu-item text-gray-500"
     >
       <span class="menu-text">Câu chuyện hội viên</span>
       <div class="menu-line"></div>
-    </a>
+    </a> -->
+    <button
+      class="menu-item text-gray-500"
+      type="button"
+      (click)="scrollToAnchor('achievement')"
+    >
+      <span class="menu-text">Thành tựu</span>
+      <div class="menu-line"></div>
+    </button>
+
+    <button
+      class="menu-item text-gray-500"
+      type="button"
+      (click)="scrollToAnchor('stories')"
+    >
+      <span class="menu-text">Câu chuyện hội viên</span>
+      <div class="menu-line"></div>
+    </button>
   </div>
 </div>
 
@@ -138,7 +156,7 @@
   </div>
 </div>
 <!-- Thành tựu-->
-<div id="achievement" class="container">
+<div id="achievement" #achievement class="container">
   <div class="underline-container">
     <h1 class="font-bold text-gray-500 text-4xl">THÀNH TỰU</h1>
     <div class="underline"></div>
@@ -209,7 +227,7 @@
     </div>
   </div>
 </div>
-<div id="stories" class="mt-16 container">
+<div id="stories" #stories class="mt-16 container">
   <div class="underline-container text-center mb-6">
     <h1 class="font-bold text-gray-500 text-4xl">CÂU CHUYỆN HỘI VIÊN</h1>
     <div class="underline mx-auto w-16 border-b-4 border-yellow-500 mt-2"></div>

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
@@ -17,6 +18,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './about-us.component.css'
 })
 export class AboutUsComponent {
+  constructor(private router: Router,  private viewportScroller: ViewportScroller) {}
+  scrollToAnchor(sectionId: string): void {
+    this.router.navigate(['/about-us'], { fragment: sectionId }).then(() => {
+      this.viewportScroller.scrollToAnchor(sectionId); // Cuộn đến phần tử với ID tương ứng
+    });
+  }
   authService = inject(AuthService);
   matSnackBar = inject(MatSnackBar);
   fadeState: string = 'fade-in';

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Pages/login/login.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { RegisterComponent } from './Pages/register/register.component';
@@ -31,6 +31,7 @@ import { Nutri9Component } from './Pages/News/nutri/nutri9/nutri9.component';
 import { PersonalTrainerComponent } from './Pages/personal-trainer/personal-trainer.component';
 import { HopeComponent } from './Pages/hope/hope.component';
 import { PromotionalComponent } from './Pages/promotional/promotional.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {path: '',component: HomeComponent},
@@ -71,3 +72,13 @@ export const routes: Routes = [
   { path: 'hope', component: HopeComponent },
   { path: 'promotional', component: PromotionalComponent },
 ];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // Bắt đầu từ đầu trang khi chuyển route
+      anchorScrolling: 'enabled',           // Duyệt đến anchor nếu có
+    }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
