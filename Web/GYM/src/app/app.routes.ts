@@ -32,6 +32,7 @@ import { PersonalTrainerComponent } from './Pages/personal-trainer/personal-trai
 import { HopeComponent } from './Pages/hope/hope.component';
 import { PromotionalComponent } from './Pages/promotional/promotional.component';
 import { NgModule } from '@angular/core';
+import { SportsComponent } from './Pages/Sports/sports/sports.component';
 
 export const routes: Routes = [
     {path: '',component: HomeComponent},
@@ -71,6 +72,7 @@ export const routes: Routes = [
   { path: 'personal-trainer', component: PersonalTrainerComponent },
   { path: 'hope', component: HopeComponent },
   { path: 'promotional', component: PromotionalComponent },
+  { path: 'sports', component: SportsComponent },
 ];
 @NgModule({
   imports: [

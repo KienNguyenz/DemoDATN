@@ -7,7 +7,7 @@ namespace SMG.Entities;
 
 public partial class Member
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     public string MemName { get; set; } = null!;
 
@@ -18,7 +18,7 @@ public partial class Member
     public string? Address { get; set; }
 
     public string? PhoneNumber { get; set; }
-    public Guid PackageId { get; set; }
+    public int PackageId { get; set; }
     [JsonIgnore]
     public  Package? Package { get; set; }
     [JsonIgnore]

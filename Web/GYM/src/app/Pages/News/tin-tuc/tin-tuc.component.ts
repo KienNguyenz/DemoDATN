@@ -1,10 +1,8 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NewsService } from '../main-layout/new.service';
 
 @Component({
   selector: 'app-tin-tuc',
@@ -68,11 +66,8 @@ export class TinTucComponent {
       routerLink: '/news/news10'
     }
   ];
-  constructor(private newsService: NewsService) {}
-
-  ngOnInit(): void {
-    this.newsService.updateNewsList(this.pagedNewsList);
-    console.log('Cập nhật danh sách tin tức từ TintucComponent:', this.pagedNewsList); // Xác nhận đã gọi service
+  setPage(page: number): void {
+    this.currentPage = page; // Cập nhật trang hiện tại
   }
 }
   // ngAfterViewInit(): void {

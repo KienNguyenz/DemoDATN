@@ -1,7 +1,23 @@
+/* Global Styles */
 html {
   scroll-behavior: smooth;
 }
 
+h1 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+img {
+  transition: transform 0.3s ease;
+}
+
+/* Menu Item Styling */
 .menu-item {
   position: relative;
   display: inline-block;
@@ -50,17 +66,18 @@ html {
 .menu-item:hover {
   color: rgb(240, 190, 75);
 }
-
+.active{
+  color: rgb(240, 190, 75);
+}
 .menu-item.active .menu-line,
 .menu-item:hover .menu-line {
   width: 100%;
 }
 
-/* Gạch chân dưới tiêu đề */
+/* Underline for Titles */
 .underline-container {
   display: inline-block;
   position: relative;
-
 }
 
 .underline {
@@ -71,7 +88,7 @@ html {
   width: 66%;
 }
 
-/* Thiết lập khung hình và ảnh */
+/* Image Container and Styling */
 .image-container {
   width: 100%;
   max-width: 500px;
@@ -89,7 +106,15 @@ html {
   object-fit: contain;
 }
 
-/* Hiệu ứng fade-in */
+/* Text Container */
+.text-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Fade-in Effect */
 #stories {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -103,7 +128,7 @@ html {
   }
 }
 
-/* Hiệu ứng fade-in và fade-out */
+/* Fade-in and Fade-out Effects */
 .fade-in,
 .fade-out {
   opacity: 1;
@@ -112,26 +137,4 @@ html {
 
 .fade-out {
   opacity: 0;
-}
-
-/* Container văn bản */
-.text-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-h1 {
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-p {
-  text-align: justify;
-  line-height: 1.6;
-}
-
-img {
-  transition: transform 0.3s ease;
 }

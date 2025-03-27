@@ -31,7 +31,7 @@ namespace DemoGym.Controllers
 
         // GET: api/Employees/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetEmployee(Guid id)
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
             var employee = await _context.employees.FindAsync(id);
 
@@ -46,7 +46,7 @@ namespace DemoGym.Controllers
         // PUT: api/Employees/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee(Guid id, Employee employee)
+        public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
             if (id != employee.Id)
             {
@@ -81,7 +81,7 @@ namespace DemoGym.Controllers
         {
             var employees = new Employee
             {
-                Id = Guid.NewGuid(),
+                Id = new int(),
                 Name = employeeDTO.Name,
                 Birthday = employeeDTO.Birthday,
                 Gender = employeeDTO.Gender,
@@ -98,7 +98,7 @@ namespace DemoGym.Controllers
 
         // DELETE: api/Employees/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(Guid id)
+        public async Task<IActionResult> DeleteEmployee(int id)
         {
             var employee = await _context.employees.FindAsync(id);
             if (employee == null)
@@ -112,7 +112,7 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        private bool EmployeeExists(Guid id)
+        private bool EmployeeExists(int id)
         {
             return _context.employees.Any(e => e.Id == id);
         }

@@ -31,7 +31,7 @@ namespace DemoGym.Controllers
 
         // GET: api/Packages/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Package>> GetPackage(Guid id)
+        public async Task<ActionResult<Package>> GetPackage(int id)
         {
             var package = await _context.packages.FindAsync(id);
 
@@ -46,7 +46,7 @@ namespace DemoGym.Controllers
         // PUT: api/Packages/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPackage(Guid id, Package package)
+        public async Task<IActionResult> PutPackage(int id, Package package)
         {
             if (id != package.Id)
             {
@@ -81,7 +81,7 @@ namespace DemoGym.Controllers
         {
             var packages = new Package
             {
-                Id = Guid.NewGuid(),
+                Id = new int(),
                 PackageName = packagesDTO.PackageName,
                 Price = packagesDTO.Price,
                 Duration = packagesDTO.Duration,
@@ -97,7 +97,7 @@ namespace DemoGym.Controllers
 
         // DELETE: api/Packages/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePackage(Guid id)
+        public async Task<IActionResult> DeletePackage(int id)
         {
             var package = await _context.packages.FindAsync(id);
             if (package == null)
@@ -111,7 +111,7 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        private bool PackageExists(Guid id)
+        private bool PackageExists(int id)
         {
             return _context.packages.Any(e => e.Id == id);
         }

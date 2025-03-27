@@ -5,9 +5,9 @@ namespace DemoGym.Entities
 {
     public class PTMember
     {
-        public Guid Id { get; set; }
-        public Guid EmployeeId { get; set; }
-        public Guid MemberId { get; set; }  
+        public int Id { get; set; }
+        public int EmployeeId { get; set; }
+        public int MemberId { get; set; }  
         [JsonIgnore]
         public virtual Employee Employee { get; set; } = null!;
 

@@ -17,3 +17,23 @@
     </div>
   </div>
 </div>
+
+<div class=" flex text-center mt-4 justify-end">
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+    [autoHide]="true"
+    previousLabel=""
+    nextLabel=""
+    class="inline-flex space-x-2"
+  >
+    <ng-template let-page="page" let-isCurrent="isCurrentPage">
+      <button
+        class="px-3 py-1 text-lg"
+        [ngClass]="{ 'text-orange-500 font-bold': isCurrent }"
+        (click)="setPage(page)"
+      >
+        {{ page }}
+      </button>
+    </ng-template>
+  </pagination-controls>
+</div>

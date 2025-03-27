@@ -33,7 +33,7 @@ namespace DemoGym.Controllers
 
         // GET: api/Salaries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Salary>> GetSalary(Guid id)
+        public async Task<ActionResult<Salary>> GetSalary(int id)
         {
             var salary = await _context.Salaries.FindAsync(id);
 
@@ -48,7 +48,7 @@ namespace DemoGym.Controllers
         // PUT: api/Salaries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSalary(Guid id, Salary salary)
+        public async Task<IActionResult> PutSalary(int id, Salary salary)
         {
             if (id != salary.Id)
             {
@@ -109,7 +109,7 @@ namespace DemoGym.Controllers
 
             var salary = new Salary
             {
-                Id = Guid.NewGuid(),
+                Id = new int(),
                 role = salaryDTO.role,
                 WorkingDay = salaryDTO.WorkingDay,
                 EmployeeId = salaryDTO.EmployeeId,
@@ -124,7 +124,7 @@ namespace DemoGym.Controllers
 
         // DELETE: api/Salaries/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSalary(Guid id)
+        public async Task<IActionResult> DeleteSalary(int id)
         {
             var salary = await _context.Salaries.FindAsync(id);
             if (salary == null)
@@ -138,7 +138,7 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        private bool SalaryExists(Guid id)
+        private bool SalaryExists(int id)
         {
             return _context.Salaries.Any(e => e.Id == id);
         }

@@ -33,7 +33,7 @@ namespace DemoGym.Controllers
 
         // GET: api/Members/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Member>> GetMember(Guid id)
+        public async Task<ActionResult<Member>> GetMember(int id)
         {
             var member = await _context.members.FindAsync(id);
 
@@ -48,7 +48,7 @@ namespace DemoGym.Controllers
         // PUT: api/Members/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMember(Guid id, Member member)
+        public async Task<IActionResult> PutMember(int id, Member member)
         {
             if (id != member.Id)
             {
@@ -83,7 +83,7 @@ namespace DemoGym.Controllers
         {
             var member = new Member
             {
-                Id = Guid.NewGuid(),
+                Id = new int(),
                 MemName = memberDTO.MemName,
                 Birthday = memberDTO.Birthday,
                 Gender = memberDTO.Gender,
@@ -101,7 +101,7 @@ namespace DemoGym.Controllers
 
         // DELETE: api/Members/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMember(Guid id)
+        public async Task<IActionResult> DeleteMember(int id)
         {
             var member = await _context.members.FindAsync(id);
             if (member == null)
@@ -115,7 +115,7 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        private bool MemberExists(Guid id)
+        private bool MemberExists(int id)
         {
             return _context.members.Any(e => e.Id == id);
         }

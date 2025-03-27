@@ -32,3 +32,6 @@
 .active-button::after {
   width: 100%; /* Hiển thị dòng kẻ dài khi active */
 }
+.navbar-sticky{
+  position: sticky; top: 0; z-index: 999; background-color: #fff;
+}

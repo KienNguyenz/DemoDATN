@@ -46,7 +46,7 @@ namespace DemoGym.Controllers
         // PUT: api/Rooms/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoom(Guid id, Room room)
+        public async Task<IActionResult> PutRoom(int id, Room room)
         {
             if (id != room.Id)
             {
@@ -81,7 +81,7 @@ namespace DemoGym.Controllers
         {
             var rooms = new Room
             {
-                Id = Guid.NewGuid(),
+                Id =new int(),
                 RoomName = roomDTO.RoomName,
                 BranchId = roomDTO.BranchId
             };
@@ -108,7 +108,7 @@ namespace DemoGym.Controllers
             return NoContent();
         }
 
-        private bool RoomExists(Guid id)
+        private bool RoomExists(int id)
         {
             return _context.rooms.Any(e => e.Id == id);
         }

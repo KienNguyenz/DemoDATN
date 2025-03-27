@@ -41,7 +41,7 @@ namespace DemoGym.Services
             var authClaims = new List<Claim>
             {
                 new Claim("email", user.Email), 
-                new Claim("name", user.FirstName), 
+                new Claim("name",  $"{user.FirstName} {user.LastName}"), 
                 new Claim("nameid", user.Id), 
                 new Claim("phoneNumber", user.PhoneNumber),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

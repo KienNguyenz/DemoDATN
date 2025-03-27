@@ -1,0 +1,480 @@
+<div class="relative">
+  <img
+    src="assets/Sports/banner.jpg"
+    class="w-full h-[88vh] object-fill"
+    title="Sports"
+  />
+  <div class="absolute bottom-0 w-full flex flex-col items-center">
+    <img
+      src="assets/About-us/border_banner_about.png"
+      class="w-30"
+      title="box"
+    />
+  </div>
+</div>
+
+<div class="max-w-2xl mx-auto my-5 px-6">
+  <div class="items-center font-bold text-center w-full">
+    <p class="text-2xl">Phù hợp với tất cả mọi người</p>
+    <p class="text-base">
+      Lịch tập và chương trình của chúng tôi được thiết kế và điều chỉnh thường
+      xuyên để phù hợp với nhu cầu và thời gian của mọi hội viên.
+    </p>
+  </div>
+</div>
+
+<div class="text-container">
+  <!-- Menu và Navigation -->
+  <div class="w-full flex justify-center items-center my-4 border-b-4">
+    <div class="flex gap-8 border border-gray-200 p-2 rounded-lg bg-white shadow-md">
+      <button
+        class="menu-item active text-gray-500"
+        type="button"
+        (click)="scrollToAnchor('LesMills')"
+      >
+        <span class="menu-text">Các lớp đặc quyền của LesMills</span>
+        <div class="menu-line"></div>
+      </button>
+
+      <button
+        class="menu-item text-gray-500"
+        type="button"
+        (click)="scrollToAnchor('Fitness')"
+      >
+        <span class="menu-text">Fitness</span>
+        <div class="menu-line"></div>
+      </button>
+
+      <button
+        class="menu-item text-gray-500"
+        type="button"
+        (click)="scrollToAnchor('Yoga')"
+      >
+        <span class="menu-text">Yoga</span>
+        <div class="menu-line"></div>
+      </button>
+
+      <button
+        class="menu-item text-gray-500"
+        type="button"
+        (click)="scrollToAnchor('other')"
+      >
+        <span class="menu-text">Các bộ môn khác</span>
+        <div class="menu-line"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- LES MILLS -->
+  <div class="container" id="LesMills" #LesMills>
+    <div class="underline-container">
+      <h1 class="text-gray-500 text-4xl">CÁC LỚP ĐẶC QUYỀN CỦA LESMILLS</h1>
+      <div class="underline"></div>
+    </div>
+
+    <div class="w-full flex justify-center">
+      <div class="flex flex-row items-center gap-10 my-5 px-4 max-w-4xl">
+        <div class="flex-shrink-0">
+          <a [routerLink]="['/lesmills']">
+            <img
+              src="assets/Sports/1.jpg"
+              alt="Les Mills"
+              class="w-[400px] h-[250px] object-cover rounded-md border border-gray-300"
+            />
+          </a>
+        </div>
+        <div>
+          <p class="font-semibold mb-2">Chương trình chính</p>
+          <ul class="ml-5 list-disc list-inside space-y-2">
+            <li>
+              <a
+                class="text-lg menu-item1"
+                [routerLink]="['/lesmills/bodypump']"
+                >Bodypump</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-lg menu-item1"
+                [routerLink]="['/lesmills/bodycombat']"
+                >Bodycombat</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-lg menu-item1"
+                [routerLink]="['/lesmills/bodyjam']"
+                >BodyJam</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-lg menu-item1"
+                [routerLink]="['/lesmills/rpm']"
+                >RPM</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FITNESS -->
+  <div class="container" id="Fitness" #Fitness>
+    <div class="underline-container">
+      <h1 class="text-gray-500 text-4xl">FITNESS</h1>
+      <div class="underline"></div>
+    </div>
+    <div class="w-full flex justify-center">
+      <div class="flex flex-row items-center gap-10 my-5 px-4 max-w-4xl">
+        <div class="flex-shrink-0">
+          <a [routerLink]="['/fitness']">
+            <img
+              src="assets/Sports/banner.jpg"
+              alt="Fitness Training"
+              class="w-[400px] h-[250px] object-cover rounded-md border border-gray-300"
+            />
+          </a>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Bơi</p>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/boi-co-ban']"
+                  >Bơi cơ bản</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/boi-nang-cao']"
+                  >Bơi nâng cao</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/boi-tre-em']"
+                  >Bơi trẻ em</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/thuy-tri-lieu']"
+                  >Thủy trị liệu</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold mb-2">Gym</p>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/thay-doi-hinh-the']"
+                  >Thay đổi hình thể</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/gym-cho-phu-nu']"
+                  >Gym cho phụ nữ</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/pt-nguoi-lon-tuoi']"
+                  >PT cho người lớn tuổi</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/the-thao-hieu-chinh']"
+                  >Thể thao hiệu chỉnh</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/boxing-kickboxing']"
+                  >Boxing/Kickboxing</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold mb-2">Khác</p>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/fitness/tu-van-dinh-duong']"
+                  >Hỗ trợ tư vấn dinh dưỡng</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOGA -->
+  <div class="container" id="Yoga" #Yoga>
+    <div class="underline-container">
+      <h1 class="text-gray-500 text-4xl">YOGA</h1>
+      <div class="underline"></div>
+    </div>
+    <div class="w-full flex justify-center">
+      <div class="flex flex-row items-center gap-10 my-5 px-4 max-w-4xl">
+        <div class="flex-shrink-0">
+          <a [routerLink]="['/yoga']">
+            <img
+              src="assets/Sports/3.jpg"
+              alt="Yoga"
+              class="w-[400px] h-[250px] object-cover rounded-md border border-gray-300"
+            />
+          </a>
+        </div>
+        <div class="space-y-4">
+          <!-- Yoga trị liệu -->
+          <div>
+            <p class="font-semibold mb-2">Yoga trị liệu</p>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/back-pain']"
+                  >Yoga Therapy For Back Pain</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/neck-pain']"
+                  >Yoga Therapy For Neck Pain</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/knee-pain']"
+                  >Yoga Therapy For Knee Pain</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Yoga cơ bản -->
+          <div>
+            <p class="font-semibold mb-2">Yoga cơ bản</p>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/alignment']"
+                  >Yoga Alignment</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/yin-yang']"
+                  >Yin & Yang Yoga</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/sivananda']"
+                  >Sivananda Yoga</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/micro']"
+                  >Micro Yoga</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/asana-prana']"
+                  >Asana Prana</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/hatha']"
+                  >Hatha Yoga</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/yoga/hip-opening']"
+                  >Hip Opening</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NHỮNG BỘ MÔN KHÁC -->
+  <div class="container" id="other" #other>
+    <div class="underline-container">
+      <h1 class="text-gray-500 text-4xl">NHỮNG BỘ MÔN KHÁC</h1>
+      <div class="underline"></div>
+    </div>
+    <div class="w-full flex justify-center">
+      <div class="flex flex-row items-center gap-10 my-5 px-4 max-w-4xl">
+        <div class="flex-shrink-0">
+          <a [routerLink]="['/other']">
+            <img
+              src="assets/Sports/4.jpg"
+              alt="Các bộ môn khác"
+              class="w-[400px] h-[250px] object-cover rounded-md border border-gray-300"
+            />
+          </a>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">E-class</p>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/corefit']"
+                  >COREFIT</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/20-20-20']"
+                  >20-20-20</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/e-cycling']"
+                  >E-CYCLING</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/hiit-cycle']"
+                  >Hiit Cycle</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/burns-turns']"
+                  >Burns & Turns</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/taichi']"
+                  >Taichi</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/10-10-10']"
+                  >10-10-10</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/e-barre']"
+                  >E-barre</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/pole-dance']"
+                  >Pole Dance</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/belly-dance']"
+                  >Belly Dance</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/flirty-girl']"
+                  >Flirty Girl</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="ml-5 list-disc list-inside space-y-2">
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/zumba']"
+                  >Zumba</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/pilates-mat']"
+                  >Pilates Mat</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/pound-rockout']"
+                  >Pound Rockout</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/pilates-reformer']"
+                  >Pilates Reformer</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-lg menu-item1"
+                  [routerLink]="['/other/aqua-hiit']"
+                  >Aqua Hiit</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

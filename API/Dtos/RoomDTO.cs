@@ -6,8 +6,7 @@ namespace DemoGym.Dtos
     public class RoomDTO
     {
         public string RoomName { get; set; } = null!;
-        public Guid BranchId { get; set; }
-        [JsonIgnore]
-        public List<Device>? Device { get; set; }
+        public int BranchId { get; set; }
+
     }
 }

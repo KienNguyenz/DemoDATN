@@ -1,61 +1,91 @@
-<div class="h-screen flex items-center justify-center bg-gray-100">
-    <form class="shadow-lg rounded-lg p-6 bg-white max-w-md min-w-[320px]" [formGroup]="form" (ngSubmit)="login()">
-        <div class="py-4 text-center">
-            <h1 class="font-bold text-2xl">Đăng nhập</h1>
-            <h6 class="text-slate-600 text-base">Đăng nhập vào tài khoản của bạn</h6>
-        </div>
 
-        <!-- Email Input -->
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Email</mat-label>
-            <mat-icon matPrefix>email</mat-icon>
-            <input matInput placeholder="Enter your email" formControlName="email">
-        </mat-form-field>
 
-        <!-- Password Input -->
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Password</mat-label>
-            <mat-icon matPrefix>lock</mat-icon>
-            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Enter your password">
-            <mat-icon (click)="hide = !hide" matSuffix class="cursor-pointer">
-                {{ hide ? 'visibility_off' : 'visibility' }}
-            </mat-icon>
-        </mat-form-field>
+  <div class="h-screen flex items-center justify-center bg-gray-100 bg-login">
+    <form
+      class="shadow-lg rounded-lg p-6 bg-white max-w-md min-w-[320px]"
+      [formGroup]="form"
+      (ngSubmit)="login()"
+    >
+      <div class="py-4 text-center">
+        <h1 class="font-bold text-2xl">Đăng nhập</h1>
+        <h6 class="text-slate-600 text-base">
+          Đăng nhập vào tài khoản của bạn
+        </h6>
+      </div>
 
-        <!-- Submit Button -->
-        <button type="submit" [disabled]="!form.valid"
-            class="w-full border border-slate-200 disabled:bg-purple-400 py-2 px-3 bg-purple-700 text-white font-bold rounded-md">
-            Đăng nhập
+      <!-- Email Input -->
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Email</mat-label>
+        <mat-icon matPrefix>email</mat-icon>
+        <input
+          matInput
+          placeholder="Enter your email"
+          formControlName="email"
+        />
+      </mat-form-field>
+
+      <!-- Password Input -->
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Password</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <mat-icon (click)="hide = !hide" matSuffix class="cursor-pointer">
+          {{ hide ? "visibility_off" : "visibility" }}
+        </mat-icon>
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        [disabled]="!form.valid"
+        class="w-full border border-slate-200 disabled:bg-purple-400 py-2 px-3 bg-purple-700 text-white font-bold rounded-md"
+      >
+        Đăng nhập
+      </button>
+
+      <!-- Divider with "Or" -->
+      <div class="my-5 flex items-center">
+        <hr class="flex-grow border-t border-slate-300" />
+        <span class="px-3 text-slate-600 text-sm">Hoặc</span>
+        <hr class="flex-grow border-t border-slate-300" />
+      </div>
+
+      <!-- Social Login Buttons -->
+      <div class="flex justify-center gap-4">
+        <button
+          type="button"
+          (click)="loginWithFacebook()"
+          class="text-blue-600 text-2xl"
+          title="Facebook"
+        >
+          <i class="fa-brands fa-facebook"></i>
         </button>
+        <a href="#" class="text-red-600 text-2xl" title="Google">
+          <i class="fa-brands fa-google"></i>
+        </a>
+      </div>
 
-        <!-- Divider with "Or" -->
-        <div class="my-5 flex items-center">
-            <hr class="flex-grow border-t border-slate-300">
-            <span class="px-3 text-slate-600 text-sm">Hoặc</span>
-            <hr class="flex-grow border-t border-slate-300">
-        </div>
+      <!-- Forgot Password -->
+      <div class="my-3 text-center">
+        <a
+          [routerLink]="['/forgot-password']"
+          class="text-purple-700 hover:underline"
+        >
+          Quên mật khẩu?
+        </a>
+      </div>
 
-        <!-- Social Login Buttons -->
-        <div class="flex justify-center gap-4">
-            <button type="button" (click)="loginWithFacebook()" class="text-blue-600 text-2xl" title="Facebook">
-                <i class="fa-brands fa-facebook"></i>
-            </button>
-            <a href="#" class="text-red-600 text-2xl" title="Google">
-                <i class="fa-brands fa-google"></i>
-            </a>
-        </div>
-
-        <!-- Forgot Password -->
-        <div class="my-3 text-center">
-            <a [routerLink]="['/forgot-password']" class="text-purple-700 hover:underline">
-                Quên mật khẩu?
-            </a>
-        </div>
-
-        <!-- Register Link -->
-        <div class="my-5 text-center">
-            <span class="text-slate-600">Bạn chưa có tài khoản? </span>
-            <a class="text-purple-700 hover:underline" [routerLink]="['/register']">Đăng ký ngay</a>
-        </div>
+      <!-- Register Link -->
+      <div class="my-5 text-center">
+        <span class="text-slate-600">Bạn chưa có tài khoản? </span>
+        <a class="text-purple-700 hover:underline" [routerLink]="['/register']"
+          >Đăng ký ngay</a
+        >
+      </div>
     </form>
-</div>
+  </div>

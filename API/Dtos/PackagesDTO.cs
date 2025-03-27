@@ -10,7 +10,7 @@ namespace DemoGym.Dtos
         public decimal? Price { get; set; }
 
         public string? Duration { get; set; }
-        public Guid BranchId { get; set; }
+        public int BranchId { get; set; }
         [JsonIgnore]
         public virtual Member? Member { get; set; }
     }

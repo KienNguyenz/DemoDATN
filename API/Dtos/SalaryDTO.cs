@@ -8,7 +8,7 @@ namespace DemoGym.Dtos
         public string? role { get; set; }
         public int WorkingDay { get; set; }
         public double SalaryE { get; set; }
-        public Guid EmployeeId { get; set; }
+        public int EmployeeId { get; set; }
         [JsonIgnore]
         public virtual Employee? Employee { get; set; }
     }

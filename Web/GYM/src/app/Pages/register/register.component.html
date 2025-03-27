@@ -1,4 +1,4 @@
-<div class="h-screen flex items-center justify-center">
+<div class="h-screen flex items-center justify-center bg-register">
     <form class="shadow-md rounded-md p-5 bg-white max-w-md min-w-[320px]" [formGroup]="registerForm"  (ngSubmit)="register()">
      <p class="font-bold text-black text-2xl text-center">
         ĐĂNG KÝ TẬP THỬ NGAY
@@ -42,7 +42,7 @@
         <mat-form-field appearance="fill" class="w-full">
             <mat-label>Phone Number</mat-label>
             <input matInput placeholder="Phone Number" formControlName="phoneNumber">
-            <mat-icon matPrefix>phone </mat-icon>
+            <mat-icon matPrefix>phone</mat-icon>
         </mat-form-field>
 
         <!-- Thiết lập role cho người dùng -->

@@ -1,5 +1,5 @@
 p {
-  line-height: 2.4;       /* Tăng khoảng cách dòng giữa các đoạn văn */
+  line-height: 1.6;       /* Tăng khoảng cách dòng giữa các đoạn văn */
 }
 .menu-item {
     position: relative;
@@ -55,23 +55,22 @@ p {
   }
   .image-container {
     width: 100%;
-    max-width: 500px;
-    height: 300px;
+    max-width: 500px; /* Giới hạn chiều rộng */
+    height: 300px;    /* Giữ chiều cao cố định */
     border: 1px solid rgb(240, 190, 75);
-    display: flex;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden; /* Quan trọng: ẩn phần ảnh vượt khung */
+    display: flex;    
     justify-content: center;
     align-items: center;
-    background-color: #fff;
   }
+  
   .image-container img {
-    max-width: 100%;   /* Đảm bảo hình không vượt quá kích thước container */
-  }
-  .image-content {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    object-fit: contain;
+    width: 100%;      /* Ảnh sẽ căng vừa khung chiều ngang */
+    height: 100%;     /* Ảnh chiếm đủ chiều cao container */
+    object-fit: cover;/* Giữ tỉ lệ ảnh, cắt bớt phần thừa, không bị méo */
+    display: block;   /* Bảo đảm không có khoảng trống bên dưới ảnh */
   }
   .custom-list {
     list-style-type: none; /* Xóa dấu mặc định của danh sách */

@@ -96,43 +96,19 @@ namespace DemoGym.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("DemoGym.Entities.DevicesList", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DeviceId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("DeviceName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Origin")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DeviceId")
-                        .IsUnique();
-
-                    b.ToTable("devicesLists", (string)null);
-                });
-
             modelBuilder.Entity("DemoGym.Entities.PTMember", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MemberId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -141,17 +117,19 @@ namespace DemoGym.Migrations
                     b.HasIndex("MemberId")
                         .IsUnique();
 
-                    b.ToTable("PTMembers", (string)null);
+                    b.ToTable("PTMembers");
                 });
 
             modelBuilder.Entity("DemoGym.Entities.Salary", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("SalaryE")
                         .HasColumnType("decimal(18,2)");
@@ -167,7 +145,7 @@ namespace DemoGym.Migrations
                     b.HasIndex("EmployeeId")
                         .IsUnique();
 
-                    b.ToTable("Salaries", (string)null);
+                    b.ToTable("Salaries");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -305,11 +283,21 @@ namespace DemoGym.Migrations
 
             modelBuilder.Entity("SMG.Entities.Branch", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hotline")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -317,36 +305,22 @@ namespace DemoGym.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("branches", (string)null);
-                });
-
-            modelBuilder.Entity("SMG.Entities.Device", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("DeviceType")
+                    b.Property<string>("Zalolink")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RoomId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("devices", (string)null);
+                    b.ToTable("branches");
                 });
 
             modelBuilder.Entity("SMG.Entities.Employee", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -354,8 +328,8 @@ namespace DemoGym.Migrations
                     b.Property<DateOnly?>("Birthday")
                         .HasColumnType("date");
 
-                    b.Property<Guid>("BranchId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
@@ -371,14 +345,16 @@ namespace DemoGym.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("employees", (string)null);
+                    b.ToTable("employees");
                 });
 
             modelBuilder.Entity("SMG.Entities.Member", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -393,8 +369,8 @@ namespace DemoGym.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PackageId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PackageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -404,17 +380,19 @@ namespace DemoGym.Migrations
                     b.HasIndex("PackageId")
                         .IsUnique();
 
-                    b.ToTable("members", (string)null);
+                    b.ToTable("members");
                 });
 
             modelBuilder.Entity("SMG.Entities.Package", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("BranchId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
@@ -430,17 +408,19 @@ namespace DemoGym.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("packages", (string)null);
+                    b.ToTable("packages");
                 });
 
             modelBuilder.Entity("SMG.Entities.Room", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("BranchId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BranchId")
+                        .HasColumnType("int");
 
                     b.Property<string>("RoomName")
                         .IsRequired()
@@ -450,18 +430,7 @@ namespace DemoGym.Migrations
 
                     b.HasIndex("BranchId");
 
-                    b.ToTable("rooms", (string)null);
-                });
-
-            modelBuilder.Entity("DemoGym.Entities.DevicesList", b =>
-                {
-                    b.HasOne("SMG.Entities.Device", "Device")
-                        .WithOne("DevicesList")
-                        .HasForeignKey("DemoGym.Entities.DevicesList", "DeviceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Device");
+                    b.ToTable("rooms");
                 });
 
             modelBuilder.Entity("DemoGym.Entities.PTMember", b =>
@@ -545,15 +514,6 @@ namespace DemoGym.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SMG.Entities.Device", b =>
-                {
-                    b.HasOne("SMG.Entities.Room", null)
-                        .WithMany("Device")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("SMG.Entities.Employee", b =>
                 {
                     b.HasOne("SMG.Entities.Branch", null)
@@ -601,11 +561,6 @@ namespace DemoGym.Migrations
                     b.Navigation("Rooms");
                 });
 
-            modelBuilder.Entity("SMG.Entities.Device", b =>
-                {
-                    b.Navigation("DevicesList");
-                });
-
             modelBuilder.Entity("SMG.Entities.Employee", b =>
                 {
                     b.Navigation("PTMembers");
@@ -621,11 +576,6 @@ namespace DemoGym.Migrations
             modelBuilder.Entity("SMG.Entities.Package", b =>
                 {
                     b.Navigation("Member");
-                });
-
-            modelBuilder.Entity("SMG.Entities.Room", b =>
-                {
-                    b.Navigation("Device");
                 });
 #pragma warning restore 612, 618
         }

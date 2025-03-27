@@ -15,7 +15,7 @@ namespace DemoGym.Dtos
         public string? Address { get; set; }
 
         public string? PhoneNumber { get; set; }
-        public Guid PackageId { get; set; }
+        public int PackageId { get; set; }
         [JsonIgnore]
         public Package? Package { get; set; }
         [JsonIgnore]

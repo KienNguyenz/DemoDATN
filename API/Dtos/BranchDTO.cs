@@ -6,8 +6,10 @@ namespace DemoGym.Dtos
     public class BranchDTO
     {
         public string Name { get; set; } = null!;
-
+        public string Hotline { get; set; }
+        public string Zalolink { get; set; }
         public string Address { get; set; } = null!;
+        public string ImageUrl { get; set; }
         [JsonIgnore]
         public List<Employee>? Employees { get; set; }
         [JsonIgnore]

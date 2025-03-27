@@ -6,10 +6,9 @@ namespace SMG.Entities;
 
 public partial class Room
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     public string RoomName { get; set; } = null!;
-    public Guid BranchId { get; set; }
-    [JsonIgnore]
-    public  List<Device>? Device { get; set; }
+    public int BranchId { get; set; }
+
 }

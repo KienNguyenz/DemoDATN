@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Demo.Database;
-using SMG.Entities;
+using SMG.Entities;       // Hoặc namespace khác nơi chứa Branch
 using DemoGym.Dtos;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Demo.Controllers
 {
-    [Authorize(Roles = "Admin")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class BranchController : ControllerBase
@@ -26,34 +26,61 @@ namespace Demo.Controllers
 
         // GET: api/Branch
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Branch>>> Getbranches()
+        public async Task<ActionResult<IEnumerable<Branch>>> GetBranches()
         {
             return await _context.branches.ToListAsync();
         }
 
         // GET: api/Branch/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Branch>> GetBranch(Guid id)
+        public async Task<ActionResult<Branch>> GetBranch(int id)
         {
             var branch = await _context.branches.FindAsync(id);
+            if (branch == null)
+            {
+                return NotFound();
+            }
+            return branch;
+        }
 
+        // POST: api/Branch
+        [HttpPost]
+        public async Task<ActionResult<Branch>> PostBranch([FromBody] BranchDTO branchDTO)
+        {
+            // Tạo entity từ DTO
+            var branch = new Branch
+            {
+                Name = branchDTO.Name,
+                Hotline = branchDTO.Hotline,
+                Zalolink = branchDTO.Zalolink,
+                Address = branchDTO.Address,
+                ImageUrl = branchDTO.ImageUrl
+            };
+
+            _context.branches.Add(branch);
+            await _context.SaveChangesAsync();
+
+            // Trả về 201 + đường dẫn GET 
+            // kèm object vừa tạo
+            return CreatedAtAction(nameof(GetBranch), new { id = branch.Id }, branch);
+        }
+
+        // PUT: api/Branch/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutBranch(int id, [FromBody] BranchDTO branchDTO)
+        {
+            var branch = await _context.branches.FindAsync(id);
             if (branch == null)
             {
                 return NotFound();
             }
 
-            return branch;
-        }
-
-        // PUT: api/Branch/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBranch(Guid id, Branch branch)
-        {
-            if (id != branch.Id)
-            {
-                return BadRequest();
-            }
+            // Cập nhật từ DTO
+            branch.Name = branchDTO.Name;
+            branch.Hotline = branchDTO.Hotline;
+            branch.Zalolink = branchDTO.Zalolink;
+            branch.Address = branchDTO.Address;
+            branch.ImageUrl = branchDTO.ImageUrl;
 
             _context.Entry(branch).State = EntityState.Modified;
 
@@ -64,39 +91,18 @@ namespace Demo.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!BranchExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
+            // 204 no content
             return NoContent();
-        }
-
-        // POST: api/Branch
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Branch>> PostBranch(BranchDTO branchDTO)
-        {
-            var branch = new Branch
-            {
-                Id = Guid.NewGuid(),
-                Name = branchDTO.Name,
-                Address = branchDTO.Address
-            };
-
-            _context.branches.Add(branch);
-            await _context.SaveChangesAsync();
-
-            return Ok(branch);
         }
 
         // DELETE: api/Branch/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBranch(Guid id)
+        public async Task<IActionResult> DeleteBranch(int id)
         {
             var branch = await _context.branches.FindAsync(id);
             if (branch == null)
@@ -110,7 +116,7 @@ namespace Demo.Controllers
             return NoContent();
         }
 
-        private bool BranchExists(Guid id)
+        private bool BranchExists(int id)
         {
             return _context.branches.Any(e => e.Id == id);
         }
