@@ -33,7 +33,9 @@ namespace Demo.Database
             {
                 entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.MemName);
+                entity.Property(e => e.FirstName);
+                entity.Property(e => e.LastName);
+                entity.Property(e => e.Email);
                 entity.Property(e => e.Birthday);
                 entity.Property(e => e.Gender);
                 entity.Property(e => e.Address);

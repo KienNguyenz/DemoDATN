@@ -11,11 +11,14 @@ import { AuthService } from '../../services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationError } from '../../interfaces/validation-error';
-
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import moment from 'moment';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatIconModule,MatSnackBarModule, CommonModule, MatInputModule,MatSelectModule,RouterLink, MatMenuModule, MatFormFieldModule, ReactiveFormsModule ],
+  imports: [MatIconModule,MatSnackBarModule, CommonModule, MatInputModule,MatSelectModule,RouterLink, MatMenuModule, MatFormFieldModule, ReactiveFormsModule,MatDatepickerModule, MatNativeDateModule,  MatRadioModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -30,6 +33,9 @@ export class RegisterComponent implements OnInit {
   errors!: ValidationError[];
 
   register(){
+    const formData = { ...this.registerForm.value };
+    formData.birthday = moment(this.registerForm.get('birthday')?.value).format('MM-DD-YYYY');
+    
     this.authService.register(this.registerForm.value).subscribe({
       next:(response) =>{
         console.log(response);
@@ -58,6 +64,8 @@ export class RegisterComponent implements OnInit {
       password:['', Validators.required],
       firstName:['', Validators.required],
       lastName:['', Validators.required],
+      gender:['', Validators.required],
+      birthday:['', Validators.required],
       confirmPassword:['', Validators.required],
       phoneNumber:['', Validators.required],
       role: ['Member']

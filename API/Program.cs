@@ -70,6 +70,7 @@ namespace DemoGym
 
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
             builder.Services.AddScoped<EmailService>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
             builder.Services.AddAuthentication(options =>
             {

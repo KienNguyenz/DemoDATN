@@ -56,6 +56,8 @@ export class AuthService {
       email: decodedToken.email,
       fullName:decodedToken.name,
       phoneNumber:decodedToken.phoneNumber,
+      gender:decodedToken.gender,
+      birthday:decodedToken.birthday,
       // roles:decodedToken.role || [],
       roles: Array.isArray(decodedToken.role) ? decodedToken.role : [decodedToken.role],
     }

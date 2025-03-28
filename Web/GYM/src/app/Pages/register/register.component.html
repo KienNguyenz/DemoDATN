@@ -1,52 +1,104 @@
-<div class="h-screen flex items-center justify-center bg-register">
-    <form class="shadow-md rounded-md p-5 bg-white max-w-md min-w-[320px]" [formGroup]="registerForm"  (ngSubmit)="register()">
-     <p class="font-bold text-black text-2xl text-center">
-        ĐĂNG KÝ TẬP THỬ NGAY
-     </p>
-        @for(error of errors; track error){
-        <div class="bg-red-100 border mb-2 flex flex-col gap-2 border-red-400 text-red-400 px4 py4 rounded-md relative">
-            <div class="text-xs p-2 "> {{error.description}} </div>
-        </div>
-     }
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" formControlName="email">
-            <mat-icon matPrefix>email</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Password</mat-label>
-            <input matInput type="{{passwordHide ? 'password' : 'text'}}" placeholder="Password" formControlName="password">
-            <mat-icon matPrefix>lock</mat-icon>
-            <mat-icon (click)="passwordHide = !passwordHide" matSuffix>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Confirm Password</mat-label>
-            <input matInput type="{{confirmPasswordHide ? 'password' : 'text'}}" placeholder="Confirm Password" formControlName="confirmPassword">
-            <mat-icon matPrefix>lock</mat-icon>
-            <mat-icon (click)="confirmPasswordHide = !confirmPasswordHide" matSuffix>{{confirmPasswordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </mat-form-field>
-        <span class="text-red-400"
-        *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.dirty && registerForm.get('confirmPassword')?.touched" >
-            Password do not match.
-        </span>
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>First Name</mat-label>
-            <input matInput placeholder="First Name" formControlName="firstName">
-            <mat-icon matPrefix>person</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last Name" formControlName="lastName">
-            <mat-icon matPrefix>person</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="w-full">
-            <mat-label>Phone Number</mat-label>
-            <input matInput placeholder="Phone Number" formControlName="phoneNumber">
-            <mat-icon matPrefix>phone</mat-icon>
-        </mat-form-field>
+<div class="h-full flex items-center justify-center bg-register">
+  <form
+    class="shadow-md rounded-md p-5 my-20 bg-white mr-96 max-w-md min-w-[320px]"
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+  >
+    <p class="font-bold text-black text-2xl text-center">
+      ĐĂNG KÝ TẬP THỬ NGAY
+    </p>
+    @for(error of errors; track error){
+    <div
+      class="bg-red-100 border mb-2 flex flex-col gap-2 border-red-400 text-red-400 px4 py4 rounded-md relative"
+    >
+      <div class="text-xs p-2">{{ error.description }}</div>
+    </div>
+    }
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" />
+      <mat-icon matPrefix>email</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="{{ passwordHide ? 'password' : 'text' }}"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-icon matPrefix>lock</mat-icon>
+      <mat-icon (click)="passwordHide = !passwordHide" matSuffix>{{
+        passwordHide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        matInput
+        type="{{ confirmPasswordHide ? 'password' : 'text' }}"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+      />
+      <mat-icon matPrefix>lock</mat-icon>
+      <mat-icon
+        (click)="confirmPasswordHide = !confirmPasswordHide"
+        matSuffix
+        >{{ confirmPasswordHide ? "visibility_off" : "visibility" }}</mat-icon
+      >
+    </mat-form-field>
+    <span
+      class="text-red-400"
+      *ngIf="
+        registerForm.hasError('passwordMismatch') &&
+        registerForm.get('confirmPassword')?.dirty &&
+        registerForm.get('confirmPassword')?.touched
+      "
+    >
+      Password do not match.
+    </span>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" formControlName="firstName" />
+      <mat-icon matPrefix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" formControlName="lastName" />
+      <mat-icon matPrefix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        placeholder="Phone Number"
+        formControlName="phoneNumber"
+      />
+      <mat-icon matPrefix>phone</mat-icon>
+    </mat-form-field>
+    <!-- Gender (Radio Buttons) -->
+    <div class="w-full mb-4">
+      <label class="block font-medium mb-1">Gender</label>
+      <mat-radio-group formControlName="gender">
+        <mat-radio-button value="Nam" class="mr-4">Nam</mat-radio-button>
+        <mat-radio-button value="Nữ">Nữ</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-        <!-- Thiết lập role cho người dùng -->
-        <!-- <mat-form-field appearance="fill" class="w-full">
+    <!-- Birthday (Date Picker) -->
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Birthday</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="birthday"
+        placeholder="Chọn ngày sinh"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <!-- Thiết lập role cho người dùng -->
+    <!-- <mat-form-field appearance="fill" class="w-full">
             <mat-label>Roles</mat-label>
             <mat-select multiple>
                 <mat-option>Admin</mat-option>
@@ -54,15 +106,16 @@
             </mat-select>
             <mat-icon matPrefix>groups</mat-icon>
         </mat-form-field> -->
-        <button [disabled]="!registerForm.valid"
-         class="w-full rounded-md text-white border-collapse border-stlate-200 disabled:bg-purple-400 py-2 px-3 bg-purple-700" type="submit">
-            Đăng ký
-        </button>
-        <div class="my-4">
-            <span class="text-slate-600">
-                Bạn đã có tài khoản?
-            </span>
-            <a href="" class="text-purple-700" [routerLink]="['/login']">Đăng nhập</a>
-        </div>
-    </form>
+    <button
+      [disabled]="!registerForm.valid"
+      class="w-full rounded-md text-white border-collapse border-stlate-200 disabled:bg-purple-400 py-2 px-3 bg-purple-700"
+      type="submit"
+    >
+      Đăng ký
+    </button>
+    <div class="my-4">
+      <span class="text-slate-600"> Bạn đã có tài khoản? </span>
+      <a href="" class="text-purple-700" [routerLink]="['/login']">Đăng nhập</a>
+    </div>
+  </form>
 </div>

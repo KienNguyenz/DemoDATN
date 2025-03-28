@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DemoGym.Controllers
 {
-    [Authorize(Roles = "Member")]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class MembersController : ControllerBase
@@ -84,7 +84,9 @@ namespace DemoGym.Controllers
             var member = new Member
             {
                 Id = new int(),
-                MemName = memberDTO.MemName,
+                FirstName = memberDTO.FirstName,
+                LastName = memberDTO.LastName,
+                Email = memberDTO.Email,
                 Birthday = memberDTO.Birthday,
                 Gender = memberDTO.Gender,
                 Address = memberDTO.Address,

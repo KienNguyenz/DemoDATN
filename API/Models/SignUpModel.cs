@@ -17,6 +17,10 @@ namespace DemoGym.Models
         public string ConfirmPassword { get; set; } = null!;
         [Required]
         public string PhoneNumber { get; set; } = null!;
+        [Required]
+        public DateTime Birthday { get; set; }
+        [Required]
+        public string Gender { get; set; }
 
         [Required]
         public string Role { get; set; } = null!;

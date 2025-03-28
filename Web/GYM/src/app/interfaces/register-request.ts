@@ -5,5 +5,7 @@ export interface RegisterRequest{
     lastName: string,
     firstName: string;
     phoneNumber: string;
+    gender: string;
+    birthday: string;
     role: string;
 }

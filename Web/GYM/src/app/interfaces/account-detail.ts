@@ -4,4 +4,6 @@ export interface accountDetail{
     email: string;
     roles: string[];
     phoneNumber: string;
+    gender: string;
+    birthday: Date;
 }

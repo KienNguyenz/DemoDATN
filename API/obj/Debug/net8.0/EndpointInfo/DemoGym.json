@@ -1426,13 +1426,21 @@
             "type": "integer",
             "format": "int32"
           },
-          "memName": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
             "type": "string",
             "nullable": true
           },
           "birthday": {
             "type": "string",
-            "format": "date",
+            "format": "date-time",
             "nullable": true
           },
           "gender": {
@@ -1449,7 +1457,12 @@
           },
           "packageId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "aspNetUserID": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1457,13 +1470,21 @@
       "MemberDTO": {
         "type": "object",
         "properties": {
-          "memName": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
             "type": "string",
             "nullable": true
           },
           "birthday": {
             "type": "string",
-            "format": "date",
+            "format": "date-time",
             "nullable": true
           },
           "gender": {
@@ -1480,7 +1501,12 @@
           },
           "packageId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "aspNetUserID": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1658,9 +1684,11 @@
       },
       "SignUpModel": {
         "required": [
+          "birthday",
           "confirmPassword",
           "email",
           "firstName",
+          "gender",
           "lastName",
           "password",
           "phoneNumber",
@@ -1690,6 +1718,14 @@
             "type": "string"
           },
           "phoneNumber": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
             "minLength": 1,
             "type": "string"
           },

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoGym.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250327072627_dbinit")]
-    partial class dbinit
+    [Migration("20250328051857_new")]
+    partial class @new
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace DemoGym.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("Birthday")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -45,6 +48,9 @@ namespace DemoGym.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -362,17 +368,25 @@ namespace DemoGym.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly?>("Birthday")
-                        .HasColumnType("date");
+                    b.Property<string>("AspNetUserID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Birthday")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MemName")
-                        .IsRequired()
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PackageId")
+                    b.Property<int?>("PackageId")
                         .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
@@ -381,7 +395,8 @@ namespace DemoGym.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PackageId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[PackageId] IS NOT NULL");
 
                     b.ToTable("members");
                 });
@@ -531,8 +546,7 @@ namespace DemoGym.Migrations
                     b.HasOne("SMG.Entities.Package", "Package")
                         .WithOne("Member")
                         .HasForeignKey("SMG.Entities.Member", "PackageId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Package");
                 });

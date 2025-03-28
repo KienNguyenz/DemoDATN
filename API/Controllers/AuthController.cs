@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
 using System.Data;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -31,27 +32,27 @@ namespace DemoGym.Controllers
                 return Unauthorized();
 
             // Xác thực token Facebook bằng cách gọi API Graph của Facebook
-            var response = await httpClient.GetStringAsync($"https://graph.facebook.com/me?access_token={authDto.Token}&fields=id,first_name,email, last_name");
+            var response = await httpClient.GetStringAsync($"https://graph.facebook.com/me?access_token={authDto.Token}&fields=id,first_name,email, last_name, name");
             var userInfo = JObject.Parse(response);
 
             if (userInfo["id"] == null)
                 return Unauthorized();
 
             string email = userInfo["email"]?.ToString();
-            string name = userInfo["first_name"]?.ToString();
+            string name = userInfo["name"]?.ToString();
+            string firstname = userInfo["first_name"]?.ToString();
             string lastname = userInfo["last_name"]?.ToString();
 
             // Kiểm tra xem user đã tồn tại trong hệ thống chưa
             var user = await userManager.FindByEmailAsync(email);
-
             if (user == null)
             {
                 // Nếu chưa có user, tạo tài khoản mới
                 user = new ApplicationUsers
                 {
-                    UserName = email,
+                    UserName = name,
                     Email = email,
-                    FirstName = name,
+                    FirstName = firstname,
                     LastName = lastname,
                 };
 
@@ -74,10 +75,12 @@ namespace DemoGym.Controllers
             new Claim("name", $"{user.FirstName} {user.LastName}"),
             new Claim("nameid", user.Id),
             new Claim("role", "Member"),
+            //new Claim("gender", user.Gender),
+            //new Claim("birthday", user.Birthday.ToString("MM/dd/yyyy")),
 
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
-            
+
             //var userRoles = await userManager.GetRolesAsync(user);
             //foreach (var role in userRoles)
             //{

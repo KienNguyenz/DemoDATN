@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "z5IAJVJfu88=",
+  "dgSpecHash": "XSChcCwce4k=",
   "success": true,
   "projectFilePath": "E:\\DATN\\DemoDATN\\API\\DemoGym.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kien0\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\kien0\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",

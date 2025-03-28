@@ -5,12 +5,14 @@
         let branch of branches"
       class="flex items-center border rounded-lg shadow-md p-4 min-h-56"
     >
+    <a [routerLink]="['/branch-detail', branch.id]">
       <img 
         [src]="branch.imageUrl" 
         [alt]="branch.name" 
         title="name"
         class="w-56 h-40 object-fill rounded-md"
       />
+    </a>
       <div class="ml-4">
         <h2 class="text-lg font-bold">{{ branch.name }}</h2>
         <p class="text-sm text-gray-600">Hotline: {{ branch.hotline }}</p>
@@ -25,7 +27,7 @@
             <img src="assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
           </a>
         </div>
-        <a title="Chi tiết" href="#" class="more-content text-sm mt-2 block">XEM CHI TIẾT &gt;</a>
+        <a title="Chi tiết" [routerLink]="['/branch-detail', branch.id]" class="more-content text-sm mt-2 block">XEM CHI TIẾT &gt;</a>
       </div>
     </div>
   </div>
