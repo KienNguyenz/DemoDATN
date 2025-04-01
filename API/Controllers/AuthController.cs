@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
-using System.Data;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+
 namespace DemoGym.Controllers
 {
     [Route("api/auth")]
@@ -31,34 +31,64 @@ namespace DemoGym.Controllers
             if (string.IsNullOrEmpty(authDto.Token))
                 return Unauthorized();
 
-            // Xác thực token Facebook bằng cách gọi API Graph của Facebook
-            var response = await httpClient.GetStringAsync($"https://graph.facebook.com/me?access_token={authDto.Token}&fields=id,first_name,email, last_name, name");
+            // Gọi API Graph của Facebook với URL được chuẩn hóa (không có khoảng trắng thừa)
+            string fbUrl = $"https://graph.facebook.com/me?access_token={authDto.Token}&fields=id,first_name,email,last_name,name,picture,gender,birthday";
+            var response = await httpClient.GetStringAsync(fbUrl);
             var userInfo = JObject.Parse(response);
 
             if (userInfo["id"] == null)
                 return Unauthorized();
 
             string email = userInfo["email"]?.ToString();
-            string name = userInfo["name"]?.ToString();
-            string firstname = userInfo["first_name"]?.ToString();
-            string lastname = userInfo["last_name"]?.ToString();
+            if (string.IsNullOrEmpty(email))
+                return BadRequest(new { message = "Email không được cung cấp bởi Facebook." });
 
-            // Kiểm tra xem user đã tồn tại trong hệ thống chưa
+            string name = userInfo["name"]?.ToString() ?? "";
+            string firstname = userInfo["first_name"]?.ToString() ?? "";
+            string lastname = userInfo["last_name"]?.ToString() ?? "";
+            // Lấy URL của ảnh đại diện từ đối tượng picture
+            string picture = userInfo["picture"]?["data"]?["url"]?.ToString() ?? "";
+            string gender = userInfo["gender"]?.ToString();
+            string birthdayStr = userInfo["birthday"]?.ToString();
+
+            // Parse birthday nếu có (có thể cần xử lý định dạng tùy thuộc vào dữ liệu từ Facebook)
+            DateTime? birthday = null;
+            if (!string.IsNullOrEmpty(birthdayStr))
+            {
+                // Thử parse theo định dạng MM/dd/yyyy
+                if (DateTime.TryParseExact(birthdayStr, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                {
+                    birthday = parsedDate;
+                }
+                else
+                {
+                    // Hoặc dùng DateTime.Parse nếu định dạng khác
+                    birthday = DateTime.Parse(birthdayStr);
+                }
+            }
+
+            // Kiểm tra xem user đã tồn tại chưa
             var user = await userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                // Nếu chưa có user, tạo tài khoản mới
+                // Nếu chưa, tạo user mới với email làm UserName
                 user = new ApplicationUsers
                 {
-                    UserName = name,
+                    UserName = email,
                     Email = email,
                     FirstName = firstname,
                     LastName = lastname,
+                    Picture = picture,
+                    Gender = gender,
+                    Birthday = birthday
                 };
 
                 var createResult = await userManager.CreateAsync(user);
                 if (!createResult.Succeeded)
-                    return BadRequest(new { message = "Không thể tạo tài khoản mới." });
+                    return BadRequest(new { message = "Không thể tạo tài khoản mới.", errors = createResult.Errors });
+
+                // Thêm user vào role "Member"
+                await userManager.AddToRoleAsync(user, "Member");
             }
 
             // Tạo JWT Token
@@ -70,22 +100,15 @@ namespace DemoGym.Controllers
         private async Task<string> GenerateJwtToken(ApplicationUsers user)
         {
             var authClaims = new List<Claim>
-        {
-            new Claim("email", user.Email),
-            new Claim("name", $"{user.FirstName} {user.LastName}"),
-            new Claim("nameid", user.Id),
-            new Claim("role", "Member"),
-            //new Claim("gender", user.Gender),
-            //new Claim("birthday", user.Birthday.ToString("MM/dd/yyyy")),
-
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        };
-
-            //var userRoles = await userManager.GetRolesAsync(user);
-            //foreach (var role in userRoles)
-            //{
-            //    authClaims.Add(new Claim("role", "Member"));
-            //}
+            {
+                new Claim("email", user.Email),
+                new Claim("name", $"{user.FirstName} {user.LastName}"),
+                new Claim("nameid", user.Id),
+                new Claim("role", "Member"),
+                new Claim("gender", user.Gender ?? ""),
+                new Claim("birthday", user.Birthday?.ToString("MM/dd/yyyy") ?? ""),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            };
 
             var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
 
@@ -100,6 +123,7 @@ namespace DemoGym.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
+
     public class FacebookAuthDto
     {
         public string Token { get; set; }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { map, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthResponse } from '../interfaces/auth-response';
 import { LoginRequest } from '../interfaces/login-request';
 import { jwtDecode } from 'jwt-decode';
@@ -63,7 +63,22 @@ export class AuthService {
     }
     return userDetail;
   }
+  getAccountDetail(): Observable<accountDetail> {
+    const token = this.getToken(); // Lấy token từ localStorage
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get<accountDetail>(`${this.apiUrl}Account/detail`, { headers });
+  }
 
+  /// Cập nhật thông tin tài khoản
+updateAccountDetail(model: accountDetail): Observable<any> {
+  const token = this.getToken(); // Lấy token từ localStorage
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+  return this.http.put(`${this.apiUrl}Account/detail`, model, { headers });
+}
   isLoggedIn=():boolean=>{
     const token = this.getToken();
     if(!token) return false;

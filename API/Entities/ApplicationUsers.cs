@@ -9,5 +9,6 @@ namespace DemoGym.Entities
         public DateTime? Birthday { get; set; }
         public string? Gender { get; set; }
         public string? Role { get; set; }
+        public string? Picture { get; set; }
     }
 }

@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "DemoGym.Controllers.AccountController",
+    "Method": "GetAccountDetail",
+    "RelativePath": "api/Account/detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.AccountController",
+    "Method": "UpdateAccountDetail",
+    "RelativePath": "api/Account/detail",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "DemoGym.Dtos.AccountDetailDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.AccountController",
     "Method": "SignIn",
     "RelativePath": "api/Account/SignIn",
     "HttpMethod": "POST",

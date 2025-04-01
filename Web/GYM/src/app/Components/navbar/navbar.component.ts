@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import {MatMenuModule} from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { accountDetail } from '../../interfaces/account-detail';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -15,10 +16,24 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  authService = inject(AuthService);
+  accountDetail!: accountDetail | null;
+  
+    constructor(private authService: AuthService,
+      private router: Router
+    ) {}
   matSnackBar = inject(MatSnackBar);
-  router = inject(Router);
-
+  ngOnInit(): void {
+    this.authService.getAccountDetail().subscribe({
+      next: (res) => {
+        this.accountDetail = res;
+      },
+      error: (err) => {
+        console.error('Không lấy được thông tin user:', err);
+        // Chuyển về home hoặc login
+        this.router.navigate(['/']);
+      }
+    });
+  }
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }

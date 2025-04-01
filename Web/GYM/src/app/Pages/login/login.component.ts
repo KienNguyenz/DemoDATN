@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
           duration: 3000,
           horizontalPosition: 'center'
         });
-        this.router.navigate(['/']);
+        window.location.href = '/'
       },
       error: (error) => {
         this.matSnackBar.open(error.error.message, 'Close', {
@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
               horizontalPosition: 'center'
             });
             localStorage.setItem('token', res.token);
-            this.router.navigate(['/']);
+            window.location.href = '/'
           },
           error: (error) => {
             this.matSnackBar.open('Facebook login failed!', 'Close', {

@@ -35,3 +35,6 @@
 .navbar-sticky{
   position: sticky; top: 0; z-index: 999; background-color: #fff;
 }
+.color{
+  color: rgb(180, 145, 70)
+}

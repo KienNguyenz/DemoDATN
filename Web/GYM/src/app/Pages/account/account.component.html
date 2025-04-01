@@ -1,4 +1,4 @@
-<div class="h-screen justify-center flex items-center">
+<!-- <div class="h-screen justify-center flex items-center">
     <div class="container my-8 p-8 bg-white  shadow-md rounded-md max-w-md">
       <h1 class="text-3xl text-gray-600 font-bold mb-4 text-center">
         Account Detail
@@ -36,4 +36,131 @@
       </div>
     </div>
   </div>
-  
+   -->
+
+<div class="h-screen justify-center flex items-center">
+  <div class="container my-8 p-8 bg-white shadow-md rounded-md max-w-md">
+    <h1 class="text-3xl text-gray-600 font-bold mb-4 text-center">
+      Account Detail
+    </h1>
+    <div *ngIf="accountDetail as user">
+      <div class="text-center relative">
+        <!-- Avatar Preview -->
+        <div class="w-24 h-24 mx-auto">
+          <img
+            *ngIf="user.picture; else placeholder"
+            [src]="user.picture"
+            alt="Avatar"
+            class="rounded-full object-cover w-24 h-24"
+          />
+          <ng-template #placeholder>
+            <div
+              class="rounded-full bg-blue-500 my-4 text-4xl w-24 h-24 inline-flex items-center justify-center font-bold text-white"
+            >
+              {{ (user.firstName || "?")[0] | uppercase }}
+            </div>
+          </ng-template>
+        </div>
+        <!-- Input tải ảnh lên -->
+        <input
+          type="file"
+          title="choose file"
+          (change)="onAvatarSelected($event)"
+          accept="image/*"
+          class="mt-2"
+        />
+      </div>
+      <hr class="py-4 border-gray-400" />
+
+      <!-- Các trường chỉnh sửa thông tin -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="text-gray-600 font-bold">Full Name</div>
+        <div class="text-gray-800 font-medium">
+          <input
+            title="fullname"
+            type="text"
+            [(ngModel)]="fullName"
+            placeholder="First Name"
+            class="border border-gray-300 rounded-md p-1 w-full"
+          />
+        </div>
+
+        <div class="text-gray-600 font-bold">Email (UserName)</div>
+        <div class="text-gray-800 font-medium">
+          <!-- Nếu muốn cho sửa Email, bạn cần cẩn trọng vì Identity có logic riêng -->
+          <!-- Thường Email là UserName => Sửa phức tạp hơn, có thể ẩn -->
+          <!-- Ở đây chỉ hiển thị (disabled) -->
+          <input
+            title="email"
+            type="email"
+            [(ngModel)]="user.email"
+            disabled
+            class="border border-gray-300 rounded-md p-1 w-full"
+          />
+        </div>
+
+        <div class="text-gray-600 font-bold">Gender</div>
+        <div class="text-gray-800 font-medium">
+          <select
+            title="Gender"
+            [(ngModel)]="user.gender"
+            class="border border-gray-300 rounded-md p-1 w-full"
+          >
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
+
+        <div class="text-gray-600 font-bold">Birthday</div>
+        <div class="text-gray-800 font-medium">
+          <input
+            title="birthday"
+            type="date"
+            class=" border border-gray-300"
+            [ngModel]="
+              user.birthday ? (user.birthday | date : 'yyyy-MM-dd') : ''
+            "
+            (ngModelChange)="user.birthday = $event"
+          />
+        </div>
+
+        <div class="text-gray-600 font-bold">Role</div>
+        <div class="text-white font-medium">
+          <a
+            title="Role"
+            placeholder="Role"
+            class="border border-gray-50 bg-blue-500 rounded-md p-1 w-full"
+          >{{user.role}}</a>
+        </div>
+
+        <div class="text-gray-600 font-bold">Phone</div>
+        <div class="text-gray-800 font-medium">
+          <input
+            type="text"
+            title="phoneNumber"
+            [(ngModel)]="user.phoneNumber"
+            placeholder="Phone"
+            class="border border-gray-300 rounded-md p-1 w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Nút Lưu và Huỷ -->
+      <div class="mt-6 flex justify-around">
+        <button
+          (click)="onSave()"
+          class="bg-green-600 text-white py-2 px-4 rounded-md"
+        >
+          Lưu
+        </button>
+        <button
+          (click)="onCancel()"
+          class="bg-gray-600 text-white py-2 px-4 rounded-md"
+        >
+          Huỷ
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
