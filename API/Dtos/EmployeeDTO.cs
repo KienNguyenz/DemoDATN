@@ -6,9 +6,10 @@ namespace DemoGym.Dtos
     public class EmployeeDTO
     {
         public string Name { get; set; } = null!;
-
+        public string NickName { get; set; } = null!;
+        public string Describe { get; set; }
+        public string Strength { get; set; }
         public string? Role { get; set; }
-
         public DateOnly? Birthday { get; set; }
 
         public string? Gender { get; set; }

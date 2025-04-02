@@ -83,12 +83,17 @@ namespace DemoGym.Controllers
             {
                 Id = new int(),
                 Name = employeeDTO.Name,
+                NickName = employeeDTO.NickName,
+                Describe = employeeDTO.Describe,
+                Strength = employeeDTO.Strength,
+                Role = employeeDTO.Role,
                 Birthday = employeeDTO.Birthday,
                 Gender = employeeDTO.Gender,
                 Address = employeeDTO.Address,
                 PhoneNumber = employeeDTO.PhoneNumber,
                 BranchId = employeeDTO.BranchId,
-            };
+                 
+    };
 
             _context.employees.Add(employees);
             await _context.SaveChangesAsync();

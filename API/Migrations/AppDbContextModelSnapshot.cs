@@ -77,7 +77,6 @@ namespace DemoGym.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Picture")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
@@ -341,6 +340,10 @@ namespace DemoGym.Migrations
                     b.Property<int>("BranchId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Describe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -348,7 +351,18 @@ namespace DemoGym.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NickName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Strength")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

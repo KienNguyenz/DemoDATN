@@ -1420,6 +1420,22 @@
             "type": "string",
             "nullable": true
           },
+          "nickName": {
+            "type": "string",
+            "nullable": true
+          },
+          "describe": {
+            "type": "string",
+            "nullable": true
+          },
+          "strength": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
           "birthday": {
             "type": "string",
             "format": "date",
@@ -1448,6 +1464,18 @@
         "type": "object",
         "properties": {
           "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nickName": {
+            "type": "string",
+            "nullable": true
+          },
+          "describe": {
+            "type": "string",
+            "nullable": true
+          },
+          "strength": {
             "type": "string",
             "nullable": true
           },
@@ -1540,6 +1568,10 @@
             "format": "int32",
             "nullable": true
           },
+          "picture": {
+            "type": "string",
+            "nullable": true
+          },
           "aspNetUserID": {
             "type": "string",
             "nullable": true
@@ -1582,6 +1614,10 @@
           "packageId": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "picture": {
+            "type": "string",
             "nullable": true
           },
           "aspNetUserID": {

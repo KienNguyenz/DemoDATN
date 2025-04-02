@@ -1,4 +1,4 @@
 .bg-register {
-    background: url('../../../assets/Sign-In-Up/bg_choose_me.png') no-repeat center center;
+    background: url('http://127.0.0.1:9000/gym/assets/Sign-In-Up/bg_choose_me.png') no-repeat center center;
     background-size: cover;
   }

@@ -23,16 +23,18 @@ export class NavbarComponent {
     ) {}
   matSnackBar = inject(MatSnackBar);
   ngOnInit(): void {
-    this.authService.getAccountDetail().subscribe({
-      next: (res) => {
-        this.accountDetail = res;
-      },
-      error: (err) => {
-        console.error('Không lấy được thông tin user:', err);
-        // Chuyển về home hoặc login
-        this.router.navigate(['/']);
-      }
-    });
+    if (this.authService.isLoggedIn()) {
+      this.authService.getAccountDetail().subscribe({
+        next: (res) => {
+          this.accountDetail = res;
+        },
+        error: (err) => {
+          console.error('Không lấy được thông tin user:', err);
+          // Chuyển về home hoặc login
+          this.router.navigate(['/']);
+        }
+      });
+    }
   }
   isLoggedIn() {
     return this.authService.isLoggedIn();

@@ -25,6 +25,7 @@ public partial class Member
 
     public string? PhoneNumber { get; set; }
     public int? PackageId { get; set; }
+    public string? Picture { get; set; }
     public string? AspNetUserID { get; set; }
     [JsonIgnore]
     public  Package? Package { get; set; }

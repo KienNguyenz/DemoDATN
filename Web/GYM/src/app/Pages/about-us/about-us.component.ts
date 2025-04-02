@@ -35,7 +35,7 @@ export class AboutUsComponent {
     {
       name: 'KHUẤT THỊ PHỤNG',
       subtitle: 'U50, hành trình giảm 10kg trong 100 ngày',
-      image: 'assets/About-us/khuatthiphung1.jpg',
+      image: 'http://127.0.0.1:9000/gym/assets/About-us/khuatthiphung1.jpg',
       alt: 'Khuatthiphung',
       content: [
         ' Mình 49 tuổi, từng mổ gối vì rách sụn chêm và vặn xoắn dây chằng. Áp lực cuộc sống và sức khỏe kém sau phẫu thuật đã khiến mình mất ngủ trường kỳ. Vì uống thuốc ngủ, tất cả quần áo trong tủ đồ chật ních không mặc được, cân nặng mình tăng vùn vụt từ 57 lên 64kg.',
@@ -52,7 +52,7 @@ export class AboutUsComponent {
     {
       name: 'NGUYỄN QUANG LÂM',
       subtitle: 'Tình trạng sức khỏe xuống dốc ở tuổi 70',
-      image: 'assets/About-us/quanglam.jpg',
+      image: 'http://127.0.0.1:9000/gym/assets/About-us/quanglam.jpg',
       alt: 'QuangLam',
       content: [
         '<strong>Tình trạng sức khỏe xuống dốc ở tuổi 70 </strong>',

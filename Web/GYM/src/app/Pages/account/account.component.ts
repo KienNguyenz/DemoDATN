@@ -17,24 +17,26 @@ export class AccountComponent implements OnInit {
 
   constructor(private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.authService.getAccountDetail().subscribe({
-      next: (res) => {
-        this.accountDetail = res;
-      },
-      error: (err) => {
-        console.error('Không lấy được thông tin user:', err);
-        // Chuyển về home hoặc login
-        this.router.navigate(['/']);
-      }
-    });
+    if (this.authService.isLoggedIn()) {
+      this.authService.getAccountDetail().subscribe({
+        next: (res) => {
+          this.accountDetail = res;
+        },
+        error: (err) => {
+          console.error('Không lấy được thông tin user:', err);
+          // Chuyển về home hoặc login
+          this.router.navigate(['/']);
+        }
+      });
+    }
   }
   get fullName(): string {
     return this.accountDetail ? `${this.accountDetail.lastName} ${this.accountDetail.firstName}`.trim() : '';
   }
-  
+
   set fullName(value: string) {
     if (this.accountDetail) {
       if (value.endsWith(' ')) {
@@ -47,8 +49,8 @@ export class AccountComponent implements OnInit {
       this.accountDetail.lastName = lastName;
     }
   }
-  
-  
+
+
   onAvatarSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {

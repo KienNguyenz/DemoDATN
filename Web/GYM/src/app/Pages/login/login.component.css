@@ -13,6 +13,6 @@
     height: 40px;
 }
 .bg-login {
-    background: url('../../../assets/Sign-In-Up/upscalemedia-transformed\ \(1\).jpeg') no-repeat center center;
+    background: url('http://127.0.0.1:9000/gym/assets/Sign-In-Up/upscalemedia-transformed\ \(1\).jpeg') no-repeat center center;
     background-size: cover;
   }

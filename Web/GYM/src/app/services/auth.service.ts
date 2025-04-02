@@ -63,6 +63,11 @@ export class AuthService {
     }
     return userDetail;
   }
+  isLoggedIn=():boolean=>{
+    const token = this.getToken();
+    if(!token) return false;
+    return !this.isTokenExpired();
+  } 
   getAccountDetail(): Observable<accountDetail> {
     const token = this.getToken(); // Lấy token từ localStorage
     const headers = new HttpHeaders({
@@ -79,11 +84,7 @@ updateAccountDetail(model: accountDetail): Observable<any> {
   });
   return this.http.put(`${this.apiUrl}Account/detail`, model, { headers });
 }
-  isLoggedIn=():boolean=>{
-    const token = this.getToken();
-    if(!token) return false;
-    return !this.isTokenExpired();
-  }
+  
 
   private isTokenExpired() {
     const token = this.getToken();
