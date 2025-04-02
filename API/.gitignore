@@ -13,6 +13,7 @@ Generated_Code/
 
 # Visual Studio
 .vs/
+*.vsidx
 *.user
 *.suo
 *.userosscache
