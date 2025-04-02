@@ -76,11 +76,12 @@ namespace DemoGym.Controllers
                 {
                     UserName = email,
                     Email = email,
-                    FirstName = firstname,
+                    FirstName = name,
                     LastName = lastname,
                     Picture = picture,
                     Gender = gender,
-                    Birthday = birthday
+                    Birthday = birthday,
+                    Role = "Member",
                 };
 
                 var createResult = await userManager.CreateAsync(user);
@@ -102,7 +103,8 @@ namespace DemoGym.Controllers
             var authClaims = new List<Claim>
             {
                 new Claim("email", user.Email),
-                new Claim("name", $"{user.FirstName} {user.LastName}"),
+                //new Claim("name", $"{user.LastName} {user.FirstName} "),
+                new Claim("name", $"{user.FirstName}"),
                 new Claim("nameid", user.Id),
                 new Claim("role", "Member"),
                 new Claim("gender", user.Gender ?? ""),

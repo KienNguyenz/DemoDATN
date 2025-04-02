@@ -1,0 +1,56 @@
+##############################
+#      .NET / C# Backend     #
+#      Git Ignore Setup      #
+##############################
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+build/
+out/
+Generated_Code/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Rider / ReSharper / VS Code
+.idea/
+_ReSharper*/
+*.DotSettings.user
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Logs and reports
+*.log
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Entity Framework / Migrations (optional)
+#migrations/
+
+# Secrets and config
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+secrets.json
+
+# OS-specific files
+.DS_Store
+Thumbs.db
