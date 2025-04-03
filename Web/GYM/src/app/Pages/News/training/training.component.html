@@ -1,173 +1,38 @@
 <div class="container mx-auto my-8 px-6">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/ava1.jpg"
-            title="ava1"
-            class="image-content"
-          />
-        </a>
+    <div *ngFor="let news of pagedNewsList | paginate: { itemsPerPage: 6, currentPage: currentPage }" class="flex flex-col items-center">
+      <div id="newsContainer" class="flex flex-col items-center">
+        <div class="image-container">
+          <a [routerLink]="[news.routerLink]">
+            <img [src]="news.image" title="{{news.title}}" class="image-content" />
+          </a>
+        </div>
+        <b class="mt-4 text-justify text-gray-700">
+          <button [routerLink]="[news.routerLink]" class="menu-item">
+            {{ news.title }}
+          </button>
+        </b>
       </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          COUPLE YOGA – SỨC MẠNH CỦA SỰ ĐỒNG HÀNH
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train2']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-17.jpg"
-            title="Bộ 10 ảnh web Bơi"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train2']" class="menu-item">
-          GỢI Ý TOP CÁC BỂ BƠI NƯỚC MẶN 5 SAO Ở HÀ NỘI
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train3']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-19.jpg"
-            title="Bộ 10 ảnh web Bơi-19"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train3']" class="menu-item">
-          BỂ BƠI NƯỚC MẶN ELITE FITNESS CÓ ĐẠT CHUẨN QUỐC TẾ?
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train4']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-18.jpg"
-            title="Bộ 10 ảnh web Bơi-18"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train4']" class="menu-item">
-          ELITE FITNESS SỞ HỮU BỂ BƠI NƯỚC MẶN HIỆN ĐẠI NHẤT
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-16.jpg"
-            title="Bộ 10 ảnh web Bơi-16"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          BƠI BỂ NƯỚC MẶN Ở ĐÂU TỐT NHẤT?
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-20.jpg"
-            title="Bộ 10 ảnh web Bơi-20"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          BỂ BƠI NƯỚC MẶN: 10 BỂ BƠI ĐẸP VÀ TỐT NHẤT HIỆN NAY
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-15.jpg"
-            title="Bộ 10 ảnh web Bơi-15"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          TOP CÁC BỂ BƠI NƯỚC MẶN HIỆN ĐẠI NHẤT Ở HÀ NỘI
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-12.jpg"
-            title="Bộ 10 ảnh web Bơi-12"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          BỂ BƠI NƯỚC MẶN VÀ BỂ BƠI THƯỜNG CÓ GÌ KHÁC NHAU?
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/Bộ 10 ảnh web Bơi-11.jpg"
-            title="Bộ 10 ảnh web Bơi-11"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          BỂ BƠI NƯỚC MẶN LÀ GÌ? LỢI ÍCH SỨC KHỎE KHÔNG PHẢI AI CŨNG BIẾT
-        </button>
-      </b>
-    </div>
-
-    <div id="newsContainer" class="flex flex-col items-center">
-      <div class="image-container">
-        <a [routerLink]="['/news/train1']">
-          <img
-            src="http://127.0.0.1:9000/gym/assets/Training/ảnh_Viber_2024-04-09_10-21-47-071.jpg"
-            title="ảnh_Viber_2024-04-09_10-21-47-071"
-            class="image-content"
-          />
-        </a>
-      </div>
-      <b class="mt-4 text-justify text-gray-700">
-        <button [routerLink]="['/news/train1']" class="menu-item">
-          MẠNH MẼ TRONG THẾ GIỚI YOGA STICK
-        </button></b
-      >
     </div>
   </div>
+</div>
+
+<div class="flex text-center mt-4 justify-end">
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+    [autoHide]="true"
+    previousLabel=""
+    nextLabel=""
+    class="inline-flex space-x-2"
+  >
+    <ng-template let-page="page" let-isCurrent="isCurrentPage">
+      <button
+        class="px-3 py-1 text-lg"
+        [ngClass]="{ 'text-orange-500 font-bold': isCurrent }"
+        (click)="setPage(page)"
+      >
+        {{ page }}
+      </button>
+    </ng-template>
+  </pagination-controls>
 </div>

@@ -7,6 +7,7 @@ namespace SMG.Entities;
 public partial class Branch
 {
     public int Id { get; set; }
+    public string routerLink { get; set; }
 
     public string Name { get; set; } = null!;
     public string  Hotline { get; set; }

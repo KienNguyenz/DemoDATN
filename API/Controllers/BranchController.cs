@@ -50,6 +50,7 @@ namespace Demo.Controllers
             // Tạo entity từ DTO
             var branch = new Branch
             {
+                routerLink = branchDTO.routerLink,
                 Name = branchDTO.Name,
                 Hotline = branchDTO.Hotline,
                 Zalolink = branchDTO.Zalolink,
@@ -76,6 +77,7 @@ namespace Demo.Controllers
             }
 
             // Cập nhật từ DTO
+            branch.routerLink = branchDTO.routerLink;
             branch.Name = branchDTO.Name;
             branch.Hotline = branchDTO.Hotline;
             branch.Zalolink = branchDTO.Zalolink;
