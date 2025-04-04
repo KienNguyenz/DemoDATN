@@ -1360,11 +1360,11 @@
             "type": "integer",
             "format": "int32"
           },
-          "routerLink": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "name": {
+          "description": {
             "type": "string",
             "nullable": true
           },
@@ -1390,11 +1390,11 @@
       "BranchDTO": {
         "type": "object",
         "properties": {
-          "routerLink": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "name": {
+          "description": {
             "type": "string",
             "nullable": true
           },
@@ -1461,6 +1461,10 @@
             "type": "string",
             "nullable": true
           },
+          "pictureUrl": {
+            "type": "string",
+            "nullable": true
+          },
           "branchId": {
             "type": "integer",
             "format": "int32"
@@ -1505,6 +1509,10 @@
             "nullable": true
           },
           "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "pictureUrl": {
             "type": "string",
             "nullable": true
           },

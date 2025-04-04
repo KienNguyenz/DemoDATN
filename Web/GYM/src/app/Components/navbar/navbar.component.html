@@ -81,12 +81,12 @@
           [matMenuTriggerFor]="menu"
           class="flex gap-2 cursor-pointer items-center"
         >
-          <div class="w-16 h-16 mx-auto">
+          <div class="w-12 h-12 mx-auto">
             <img
               *ngIf="user.picture; else placeholder"
               [src]="user.picture"
               alt="Avatar"
-              class="rounded-full object-contain w-16 h-16"
+              class="rounded-full object-contain w-12 h-12"
             />
             <ng-template #placeholder>
               <div

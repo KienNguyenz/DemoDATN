@@ -21,6 +21,7 @@ public partial class Employee
     public string? Address { get; set; }
 
     public string? PhoneNumber { get; set; }
+    public  string? PictureUrl { get; set; }
     public int BranchId { get; set; }
     [JsonIgnore]
     public virtual Salary? Salary { get; set; }

@@ -5,8 +5,8 @@ namespace DemoGym.Dtos
 {
     public class BranchDTO
     {
-        public string routerLink { get; set; }
         public string Name { get; set; } = null!;
+        public string Description { get; set; }
         public string Hotline { get; set; }
         public string Zalolink { get; set; }
         public string Address { get; set; } = null!;

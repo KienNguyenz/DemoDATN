@@ -31,8 +31,9 @@ import { Nutri9Component } from './Pages/News/nutri/nutri9/nutri9.component';
 import { PersonalTrainerComponent } from './Pages/personal-trainer/personal-trainer.component';
 import { HopeComponent } from './Pages/hope/hope.component';
 import { PromotionalComponent } from './Pages/promotional/promotional.component';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { SportsComponent } from './Pages/Sports/sports/sports.component';
+import { BranchesComponent } from './Pages/branches/branches.component';
 
 export const routes: Routes = [
     {path: '',component: HomeComponent},
@@ -61,6 +62,7 @@ export const routes: Routes = [
     { path: 'news/nutrition8', component: Nutri8Component },
     { path: 'news/nutrition9', component: Nutri9Component },
     { path: 'news/nutrition10', component: Nutri10Component },
+    { path: 'branch-detail/:id' , component: BranchesComponent},
     {path: 'news',
     component: MainLayoutComponent, 
     children: [
@@ -74,6 +76,7 @@ export const routes: Routes = [
   { path: 'promotional', component: PromotionalComponent },
   { path: 'sports', component: SportsComponent },
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {

@@ -9,6 +9,7 @@ export interface Branch {
   address: string;
   zalolink: string;
   imageUrl: string;
+  description: string;
 }
 
 @Injectable({
