@@ -11,7 +11,6 @@ namespace DemoGym.Dtos
         public string Zalolink { get; set; }
         public string Address { get; set; } = null!;
         public string ImageUrl { get; set; }
-        [JsonIgnore]
         public List<Employee>? Employees { get; set; }
         [JsonIgnore]
         public List<RoomDTO>? Rooms { get; set; }

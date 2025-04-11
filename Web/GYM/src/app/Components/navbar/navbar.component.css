@@ -1,3 +1,26 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+::ng-deep .custom-menu.mat-menu-panel {
+  min-width: 300px !important;   /* Ép chiều rộng tối thiểu là 300px */
+  width: 300px !important;         /* Ép chiều rộng cố định là 300px */
+}
+
+.mobile-menu-button {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
 .custom-button {
   position: relative;
   text-decoration: none;
@@ -25,16 +48,44 @@
 
 /* Khi đang ở trang hiện tại, giữ màu vàng hoặc màu nổi bật */
 .active-button {
-  color: rgb(180, 145, 70) !important; /* Thay đổi màu chữ cho mục đang active */
+  color: rgb(180, 145, 70) !important;
   scale: 120%;
 }
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
 
+@media (max-width: 768px) {
+  .navbar-sticky {
+    justify-content: space-between;
+  }
+  /* Sử dụng thuộc tính order để thay đổi thứ tự khi ở mobile */
+  .navbar-left {
+    order: 1;
+  }
+  .navbar-center {
+    order: 2;
+    flex: 1;        /* Chiếm phần còn lại */
+    text-align: center;
+  }
+  .navbar-right {
+    order: 3;
+  }
+}
 .active-button::after {
-  width: 100%; /* Hiển thị dòng kẻ dài khi active */
+  width: 100%;
 }
-.navbar-sticky{
-  position: sticky; top: 0; z-index: 999; background-color: #fff;
+
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
 }
-.color{
-  color: rgb(180, 145, 70)
+
+.color {
+  color: rgb(180, 145, 70);
 }

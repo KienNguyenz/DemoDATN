@@ -36,14 +36,15 @@ import { SportsComponent } from './Pages/Sports/sports/sports.component';
 import { BranchesComponent } from './Pages/branches/branches.component';
 
 export const routes: Routes = [
-    {path: '',component: HomeComponent},
+  { path: '', redirectTo: '/about-us', pathMatch: 'full' },
+  { path: 'about-us', component: AboutUsComponent },
+    {path: 'home',component: HomeComponent},
     {path: 'login',component: LoginComponent},
     {path: 'register',component: RegisterComponent},
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
     { path: 'reset-password/:token', component: ResetPasswordComponent },
     { path: 'account/:id', component: AccountComponent },
-    { path: 'about-us', component: AboutUsComponent },
     { path: 'news/news1', component: New1Component },
     { path: 'news/news2', component: New2Component },
     { path: 'news/news3', component: New3Component },
@@ -62,7 +63,7 @@ export const routes: Routes = [
     { path: 'news/nutrition8', component: Nutri8Component },
     { path: 'news/nutrition9', component: Nutri9Component },
     { path: 'news/nutrition10', component: Nutri10Component },
-    { path: 'branch-detail/:id' , component: BranchesComponent},
+    { path: 'home/branch-detail/:id' , component: BranchesComponent},
     {path: 'news',
     component: MainLayoutComponent, 
     children: [

@@ -1,33 +1,100 @@
+.bg-color {
+  background-color: rgb(180, 145, 70);
+}
 
-  .bg-color{
-    background-color: rgb(180, 145, 70);
+/* Container căn giữa nội dung */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.social-icon {
+  width: 40px;
+  margin-right: 8px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+/* Các class hiện có của phần sidebar (nếu dùng) */
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+/* Các class khác (menu, navbar, custom-button, active-button, …) giữ nguyên */
+.custom-button {
+  position: relative;
+  text-decoration: none;
+}
+
+.custom-button::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: rgb(180, 145, 70);
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+  color: rgb(180, 145, 70);
+}
+
+.custom-button:hover::after {
+  width: 100%;
+}
+
+.active-button {
+  color: rgb(180, 145, 70) !important;
+  scale: 120%;
+}
+
+.active-button::after {
+  width: 100%;
+}
+
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.color {
+  color: rgb(180, 145, 70);
+}
+
+/* Responsive footer: sắp xếp từ trái sang phải thành dọc và căn giữa */
+@media (max-width: 768px) {
+  .footer-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  /* Container căn giữa nội dung */
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
+  .footer-flex > div {
+    width: 100%;
+    margin-bottom: 20px;
   }
-  
-  a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .social-icon {
-    width: 40px;
-    margin-right: 8px;
-  }
-  
-  p {
-    margin: 10px 0;
-  }
-  
-  h5 {
-    font-weight: bold;
-  }
-  
+}

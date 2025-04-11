@@ -1,33 +1,45 @@
-<div class="mx-28">
+<div class="mx-5 md:mx-28">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
     <div
-      *ngFor="
-        let branch of branches"
+      *ngFor="let branch of branches"
       class="flex items-center border rounded-lg shadow-md p-4 min-h-56"
     >
-    <a [routerLink]="['/branch-detail', branch.id]">
-      <img 
-        [src]="branch.imageUrl" 
-        [alt]="branch.name" 
-        title="name"
-        class="w-56 h-40 object-fill rounded-md"
-      />
-    </a>
+      <a [routerLink]="['/home/branch-detail', branch.id]">
+        <!-- Container cố định cho ảnh -->
+        <div class="w-40 h-40 overflow-hidden rounded-md group">
+          <img
+            [src]="branch.imageUrl"
+            [alt]="branch.name"
+            title="{{ branch.name }}"
+            class="w-full h-full object-cover duration-300 ease-in-out group-hover:scale-110"
+          />
+        </div>
+      </a>
       <div class="ml-4">
         <h2 class="text-lg font-bold">{{ branch.name }}</h2>
         <p class="text-sm text-gray-600">Hotline: {{ branch.hotline }}</p>
         <p class="text-sm text-gray-600">{{ branch.address }}</p>
         <div class="mt-2 flex items-center">
-          <a 
-            title="Zalo" 
-            [href]="branch.zalolink" 
+          <a
+            title="Zalo"
+            [href]="branch.zalolink"
             class="text-blue-500 text-sm ml-2"
             target="_blank"
-            >
-            <img src="http://127.0.0.1:9000/gym/assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
+          >
+            <img
+              src="http://127.0.0.1:9000/gym/assets/Home/zalo.jpg"
+              alt="Zalo"
+              class="w-14 h-7"
+            />
           </a>
         </div>
-        <a title="Chi tiết" [routerLink]="['/branch-detail', branch.id]" class="more-content text-sm mt-2 block">XEM CHI TIẾT &gt;</a>
+        <a
+          title="Chi tiết"
+          [routerLink]="['/home/branch-detail', branch.id]"
+          class="more-content text-sm mt-2 block"
+        >
+          XEM CHI TIẾT &gt;
+        </a>
       </div>
     </div>
   </div>

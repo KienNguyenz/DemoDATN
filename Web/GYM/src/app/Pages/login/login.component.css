@@ -15,4 +15,12 @@
 .bg-login {
     background: url('http://127.0.0.1:9000/gym/assets/Sign-In-Up/upscalemedia-transformed\ \(1\).jpeg') no-repeat center center;
     background-size: cover;
+    min-height: 100vh;
+  } 
+   /* Ẩn background trên màn hình điện thoại (ví dụ: dưới 768px) */
+  @media (max-width: 768px) {
+    .bg-login {
+      background: none;
+    }
   }
+  

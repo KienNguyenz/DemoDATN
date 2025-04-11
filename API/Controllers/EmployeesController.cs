@@ -43,6 +43,19 @@ namespace DemoGym.Controllers
             return employee;
         }
 
+        // Route này sẽ tạo URL có dạng /api/Employees/branchId=1
+        [HttpGet("branchId/{branchId}")]
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeesByBranchId(int branchId)
+        {
+            var employees = await _context.employees.Where(e => e.BranchId == branchId).ToListAsync();
+            if (!employees.Any())
+            {
+                return NotFound(new { message = "No employees found for the specified branch." });
+            }
+            return Ok(employees);
+        }
+
+
         // PUT: api/Employees/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

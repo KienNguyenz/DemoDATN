@@ -57,7 +57,7 @@ p {
   width: 100%;
   max-width: 500px; /* Giới hạn chiều rộng */
   height: 300px; /* Giữ chiều cao cố định */
-  border: 1px solid rgb(240, 190, 75);
+  /* border: 1px solid rgb(240, 190, 75); */
   background-color: #fff;
   position: relative;
   overflow: hidden; /* Quan trọng: ẩn phần ảnh vượt khung */

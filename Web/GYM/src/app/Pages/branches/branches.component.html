@@ -1,41 +1,124 @@
 <div class="text-container">
   <div class="container mx-auto my-8 px-6">
     <div *ngIf="branch; else loading">
+      <!-- Thông tin chi nhánh -->
       <div class="flex flex-col justify-center text-center">
         <p class="color text-3xl">{{ branch.name }}</p>
         <div class="flex justify-center items-center">
           <strong>Liên hệ với chúng tôi:</strong>
-          <a
-            title="Zalo"
-            [href]="branch.zalolink"
-            class="text-blue-500 text-sm ml-2"
-            target="_blank"
-          >
-            <img
-              src="http://127.0.0.1:9000/gym/assets/Home/zalo.jpg"
-              alt="Zalo"
-              class="w-14 h-7"
-            />
+          <a title="Zalo" [href]="branch.zalolink" class="text-blue-500 text-sm ml-2" target="_blank">
+            <img src="http://127.0.0.1:9000/gym/assets/Home/zalo.jpg" alt="Zalo" class="w-14 h-7" />
           </a>
         </div>
-
         <p><strong>Hotline:</strong> {{ branch.hotline }}</p>
         <p><strong>Địa chỉ:</strong> {{ branch.address }}</p>
         <br />
         <p class="text-xl">{{ branch.description }}</p>
-        <br>
-        <img
-          title="a"
-          [src]="branch.imageUrl"
-          alt="{{ branch.name }}"
-          class="h-auto max-w-lg"
-        />
+        <br />
+        <!-- <img title="a" [src]="branch.imageUrl" alt="{{ branch.name }}" class="h-auto w-full mx-auto" /> -->
       </div>
-    </div>
 
+      <div class="mt-8 w-full">
+        <div id="video-top" *ngIf="getVideoByPosition('top')">
+          <video controls class="mx-auto max-w-full">
+            <source [src]="getVideoByPosition('top')?.videoUrl" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ thẻ video.
+          </video>
+        </div>
+      </div>
+
+      <div class="container my-8">
+        <div class="underline-container">
+          <p class="font-bold text-gray-500 text-4xl flex justify-center">ĐỘI NGŨ QUẢN LÝ</p>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Dùng ng-container lặp qua employees -->
+        <ng-container *ngFor="let emp of employees">
+          <!-- Bên trong, ta mới dùng *ngIf để lọc role !== 'PT' -->
+          <div *ngIf="emp.role !== 'PT'" class="text-center">
+            <img
+              [src]="emp.pictureUrl"
+              alt="{{ emp.name }}"
+              class="object-cover w-full h-auto"
+            />
+            <p class="mt-2 font-bold">{{ emp.name }}</p>
+            <p class="text-gray-500">{{ emp.role }}</p>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="container my-8">
+        <div class="underline-container">
+          <p class="font-bold text-gray-500 text-4xl flex justify-center">TRẢI NGHIỆM ELITE</p>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <div id="video-middle" *ngIf="getVideoByPosition('middle')" class="my-6">
+        <video controls class="mx-auto w-full">
+          <source [src]="getVideoByPosition('middle')?.videoUrl" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ thẻ video.
+        </video>
+      </div>
+
+      <div class="container my-8">
+        <div class="underline-container">
+          <p class="font-bold text-gray-500 text-4xl flex justify-center">HLV CÁ NHÂN</p>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center">
+        <!-- Dùng ng-container lặp qua employees -->
+        <ng-container *ngFor="let emp of employees">
+          <!-- Bên trong, ta mới dùng *ngIf để lọc role !== 'PT' -->
+          <div *ngIf="emp.role == 'PT'" class="text-center ">
+            <img
+              [src]="emp.pictureUrl"
+              alt="{{ emp.name }}"
+              class="object-fill w-36 h-36 rounded-full br my-3 mx-auto"
+            />
+            <p class="mt-2 font-bold">{{ emp.name }}</p>
+            <p class="text-gray-500 text-sm">({{ emp.describe }})</p>
+            <p class="mt-2 font-medium">Sở trường: {{ emp.strength }}</p>
+          </div>
+        </ng-container>
+      </div>
+      <div class="container my-8">
+    <div class="underline-container">
+      <p class="font-bold text-gray-500 text-4xl flex justify-center">TIỆN ÍCH PHÒNG TẬP</p>
+      <div class="underline"></div>
+    </div>
+  </div>
+      <!-- Carousel ảnh của branch (nếu có) -->
+      <div *ngIf="carouselImages.length > 0" class="relative w-full max-w-5xl mx-auto mt-8">
+        <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200/70 hover:bg-gray-300 px-3 py-2 rounded-r-lg" (click)="prevImage()">
+          ❮
+        </button>
+        <img [src]="carouselImages[currentIndex].url" alt="Ảnh của {{ branch.name }}" class="mx-auto object-cover h-[500px] w-full" />
+        <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200/70 hover:bg-gray-300 px-3 py-2 rounded-l-lg" (click)="nextImage()">
+          ❯
+        </button>
+        <div class="flex justify-center mt-2">
+          <div *ngFor="let img of carouselImages; let i = index" class="w-3 h-3 rounded-full mx-1 cursor-pointer"
+          [class.bg-gray-800]="i === currentIndex" [class.bg-gray-300]="i !== currentIndex" (click)="goToImage(i)">
+        </div>
+      </div>
+      <p class="text-center mt-2 text-lg text-gray-700">{{ carouselImages[currentIndex].title }}</p>
+      </div>
+
+      
+    </div>
+    
     <ng-template #loading>
       <p>Đang tải dữ liệu chi nhánh...</p>
     </ng-template>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+  </div>
+  <div class="container my-8">
+    <div class="underline-container">
+      <p class="font-bold text-gray-500 text-4xl flex justify-center">BẢN ĐỒ</p>
+      <div class="underline"></div>
+    </div>
   </div>
 </div>
+<iframe title="maps" [src]="branchMapUrl" class="w-full h-[500px] border-0"></iframe>

@@ -73,6 +73,7 @@ img {
 /* Underline for Titles */
 .underline-container {
   display: inline-block;
+  justify-content: center;
   position: relative;
 }
 
@@ -133,4 +134,7 @@ img {
 
 .fade-out {
   opacity: 0;
+}
+.br{
+  border: 3px solid #aa8e4c;
 }

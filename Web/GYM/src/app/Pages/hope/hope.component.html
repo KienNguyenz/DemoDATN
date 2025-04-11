@@ -5,7 +5,7 @@
   </h1>
 </div>
 
-<div class="relative h-[600px] w-full flex justify-center p-5 bg-gray-200">
+<div class="relative md:h[600px] h-[200px] w-full flex justify-center p-5 bg-gray-200">
   <div class="absolute inset-0 flex items-center justify-center">
     <img
       class="image-overlap object-fill w-3/4 max-h-full"
@@ -76,18 +76,28 @@
   </p>
 
 </div>
-<div class="video-container w-3/4 mx-auto">
-  <div class="main-video">
-    <video id="mainVideo" controls>
-      <source src="http://127.0.0.1:9000/gym/assets/Hope/bai1.mp4" type="video/mp4" />
+<div
+  class="video-container flex flex-col md:flex-row w-full md:w-3/4 mx-auto gap-4"
+>
+  <!-- Phần video chính -->
+  <div class="main-video md:w-2/3 w-full">
+    <video id="mainVideo" controls class="w-full h-auto rounded">
+      <source
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai1.mp4"
+        type="video/mp4"
+      />
       Trình duyệt của bạn không hỗ trợ thẻ video.
     </video>
-    <h3 id="videoTitle">Các bài tập cơ trọng tâm</h3>
+    <h3 id="videoTitle" class="mt-2 text-lg font-bold">
+      Các bài tập cơ trọng tâm
+    </h3>
   </div>
 
-  <div class="video-list">
+  <!-- Danh sách video đề xuất -->
+  <div class="video-list md:w-1/3 w-full flex flex-col gap-2">
+    <!-- Video Item 1 -->
     <div
-      class="video-item active"
+      class="video-item active flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem1
       (click)="
         changeVideo(
@@ -97,12 +107,17 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai1.png" class="rounded-lg w-20"   alt="Thumbnail 1" />
-      <p>Các bài tập cơ trọng tâm</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai1.png"
+        alt="Thumbnail 1"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Các bài tập cơ trọng tâm</p>
     </div>
 
+    <!-- Video Item 2 -->
     <div
-      class="video-item"
+      class="video-item flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem2
       (click)="
         changeVideo(
@@ -112,12 +127,17 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai2.png" class="rounded-lg w-20"   alt="Thumbnail 2" />
-      <p>Các bài tập đơn giản tại nhà</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai2.png"
+        alt="Thumbnail 2"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Các bài tập đơn giản tại nhà</p>
     </div>
 
+    <!-- Video Item 3 -->
     <div
-      class="video-item"
+      class="video-item flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem3
       (click)="
         changeVideo(
@@ -127,12 +147,17 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai3.png" class="rounded-lg w-20"   alt="Thumbnail 3" />
-      <p>Bài tập vùng cơ trọng tâm</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai3.png"
+        alt="Thumbnail 3"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Bài tập vùng cơ trọng tâm</p>
     </div>
 
+    <!-- Video Item 4 -->
     <div
-      class="video-item"
+      class="video-item flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem4
       (click)="
         changeVideo(
@@ -142,11 +167,17 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai4.png" class="rounded-lg w-20"   alt="Thumbnail 4" />
-      <p>Bài tập làm khỏe nhóm cơ mông và đùi</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai4.png"
+        alt="Thumbnail 4"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Bài tập làm khỏe nhóm cơ mông và đùi</p>
     </div>
+
+    <!-- Video Item 5 -->
     <div
-      class="video-item"
+      class="video-item flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem5
       (click)="
         changeVideo(
@@ -156,12 +187,17 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai5.png" class="rounded-lg w-20"   alt="Thumbnail 5" />
-      <p>Bài tập làm khỏe nhóm cơ trọng tâm</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai5.png"
+        alt="Thumbnail 5"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Bài tập làm khỏe nhóm cơ trọng tâm</p>
     </div>
 
+    <!-- Video Item 6 -->
     <div
-      class="video-item"
+      class="video-item flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem6
       (click)="
         changeVideo(
@@ -171,12 +207,17 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai6.png" class="rounded-lg w-20"   alt="Thumbnail 6" />
-      <p>Bài tập làm khỏe cơ mông, đùi & vai</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai6.png"
+        alt="Thumbnail 6"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Bài tập làm khỏe cơ mông, đùi & vai</p>
     </div>
 
+    <!-- Video Item 7 -->
     <div
-      class="video-item"
+      class="video-item flex items-center gap-2 p-2 rounded border hover:bg-gray-100 cursor-pointer"
       #videoItem7
       (click)="
         changeVideo(
@@ -186,8 +227,14 @@
         )
       "
     >
-      <img src="http://127.0.0.1:9000/gym/assets/Hope/bai7.png" class="rounded-lg w-20"   alt="Thumbnail 7" />
-      <p>Các bài tập Yoga nâng cao sức khỏe</p>
+      <img
+        src="http://127.0.0.1:9000/gym/assets/Hope/bai7.png"
+        alt="Thumbnail 7"
+        class="rounded-lg w-20 h-auto"
+      />
+      <p class="text-sm">Các bài tập Yoga nâng cao sức khỏe</p>
     </div>
   </div>
 </div>
+
+
