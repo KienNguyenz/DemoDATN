@@ -16,7 +16,7 @@ declare const FB: any;
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    ShareModule, // Giả sử bạn đã export đủ từ đây
+    ShareModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -67,17 +67,23 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.value).subscribe({
       next: (response) => {
         this.loading = false;
-        this.matSnackBar.open(response.message, 'Đóng', { duration: 3000 });
 
-        const user = this.authService.getUserDetail();
-        const role = user?.roles?.[0];
-        this.router.navigate(['/']);
-        // Điều hướng dựa theo vai trò
-        // if (role === 'Admin') {
-        //   this.router.navigate(['/admin']);
-        // } else {
-        //   this.router.navigate(['/']);
-        // }
+        if (response.isSuccess && response.token) {
+          const user = this.authService.getUserDetail();
+          const roles = user?.roles || [];
+
+          if (roles.includes('Admin')) {
+            this.matSnackBar.open('Đăng nhập thành công!', 'Đóng', { duration: 3000 });
+            this.router.navigate(['/']);
+          } else {
+            this.authService.logout();
+            this.matSnackBar.open('Bạn không có quyền truy cập!', 'Đóng', { duration: 3000 });
+          }
+        } else {
+          this.matSnackBar.open(response.message || 'Đăng nhập thất bại!', 'Đóng', {
+            duration: 3000
+          });
+        }
       },
       error: (error) => {
         this.loading = false;
@@ -92,12 +98,21 @@ export class LoginComponent implements OnInit {
     FB.login((response: any) => {
       if (response.authResponse) {
         const accessToken = response.authResponse.accessToken;
-
-        this.http.post('https://localhost:7045/api/auth/facebook', { token: accessToken }).subscribe({
+        this.http.post(`${this.authService.apiUrl}auth/facebook`, { token: accessToken }).subscribe({
           next: (res: any) => {
-            this.matSnackBar.open('Login thành công!', 'Đóng', { duration: 3000 });
-            localStorage.setItem('token', res.token);
-            this.router.navigate(['/']);
+            const jwtToken = res.token;
+            localStorage.setItem('token', jwtToken);
+
+            const user = this.authService.getUserDetail();
+            const roles = user?.roles || [];
+
+            if (roles.includes('Admin')) {
+              this.matSnackBar.open('Đăng nhập Facebook thành công!', 'Đóng', { duration: 3000 });
+              this.router.navigate(['/']);
+            } else {
+              this.authService.logout();
+              this.matSnackBar.open('Bạn không có quyền truy cập!', 'Đóng', { duration: 3000 });
+            }
           },
           error: () => {
             this.matSnackBar.open('Đăng nhập Facebook thất bại!', 'Đóng', { duration: 3000 });

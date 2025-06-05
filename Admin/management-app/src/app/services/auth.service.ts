@@ -7,52 +7,41 @@ import { accountDetail } from '../interfaces/account-detail';
 import { environment } from '../environments/environment.development';
 import { jwtDecode } from 'jwt-decode';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  getRightOfUser(arg0: { userName: any; }) {
-    throw new Error('Method not implemented.');
-  }
-  
   apiUrl: string = environment.apiUrl;
-  private tokenKey='token';
+  private tokenKey = 'token';
 
+  constructor(private http: HttpClient) { }
 
-  constructor(private http:HttpClient) { }
-
-  login(data:LoginRequest):Observable<AuthResponse>{
+  login(data: LoginRequest): Observable<AuthResponse> {
     return this.http
-    .post<AuthResponse>(`${this.apiUrl}Account/SignIn`, data)
-    .pipe(
-      map((response)=>{
-        if(response.isSuccess){
-          localStorage.setItem(this.tokenKey, response.token);
-        }
-        return response;
-      })
-    );
+      .post<AuthResponse>(`${this.apiUrl}Account/SignIn`, data)
+      .pipe(
+        map((response) => {
+          if (response.isSuccess) {
+            localStorage.setItem(this.tokenKey, response.token);
+          }
+          return response;
+        })
+      );
   }
 
-  getDetail=() : Observable<accountDetail> =>
-    this.http.get<accountDetail>(`${this.apiUrl}account/detail`);
-
-  getUserDetail=()=>{
+  getUserDetail = () => {
     const token = this.getToken();
-    if(!token) return null;
-    const decodedToken:any = jwtDecode(token);
-    const userDetail = {
+    if (!token) return null;
+    const decodedToken: any = jwtDecode(token);
+    return {
       id: decodedToken.jti,
       email: decodedToken.email,
-      fullName:decodedToken.name,
-      phoneNumber:decodedToken.phoneNumber,
-      gender:decodedToken.gender,
-      birthday:decodedToken.birthday,
-      // roles:decodedToken.role || [],
+      fullName: decodedToken.name,
+      phoneNumber: decodedToken.phoneNumber,
+      gender: decodedToken.gender,
+      birthday: decodedToken.birthday,
       roles: Array.isArray(decodedToken.role) ? decodedToken.role : [decodedToken.role],
-    }
-    return userDetail;
-  }
+    };
+  };
+
   isLoggedIn=():boolean=>{
     const token = this.getToken();
     if(!token) return false;
