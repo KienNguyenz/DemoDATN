@@ -1,0 +1,101 @@
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('/assets/login-bg.jpg') no-repeat center center / cover;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+  }
+
+  p {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.login-input {
+  height: 40px;
+}
+
+.toggle-eye {
+  cursor: pointer;
+}
+
+.login-button {
+  width: 100%;
+  color: #fff;
+  background-color: #a855f7;
+  border: none;
+  margin-top: 12px;
+
+  &:hover {
+    background-color: #9333ea;
+  }
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #999;
+  font-size: 14px;
+
+  hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+
+  span {
+    padding: 0 12px;
+  }
+}
+
+.login-socials {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+
+  i {
+    margin: 0 12px;
+    cursor: pointer;
+  }
+
+  .fa-facebook {
+    color: #1877f2;
+  }
+
+  .fa-google {
+    color: #ea4335;
+  }
+}
+
+.login-forgot,
+.login-register {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+
+  a {
+    color: #a855f7;
+    text-decoration: underline;
+  }
+}

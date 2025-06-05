@@ -1,0 +1,154 @@
+<!-- src/app/pages/salary/salary.component.html -->
+<nz-content class="a-content">
+  <div class="a-wrapper">
+    <div class="a-container">
+      <!-- Header giống branch: .a-header và .a-toolbar -->
+      <div class="a-header">
+        <h2>Quản lý lương nhân viên tháng {{ currentMonth }} / {{ currentYear }}</h2>
+        <div class="a-toolbar">
+          <!-- Chọn tháng / năm -->
+          <nz-date-picker
+            nzMode="month"
+            nzPlaceHolder="Chọn tháng"
+            [nzFormat]="'MM/yyyy'"
+            style="width: 300px;"
+            [(ngModel)]="selectedDate"
+            (ngModelChange)="onMonthChange($event)"
+          ></nz-date-picker>
+
+          <!-- Branch filter -->
+          <nz-select
+            nzAllowClear
+            nzPlaceHolder="Tất cả chi nhánh"
+            style="width: 200px;"
+            [(ngModel)]="selectedBranch"
+            (ngModelChange)="onBranchChange($event)"
+          >
+            <nz-option [nzValue]="null" nzLabel="Tất cả chi nhánh"></nz-option>
+            <nz-option
+              *ngFor="let b of allBranches"
+              [nzValue]="b.id"
+              [nzLabel]="b.id + ' - ' + b.name"
+            ></nz-option>
+          </nz-select>
+
+          <!-- Search box -->
+          <input
+            nz-input
+            placeholder="Tìm kiếm..."
+            style="width: 200px;"
+            [(ngModel)]="searchValue"
+            (ngModelChange)="search()"
+          />
+        </div>
+      </div>
+
+      <!-- Table lương -->
+      <nz-table
+        [nzData]="pagedEmployees"
+        nzBordered
+        nzSize="middle"
+        [nzShowPagination]="false"
+      >
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Nhân viên</th>
+            <th>Role</th>
+            <th>Ngày công</th>
+            <th>Lương</th>
+            <th style="width: 100px">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of pagedEmployees; let i = index">
+            <td>{{ (pageIndex - 1) * pageSize + i + 1 }}</td>
+            <td>{{ e.name }}</td>
+            <td>{{ e.role }}</td>
+            <td>{{ e.workingDaysInMonth }}</td>
+            <td>{{ e.salaryInMonth | number: '1.0-0' }}</td>
+            <td class="actions">
+              <!-- Chỉ hiển thị nút chỉnh sửa nếu tháng/năm đang xem trùng với tháng/năm hiện tại -->
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nz-tooltip="Chỉnh sửa"
+                (click)="edit(e)"
+                [disabled]="!isEditingAllowed"
+              >
+                <span nz-icon nzType="edit"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+
+      <!-- Pagination -->
+      <div class="pagination-wrapper" style="text-align: right; padding-top: 8px">
+        <nz-pagination
+          [nzPageIndex]="pageIndex"
+          [nzPageSize]="pageSize"
+          [nzTotal]="filteredView.length"
+          (nzPageIndexChange)="pageIndex = $event"
+          nzShowSizeChanger="false"
+        ></nz-pagination>
+      </div>
+
+      <!-- Modal edit ngày công -->
+      <nz-modal
+        [(nzVisible)]="isModalVisible"
+        nzTitle="Chỉnh sửa ngày công"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkDisabled]="!editingItem || editingItem.workingDaysInMonth < 0"
+      >
+        <ng-container *nzModalContent>
+          <div *ngIf="editingItem">
+            <form nz-form nzLayout="horizontal">
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Nhân viên</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input nz-input [value]="editingItem.name" disabled />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Role</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input nz-input [value]="editingItem.role" disabled />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">
+                  Ngày công ({{ currentMonth }}/{{ currentYear }})
+                </nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input
+                    nz-input
+                    type="number"
+                    [(ngModel)]="editingItem.workingDaysInMonth"
+                    name="workingDaysInMonth"
+                    min="0"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Lương ước tính</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input
+                    nz-input
+                    [value]="getPreviewSalary() | number: '1.0-0'"
+                    disabled
+                  />
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </div>
+        </ng-container>
+      </nz-modal>
+    </div>
+  </div>
+</nz-content>

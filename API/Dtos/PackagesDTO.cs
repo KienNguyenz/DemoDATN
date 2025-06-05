@@ -1,9 +1,10 @@
-﻿using SMG.Entities;
+﻿using DemoGym.Entities;
+using DemoGym.Entities.Common;
 using System.Text.Json.Serialization;
 
 namespace DemoGym.Dtos
 {
-    public class PackagesDTO
+    public class PackagesDTO : BaseEntity
     {
         public string PackageName { get; set; } = null!;
 
@@ -11,7 +12,8 @@ namespace DemoGym.Dtos
 
         public string? Duration { get; set; }
         public int BranchId { get; set; }
+        public string? Describe { get; set; }
         [JsonIgnore]
-        public virtual Member? Member { get; set; }
+        public ICollection<Member> Members { get; set; } = new List<Member>();
     }
 }

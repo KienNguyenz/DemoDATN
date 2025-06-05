@@ -1,0 +1,264 @@
+<nz-content class="a-content">
+  <div class="a-wrapper">
+    <div class="a-container">
+      <!-- HEADER + TOOLBAR -->
+      <div class="a-header">
+        <h2>Quản lý thiết bị</h2>
+        <div class="a-toolbar">
+          <!-- Branch filter -->
+          <nz-select
+            style="width: 300px !important"
+            nzAllowClear
+            nzPlaceHolder="Tất cả chi nhánh"
+            [(ngModel)]="selectedBranch"
+            (ngModelChange)="onBranchChange($event)"
+          >
+            <nz-option [nzValue]="null" nzLabel="Tất cả chi nhánh"></nz-option>
+            <nz-option
+              *ngFor="let b of branches"
+              [nzValue]="b.id"
+              [nzLabel]="b.name"
+            ></nz-option>
+          </nz-select>
+
+          <!-- Type filter (lấy từ typeOptions) -->
+          <nz-select
+            style="width: 300px !important"
+            nzAllowClear
+            nzPlaceHolder="Tất cả loại"
+            [(ngModel)]="selectedType"
+            (ngModelChange)="onTypeChange($event)"
+          >
+            <nz-option [nzValue]="null" nzLabel="Tất cả loại"></nz-option>
+            <nz-option
+              *ngFor="let t of typeOptions"
+              [nzValue]="t"
+              [nzLabel]="t"
+            ></nz-option>
+          </nz-select>
+
+          <!-- Search box -->
+          <input
+            nz-input
+            style="width: 300px !important"
+            placeholder="Tìm kiếm theo tên hoặc loại..."
+            [(ngModel)]="searchValue"
+            (ngModelChange)="search()"
+          />
+          <button nz-button nzType="primary" (click)="openCreateModal()">
+            Thêm mới
+          </button>
+        </div>
+      </div>
+
+      <!-- TABLE DANH SÁCH DEVICES -->
+      <nz-table
+        class="device-table"
+        [nzData]="pagedDevices"
+        nzBordered
+        nzSize="middle"
+        [nzShowPagination]="false"
+        [nzScroll]="{ x: '1000px' }"
+      >
+        <thead>
+          <tr>
+            <th style="width: 70px">STT</th>
+            <th style="width: 200px">Tên thiết bị</th>
+            <th style="width: 100px">Loại</th>
+            <th>Mô tả</th>
+            <th style="width: 100px">Số lượng</th>
+            <th style="width: 150px">Giá (VNĐ)</th>
+            <th style="width: 200px">Chi nhánh</th>
+            <th style="width: 100px">Trạng thái</th>
+            <th style="width: 100px">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of pagedDevices; let i = index">
+            <td>{{ (pageIndex - 1) * pageSize + i + 1 }}</td>
+            <td>{{ d.name }}</td>
+            <td>{{ d.type }}</td>
+            <td>{{ d.describe }}</td>
+            <td style="text-align: center">{{ d.quantity }}</td>
+            <td style="text-align: left">{{ d.price | number:'1.0-0' }}</td>
+            <td>{{ getBranchName(d.branchId) }}</td>
+            <!-- <td style="text-align: center">
+              <nz-tag [nzColor]="d.isActive ? 'green' : 'red'">
+                {{ d.isActive ? 'Hoạt động' : 'Bảo trì' }}
+              </nz-tag>
+            </td> -->
+            <td style="text-align: center;">
+              <span
+                nz-icon
+                [nzType]="d.isActive ? 'check' : 'tool'"
+                [nzTheme]="'outline'"
+                [ngStyle]="{ color: d.isActive ? 'green' : 'orange' }"
+              ></span>
+            </td>
+            <td>
+              <button
+                nz-button nzType="link" nzShape="circle"
+                nz-tooltip="Chỉnh sửa"
+                (click)="editDevice(d)"
+              >
+                <span nz-icon nzType="edit"></span>
+              </button>
+              <button
+                nz-button nzType="link" nzShape="circle"
+                nzDanger
+                nz-popconfirm
+                nzPopconfirmTitle="Bạn có chắc chắn muốn xoá?"
+                (nzOnConfirm)="delete(d.id)"
+                nz-tooltip="Xóa"
+              >
+                <span nz-icon nzType="delete"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+
+      <!-- PAGINATION -->
+      <div class="pagination-wrapper" style="text-align: right; padding-top: 8px">
+        <nz-pagination
+          [nzPageIndex]="pageIndex"
+          [nzPageSize]="pageSize"
+          [nzTotal]="filtered.length"
+          (nzPageIndexChange)="pageIndex = $event"
+          nzShowSizeChanger="false"
+        ></nz-pagination>
+      </div>
+
+      <!-- MODAL THÊM / SỬA THIẾT BỊ -->
+      <nz-modal
+        [(nzVisible)]="isModalVisible"
+        [nzTitle]="isAddMode ? 'Thêm thiết bị mới' : 'Chỉnh sửa thiết bị'"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkDisabled]="!editing.name || !editing.type"
+      >
+        <ng-container *nzModalContent>
+          <form nz-form nzLayout="vertical">
+            <nz-form-item>
+              <nz-form-label>Tên thiết bị</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="editing.name" name="name" required />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Loại thiết bị</nz-form-label>
+              <nz-form-control>
+                <nz-select
+                  style="width: 100%"
+                  [(ngModel)]="editing.type"
+                  name="type"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let t of typeOptions"
+                    [nzValue]="t"
+                    [nzLabel]="t"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+                        <nz-form-item>
+              <nz-form-label>Mô tả</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  type="string"
+                  [(ngModel)]="editing.describe"
+                  name="describe"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Số lượng</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  type="number"
+                  [(ngModel)]="editing.quantity"
+                  name="quantity"
+                  min="0"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Giá (VNĐ)</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  type="number"
+                  [(ngModel)]="editing.price"
+                  name="price"
+                  min="0"
+                  required
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Xuất xứ</nz-form-label>
+              <nz-form-control>
+                <input nz-input [(ngModel)]="editing.origin" name="origin" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Mô tả</nz-form-label>
+              <nz-form-control>
+                <textarea
+                  nz-input
+                  rows="3"
+                  [(ngModel)]="editing.describe"
+                  name="describe"
+                ></textarea>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Chi nhánh</nz-form-label>
+              <nz-form-control>
+                <nz-select
+                  style="width: 100%"
+                  [(ngModel)]="editing.branchId"
+                  name="branchId"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let b of branches"
+                    [nzValue]="b.id"
+                    [nzLabel]="b.name"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>Trạng thái</nz-form-label>
+              <nz-form-control>
+                <nz-select
+                  style="width: 100%"
+                  [(ngModel)]="editing.isActive"
+                  name="isActive"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let s of statusOptions"
+                    [nzValue]="s.value"
+                    [nzLabel]="s.label"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </ng-container>
+      </nz-modal>
+    </div>
+  </div>
+</nz-content>

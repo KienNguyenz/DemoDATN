@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Demo.Database;
-using SMG.Entities;
+using DemoGym.Entities;
 using DemoGym.Dtos;
 
 namespace DemoGym.Controllers
@@ -94,7 +94,7 @@ namespace DemoGym.Controllers
 
         // DELETE: api/Rooms/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRoom(Guid id)
+        public async Task<IActionResult> DeleteRoom(int id)
         {
             var room = await _context.rooms.FindAsync(id);
             if (room == null)

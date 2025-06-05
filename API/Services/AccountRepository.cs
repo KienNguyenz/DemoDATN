@@ -9,7 +9,6 @@ using System.Security.Claims;
 using System.Text;
 using MailKit.Net.Smtp;
 using MimeKit;
-using SMG.Entities;
 using Microsoft.EntityFrameworkCore;
 using Demo.Database;
 
@@ -63,7 +62,7 @@ namespace DemoGym.Services
             var token = new JwtSecurityToken(
                     issuer: configuration["JWT:ValidIssuer"],
                     audience: configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddMinutes(5),
+                    expires: DateTime.Now.AddMinutes(60),
                     claims: authClaims,
                     signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha256Signature)
                 );

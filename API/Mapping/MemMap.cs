@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DemoGym.Models;
-using SMG.Entities;
+using DemoGym.Entities;
 namespace DemoGym.Mapping
 {
     public class MemMap : Profile

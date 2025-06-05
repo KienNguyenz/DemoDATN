@@ -1,0 +1,24 @@
+.pkg-container {
+  padding: 16px;
+
+  & .pkg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  & .pkg-toolbar {
+    display: flex;
+    gap: 8px;
+  }
+
+  & .pkg-table {
+    margin-bottom: 16px;
+  }
+
+  & .actions {
+    display: flex;
+    gap: 8px;
+  }
+}

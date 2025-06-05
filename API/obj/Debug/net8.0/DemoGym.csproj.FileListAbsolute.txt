@@ -798,7 +798,6 @@ E:\DATN\DemoDATN\API\obj\Debug\net8.0\staticwebassets\msbuild.build.DemoGym.prop
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DemoGym.props
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DemoGym.props
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\staticwebassets.pack.json
-E:\DATN\DemoDATN\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\DemoGym.csproj.Up2Date
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\DemoGym.dll
 E:\DATN\DemoDATN\API\obj\Debug\net8.0\refint\DemoGym.dll
@@ -812,3 +811,4 @@ E:\DATN\DemoDATN\API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\DATN\DemoDATN\API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\DATN\DemoDATN\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 E:\DATN\DemoDATN\API\bin\Debug\net8.0\AutoMapper.dll
+E:\DATN\DemoDATN\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

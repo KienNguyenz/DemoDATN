@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DemoGym.Entities.Common;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace SMG.Entities;
+namespace DemoGym.Entities;
 
-public partial class Package
+public partial class Package : BaseEntity
 {
     public int Id { get; set; }
 
@@ -13,7 +14,8 @@ public partial class Package
     public decimal? Price { get; set; }
 
     public string? Duration { get; set; }
-    public int BranchId { get; set; } 
+    public int BranchId { get; set; }
+    public string? Describe { get; set; }
     [JsonIgnore]
-    public virtual Member? Member { get; set; }
+    public ICollection<Member> Members { get; set; } = new List<Member>();
 }

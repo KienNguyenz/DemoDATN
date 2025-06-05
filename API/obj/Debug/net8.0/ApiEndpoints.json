@@ -115,7 +115,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Branch, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Branch, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -141,7 +141,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Branch",
+        "Type": "DemoGym.Entities.Branch",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -167,7 +167,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Branch",
+        "Type": "DemoGym.Entities.Branch",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -215,8 +215,117 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Devices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Devices, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "Create",
+    "RelativePath": "api/Devices",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "DemoGym.Dtos.DeviceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Entities.Devices",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "GetById",
+    "RelativePath": "api/Devices/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Entities.Devices",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "Update",
+    "RelativePath": "api/Devices/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "DemoGym.Dtos.DeviceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.DevicesController",
+    "Method": "Delete",
+    "RelativePath": "api/Devices/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DemoGym.Controllers.EmployeesController",
-    "Method": "Getemployees",
+    "Method": "GetEmployees",
     "RelativePath": "api/Employees",
     "HttpMethod": "GET",
     "IsController": true,
@@ -224,7 +333,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Employee, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Employee, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -236,21 +345,21 @@
   },
   {
     "ContainingType": "DemoGym.Controllers.EmployeesController",
-    "Method": "PostEmpoyees",
+    "Method": "PostEmployees",
     "RelativePath": "api/Employees",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "employeeDTO",
-        "Type": "DemoGym.Dtos.EmployeeDTO",
+        "Name": "dto",
+        "Type": "DemoGym.Dtos.CreateEmployeeDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Employee",
+        "Type": "DemoGym.Entities.Employee",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -276,7 +385,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Employee",
+        "Type": "DemoGym.Entities.Employee",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -300,8 +409,8 @@
         "IsRequired": true
       },
       {
-        "Name": "employee",
-        "Type": "SMG.Entities.Employee",
+        "Name": "updatedDto",
+        "Type": "DemoGym.Dtos.EmployeeDTO",
         "IsRequired": true
       }
     ],
@@ -339,7 +448,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Employee, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Employee, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -359,7 +468,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Member, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Member, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -385,33 +494,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Member",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "DemoGym.Controllers.MembersController",
-    "Method": "GetMember",
-    "RelativePath": "api/Members/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "SMG.Entities.Member",
+        "Type": "DemoGym.Entities.Member",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -435,17 +518,84 @@
         "IsRequired": true
       },
       {
-        "Name": "member",
-        "Type": "SMG.Entities.Member",
+        "Name": "memberPayload",
+        "Type": "DemoGym.Entities.Member",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DemoGym.Controllers.MembersController",
-    "Method": "DeleteMember",
-    "RelativePath": "api/Members/{id}",
+    "ContainingType": "DemoGym.Controllers.MonthlySalariesController",
+    "Method": "GetAll",
+    "RelativePath": "api/MonthlySalaries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Dtos.EmployeeMonthlySalaryDto, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.MonthlySalariesController",
+    "Method": "Create",
+    "RelativePath": "api/MonthlySalaries",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "DemoGym.Dtos.CreateMonthlySalaryDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Dtos.EmployeeMonthlySalaryDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.MonthlySalariesController",
+    "Method": "Update",
+    "RelativePath": "api/MonthlySalaries/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "DemoGym.Dtos.CreateMonthlySalaryDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.MonthlySalariesController",
+    "Method": "Delete",
+    "RelativePath": "api/MonthlySalaries/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -459,6 +609,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DemoGym.Controllers.MonthlySalariesController",
+    "Method": "GetByEmployeeAndMonth",
+    "RelativePath": "api/MonthlySalaries/employee/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Dtos.EmployeeMonthlySalaryDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "DemoGym.Controllers.PackagesController",
     "Method": "Getpackages",
     "RelativePath": "api/Packages",
@@ -468,7 +654,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Package, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Package, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -494,7 +680,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Member",
+        "Type": "DemoGym.Entities.Member",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -520,7 +706,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Package",
+        "Type": "DemoGym.Entities.Package",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -545,7 +731,7 @@
       },
       {
         "Name": "package",
-        "Type": "SMG.Entities.Package",
+        "Type": "DemoGym.Entities.Package",
         "IsRequired": true
       }
     ],
@@ -568,6 +754,79 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DemoGym.Controllers.RevenueLogsController",
+    "Method": "GetAll",
+    "RelativePath": "api/RevenueLogs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Dtos.RevenueLogDTO, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RevenueLogsController",
+    "Method": "Create",
+    "RelativePath": "api/RevenueLogs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "DemoGym.Dtos.CreateRevenueLogDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Dtos.RevenueLogDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DemoGym.Controllers.RevenueLogsController",
+    "Method": "GetById",
+    "RelativePath": "api/RevenueLogs/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DemoGym.Dtos.RevenueLogDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetRevenueLogById"
+  },
+  {
     "ContainingType": "DemoGym.Controllers.RoomsController",
     "Method": "Getrooms",
     "RelativePath": "api/Rooms",
@@ -577,7 +836,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMG.Entities.Room, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DemoGym.Entities.Room, DemoGym, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -603,7 +862,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Room",
+        "Type": "DemoGym.Entities.Room",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -629,7 +888,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SMG.Entities.Room",
+        "Type": "DemoGym.Entities.Room",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -654,7 +913,7 @@
       },
       {
         "Name": "room",
-        "Type": "SMG.Entities.Room",
+        "Type": "DemoGym.Entities.Room",
         "IsRequired": true
       }
     ],
@@ -670,7 +929,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Guid",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

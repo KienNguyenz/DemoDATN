@@ -1,0 +1,33 @@
+.member-container {
+  padding: 16px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+
+  &__toolbar {
+    display: flex;
+    gap: 8px;
+
+    &-search {
+      width: 300px;
+    }
+  }
+
+  &__table {
+    margin-bottom: 16px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+  }
+}

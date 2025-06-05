@@ -1,11 +1,12 @@
 ﻿using DemoGym.Entities;
+using DemoGym.Entities.Common;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace SMG.Entities;
+namespace DemoGym.Entities;
 
-public partial class Employee
+public partial class Employee : BaseEntity
 {
     public int Id { get; set; }
 
@@ -14,7 +15,7 @@ public partial class Employee
     public string Describe { get; set; }
     public string Strength { get; set; }
     public string? Role { get; set; }
-    public DateOnly? Birthday { get; set; }
+    public DateTime? Birthday { get; set; }
 
     public string? Gender { get; set; }
 
@@ -23,8 +24,9 @@ public partial class Employee
     public string? PhoneNumber { get; set; }
     public  string? PictureUrl { get; set; }
     public int BranchId { get; set; }
-    [JsonIgnore]
-    public virtual Salary? Salary { get; set; }
+    public int? Workingday { get; set; }
+    public decimal? Salary { get; set; }
+
     [JsonIgnore]
     public virtual ICollection<PTMember> PTMembers { get; set; } = new List<PTMember>();
 }

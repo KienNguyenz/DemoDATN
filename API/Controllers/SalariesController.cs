@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Demo.Database;
 using DemoGym.Entities;
 using DemoGym.Dtos;
-using SMG.Entities;
 using System.Data;
 
 namespace DemoGym.Controllers
@@ -87,13 +86,13 @@ namespace DemoGym.Controllers
 
             switch (salaryDTO.role)
             {
-                case "Owner":
+                case "Club Manager":
                     salaryAmount = salaryDTO.WorkingDay * 1000000;
                     break;
-                case "Manager":
+                case "Sales Manager":
                     salaryAmount = salaryDTO.WorkingDay * 600000;
                     break;
-                case "PersonalTraining":
+                case "PT":
                     salaryAmount = salaryDTO.WorkingDay * 300000 + memberCount*3000000;
                     if (memberCount == 0)
                     {

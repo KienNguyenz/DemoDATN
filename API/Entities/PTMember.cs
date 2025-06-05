@@ -1,4 +1,4 @@
-﻿using SMG.Entities;
+﻿using DemoGym.Entities;
 using System.Text.Json.Serialization;
 
 namespace DemoGym.Entities

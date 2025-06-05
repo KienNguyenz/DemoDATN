@@ -70,6 +70,14 @@
     class="custom-button"
     >HLV CÁ NHÂN</a
   >
+   <a
+    mat-button
+    routerLink="/packages"
+    routerLinkActive="active-button"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="custom-button"
+    >GÓI TẬP LUYỆN</a
+  >
   <div class="align-middle inline-flex">
     <a
       mat-button
@@ -99,11 +107,11 @@
             *ngIf="user.picture; else placeholder"
             [src]="user.picture"
             alt="Avatar"
-            class="rounded-full object-contain w-12 h-12"
+            class="rounded-full object-cover w-full h-full"
           />
           <ng-template #placeholder>
             <div
-              class="rounded-full bg-blue-500 my-4 text-4xl w-16 h-16 inline-flex items-center justify-center font-bold text-white"
+              class="rounded-full bg-blue-500 my-4 text-4xl w-12 h-12 inline-flex items-center justify-center font-bold text-white"
             >
               {{ (user.firstName || '?')[0] | uppercase }}
             </div>
@@ -164,6 +172,7 @@
   <button mat-menu-item routerLink="/news">TIN TỨC</button>
   <button mat-menu-item routerLink="/sports">BỘ MÔN</button>
   <button mat-menu-item routerLink="/personal-trainer">HLV CÁ NHÂN</button>
+  <button mat-menu-item routerLink="/packages">GÓI TẬP LUYỆN</button>
   <button mat-menu-item routerLink="/hope">
     HOPE
     <img

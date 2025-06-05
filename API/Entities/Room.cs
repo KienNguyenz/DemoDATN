@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DemoGym.Entities.Common;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace SMG.Entities;
+namespace DemoGym.Entities;
 
-public partial class Room
+public partial class Room : BaseEntity
 {
     public int Id { get; set; }
 

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Demo.Database;
-using SMG.Entities;
+using DemoGym.Entities;
 using DemoGym.Dtos;
 
 namespace DemoGym.Controllers
@@ -85,8 +85,8 @@ namespace DemoGym.Controllers
                 PackageName = packagesDTO.PackageName,
                 Price = packagesDTO.Price,
                 Duration = packagesDTO.Duration,
-                BranchId = packagesDTO.BranchId
-
+                BranchId = packagesDTO.BranchId,
+                Describe = packagesDTO.Describe
             };
 
             _context.packages.Add(packages);

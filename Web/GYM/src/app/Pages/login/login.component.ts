@@ -67,10 +67,18 @@ export class LoginComponent implements OnInit {
           duration: 3000,
           horizontalPosition: 'center'
         });
-        window.location.href = '/'
+  
+        const user = this.authService.getUserDetail();
+        const role = user?.roles?.[0]; // lấy role đầu tiên
+  
+        if (role === 'Admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/']);
+        }
       },
       error: (error) => {
-        this.matSnackBar.open(error.error.message, 'Close', {
+        this.matSnackBar.open(error.error.message || 'Đăng nhập thất bại!', 'Close', {
           duration: 3000,
           horizontalPosition: 'center'
         });

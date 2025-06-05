@@ -1,0 +1,186 @@
+<nz-content class="a-content">
+  <div class="a-wrapper">
+    <div class="a-container">
+      <div class="a-header">
+        <h2>Quản lý phòng</h2>
+        <div class="a-toolbar">
+          <!-- Dropdown lọc chi nhánh -->
+          <nz-select
+            style="width: 200px"
+            nzAllowClear
+            nzPlaceHolder="Tất cả chi nhánh"
+            [(ngModel)]="selectedBranch"
+            (ngModelChange)="onBranchChange($event)"
+          >
+            <nz-option [nzValue]="null" nzLabel="Tất cả chi nhánh"></nz-option>
+            <nz-option
+              *ngFor="let b of branches"
+              [nzValue]="b.id"
+              [nzLabel]="b.id + ' - ' + b.name"
+            ></nz-option>
+          </nz-select>
+
+          <!-- Input tìm kiếm -->
+          <input
+            nz-input
+            placeholder="Tìm kiếm..."
+            [(ngModel)]="searchValue"
+            (ngModelChange)="search()"
+          />
+
+          <button nz-button nzType="primary" (click)="openCreateModal()">
+            Thêm mới
+          </button>
+        </div>
+      </div>
+
+      <!-- Bảng với front-pagination = false -->
+      <nz-table
+        class="room-table"
+        [nzData]="pagedRooms"
+        nzBordered
+        nzSize="middle"
+        [nzShowPagination]="false"
+      >
+        <thead>
+          <tr>
+            <th style="width: 70px">STT</th>
+            <th>Room Name</th>
+            <th>Chi nhánh</th>
+            <th style="width: 100px">Trạng thái</th>
+            <th style="width: 100px">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of pagedRooms; let i = index">
+            <td>{{ (pageIndex - 1) * pageSize + i + 1 }}</td>
+            <td>{{ r.roomName }}</td>
+            <td>
+              {{ r.branchId }}
+              <span *ngIf="getBranchName(r.branchId)"
+                >— {{ getBranchName(r.branchId) }}</span
+              >
+            </td>
+            <td style="text-align: center">
+              <span
+                nz-icon
+                [nzType]="r.isActive ? 'check' : 'tool'"
+                [nzTheme]="'outline'"
+                [ngStyle]="{ color: r.isActive ? 'green' : 'orange' }"
+              >
+              </span>
+            </td>
+            <td class="actions">
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nz-tooltip="Chỉnh sửa"
+                (click)="editRoom(r)"
+              >
+                <span nz-icon nzType="edit"></span>
+              </button>
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nzDanger
+                nz-popconfirm
+                nzPopconfirmTitle="Xác nhận xoá?"
+                (nzOnConfirm)="deleteRoom(r.id)"
+                nz-tooltip="Xoá"
+              >
+                <span nz-icon nzType="delete"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+
+      <!-- Pagination nằm bên phải -->
+      <div style="display: flex; justify-content: flex-end; padding-top: 8px">
+        <nz-pagination
+          [nzPageIndex]="pageIndex"
+          [nzPageSize]="pageSize"
+          [nzTotal]="filtered.length"
+          (nzPageIndexChange)="pageIndex = $event"
+          nzShowSizeChanger="false"
+        ></nz-pagination>
+      </div>
+
+      <!-- Modal Thêm / Sửa -->
+      <nz-modal
+        [(nzVisible)]="isModalVisible"
+        [nzTitle]="isAddMode ? 'Thêm Room' : 'Chỉnh sửa Room'"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkDisabled]="!editing.roomName"
+      >
+        <ng-container *nzModalContent>
+          <form
+            *ngIf="editing"
+            nz-form
+            nzLayout="horizontal"
+            nzLabelAlign="right"
+          >
+            <!-- Room Name -->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="6">Room Name</nz-form-label>
+              <nz-form-control [nzSpan]="18">
+                <input
+                  nz-input
+                  [(ngModel)]="editing.roomName"
+                  name="roomName"
+                  placeholder="Nhập tên phòng"
+                  required
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Chi nhánh -->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="6">Chi nhánh</nz-form-label>
+              <nz-form-control [nzSpan]="18">
+                <nz-select
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Chọn chi nhánh"
+                  [(ngModel)]="editing.branchId"
+                  name="branchId"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let b of branches"
+                    [nzValue]="b.id"
+                    [nzLabel]="b.id + ' - ' + b.name"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Trạng thái -->
+            <nz-form-item>
+              <nz-form-label [nzSpan]="6">Trạng thái</nz-form-label>
+              <nz-form-control [nzSpan]="18" nzErrorTip="Chọn trạng thái">
+                <nz-select
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Chọn trạng thái"
+                  [(ngModel)]="editing.isActive"
+                  name="isActive"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let opt of statusOptions"
+                    [nzValue]="opt.value"
+                    [nzLabel]="opt.label"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </ng-container>
+      </nz-modal>
+    </div>
+  </div>
+</nz-content>

@@ -1,0 +1,339 @@
+<!-- src/app/components/member/member.component.html -->
+<nz-content class="a-content">
+  <div class="a-wrapper">
+    <div class="a-container">
+      <div class="a-header">
+        <h2>Quản lý khách hàng</h2>
+        <div class="a-toolbar">
+          <nz-select
+            style="width: 200px"
+            nzAllowClear
+            nzPlaceHolder="Tất cả chi nhánh"
+            [(ngModel)]="selectedBranch"
+            (ngModelChange)="onBranchChange($event)"
+          >
+            <nz-option [nzValue]="null" nzLabel="Tất cả chi nhánh"></nz-option>
+            <nz-option
+              *ngFor="let b of branches"
+              [nzValue]="b.id"
+              [nzLabel]="b.id + ' - ' + b.name"
+            ></nz-option>
+          </nz-select>
+          <input
+            nz-input
+            placeholder="Tìm kiếm..."
+            [(ngModel)]="searchValue"
+            (ngModelChange)="search()"
+          />
+          <button nz-button nzType="primary" (click)="openCreateModal()">
+            Thêm mới
+          </button>
+        </div>
+      </div>
+
+      <!-- Bảng Member -->
+      <nz-table
+        class="member-container__table"
+        [nzData]="pagedMember"
+        nzBordered
+        nzSize="middle"
+        [nzShowPagination]="false"
+      >
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Họ</th>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>SDT</th>
+            <th>Chi nhánh</th>
+            <th>Gói thành viên</th>
+            <th>Thời gian</th>
+            <th>Trạng thái</th>
+            <!-- MỚI THÊM -->
+            <th style="width: 100px">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of pagedMember; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ m.firstName }}</td>
+            <td>{{ m.lastName }}</td>
+            <td>{{ m.email }}</td>
+            <td>{{ m.birthday | date : "dd/MM/yyyy" }}</td>
+            <td>{{ m.gender }}</td>
+            <td>{{ m.address }}</td>
+            <td>{{ m.phoneNumber }}</td>
+            <td>
+              {{ m.branchId }}
+              <span *ngIf="getBranchName(m.branchId)">
+                — {{ getBranchName(m.branchId) }}
+              </span>
+            </td>
+            <!-- Hiển thị PackageID + tên gói -->
+            <td>
+              <span *ngIf="getPackageName(m.packageId)">
+                {{ getPackageName(m.packageId) }}
+              </span>
+            </td>
+            <td>{{ getPackageDuration(m.packageId) }}</td>
+            <!-- Cột Trạng thái -->
+            <td style="text-align: center">
+              <span
+                nz-icon
+                [nzType]="m.isActive ? 'check' : 'close'"
+                [nzTheme]="'outline'"
+                [ngStyle]="{ color: m.isActive ? 'green' : 'red' }"
+              ></span>
+            </td>
+            <td class="member-container__actions">
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nz-tooltip="Chỉnh sửa"
+                (click)="editMember(m)"
+              >
+                <span nz-icon nzType="edit"></span>
+              </button>
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nzDanger
+                nz-popconfirm
+                nzPopconfirmTitle="Bạn có chắc chắn muốn xoá?"
+                (nzOnConfirm)="deleteMember(m.id)"
+                nz-tooltip="Xoá"
+              >
+                <span nz-icon nzType="delete"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <div class="pagination-wrapper">
+        <nz-pagination
+          [nzPageIndex]="pageIndex"
+          [nzPageSize]="pageSize"
+          [nzTotal]="filteredMembers.length"
+          (nzPageIndexChange)="pageIndex = $event"
+          nzShowSizeChanger="false"
+        >
+        </nz-pagination>
+      </div>
+
+      <!-- Modal Thêm/Sửa -->
+      <!-- src/app/pages/member/member.component.html -->
+      <!-- src/app/components/member/member.component.html -->
+      <nz-modal
+        [(nzVisible)]="isModalVisible"
+        [nzTitle]="isAddMode ? 'Thêm Member' : 'Chỉnh sửa Member'"
+        (nzOnCancel)="handleCancel()"
+        (nzOnOk)="handleOk()"
+        [nzOkDisabled]="
+          !editingMember.firstName ||
+          !editingMember.lastName ||
+          editingMember.packageId === null
+        "
+      >
+        <ng-container *nzModalContent>
+          <form nz-form nzLayout="vertical">
+            <!-- Họ -->
+            <nz-form-item>
+              <nz-form-label>Họ</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  [(ngModel)]="editingMember.firstName"
+                  name="firstName"
+                  placeholder="Nhập họ"
+                  required
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Tên -->
+            <nz-form-item>
+              <nz-form-label>Tên</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  [(ngModel)]="editingMember.lastName"
+                  name="lastName"
+                  placeholder="Nhập tên"
+                  required
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Email -->
+            <nz-form-item>
+              <nz-form-label>Email</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  type="email"
+                  [(ngModel)]="editingMember.email"
+                  name="email"
+                  placeholder="Nhập email"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Ngày sinh -->
+            <nz-form-item>
+              <nz-form-label>Ngày sinh</nz-form-label>
+              <nz-form-control>
+                <nz-date-picker
+                  [(ngModel)]="editingMember.birthday"
+                  name="birthday"
+                  nzFormat="dd/MM/yyyy"
+                  style="width: 100%"
+                ></nz-date-picker>
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Giới tính -->
+            <nz-form-item>
+              <nz-form-label>Giới tính</nz-form-label>
+              <nz-form-control>
+                <nz-select
+                  nzAllowClear
+                  nzPlaceHolder="Chọn giới tính"
+                  [(ngModel)]="editingMember.gender"
+                  name="gender"
+                >
+                  <nz-option nzLabel="Nam" nzValue="Nam"></nz-option>
+                  <nz-option nzLabel="Nữ" nzValue="Nữ"></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Địa chỉ -->
+            <nz-form-item>
+              <nz-form-label>Địa chỉ</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  [(ngModel)]="editingMember.address"
+                  name="address"
+                  placeholder="Nhập địa chỉ"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- SĐT -->
+            <nz-form-item>
+              <nz-form-label>SDT</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  [(ngModel)]="editingMember.phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Nhập số điện thoại"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Chi nhánh -->
+            <nz-form-item>
+              <nz-form-label>Chi nhánh</nz-form-label>
+              <nz-form-control>
+                <nz-select
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Chọn chi nhánh"
+                  [(ngModel)]="editingMember.branchId"
+                  name="branchId"
+                  (ngModelChange)="onBranchChange($event)"
+                >
+                  <nz-option
+                    *ngFor="let b of branches"
+                    [nzValue]="b.id"
+                    [nzLabel]="b.id + ' - ' + b.name"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Gói thành viên -->
+            <nz-form-item>
+              <nz-form-label>Gói thành viên</nz-form-label>
+              <nz-form-control nzErrorTip="Chọn gói thành viên">
+                <nz-select
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Chọn gói theo chi nhánh"
+                  [(ngModel)]="editingMember.packageId"
+                  name="packageId"
+                  (ngModelChange)="onPackageChange($event)"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let opt of filteredPackageOptions"
+                    [nzValue]="opt.value"
+                    [nzLabel]="opt.label"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Thời hạn (disabled) -->
+            <nz-form-item>
+              <nz-form-label>Thời hạn</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  [value]="getPackageDuration(editingMember.packageId)"
+                  disabled
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Due Date (disabled) -->
+            <nz-form-item>
+              <nz-form-label>Due Date</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  [value]="
+                    editingMember.dueDate
+                      ? (editingMember.dueDate | date : 'dd/MM/yyyy')
+                      : ''
+                  "
+                  disabled
+                  placeholder="Ngày hết hạn"
+                />
+              </nz-form-control>
+            </nz-form-item>
+
+            <!-- Trạng thái -->
+            <nz-form-item>
+              <nz-form-label>Trạng thái</nz-form-label>
+              <nz-form-control nzErrorTip="Chọn trạng thái">
+                <nz-select
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Chọn trạng thái"
+                  [(ngModel)]="editingMember.isActive"
+                  name="isActive"
+                  required
+                >
+                  <nz-option
+                    *ngFor="let opt of statusOptions"
+                    [nzValue]="opt.value"
+                    [nzLabel]="opt.label"
+                  ></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </ng-container>
+      </nz-modal>
+    </div>
+  </div>
+</nz-content>

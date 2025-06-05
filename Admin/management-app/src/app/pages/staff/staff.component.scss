@@ -1,0 +1,23 @@
+.staff-container {
+  padding: 16px;
+
+  &__header {
+    margin-bottom: 16px;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &-search {
+      width: 300px;
+    }
+  }
+}

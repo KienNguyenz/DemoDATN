@@ -1,10 +1,11 @@
 ﻿using DemoGym.Entities;
-using SMG.Entities;
+using DemoGym.Entities.Common;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace DemoGym.Dtos
 {
-    public class MemberDTO
+    public class MemberDTO : BaseEntity
     {
         public string? FirstName { get; set; } = null!;
         public string? LastName { get; set; } = null!;
@@ -16,9 +17,14 @@ namespace DemoGym.Dtos
         public string? Address { get; set; }
 
         public string? PhoneNumber { get; set; }
+        [Required(ErrorMessage = "Bạn phải chọn gói thành viên.")]
         public int? PackageId { get; set; }
         public string? Picture { get; set; }
         public string? AspNetUserID { get; set; }
+        public int? BranchId { get; set; }
+        public DateTime? DueDate { get; set; }
+        [JsonIgnore]
+        public virtual Branch? Branch { get; set; }
         [JsonIgnore]
         public Package? Package { get; set; }
         [JsonIgnore]

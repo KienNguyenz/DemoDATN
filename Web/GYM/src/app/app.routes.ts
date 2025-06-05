@@ -34,6 +34,8 @@ import { PromotionalComponent } from './Pages/promotional/promotional.component'
 import { Component, NgModule } from '@angular/core';
 import { SportsComponent } from './Pages/Sports/sports/sports.component';
 import { BranchesComponent } from './Pages/branches/branches.component';
+import { PackageService } from './services/package.service';
+import { PackagesComponent } from './Pages/packages/packages.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/about-us', pathMatch: 'full' },
@@ -73,6 +75,7 @@ export const routes: Routes = [
     ],
   },
   { path: 'personal-trainer', component: PersonalTrainerComponent },
+  { path: 'packages',component: PackagesComponent},
   { path: 'hope', component: HopeComponent },
   { path: 'promotional', component: PromotionalComponent },
   { path: 'sports', component: SportsComponent },

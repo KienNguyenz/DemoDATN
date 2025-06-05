@@ -1,0 +1,56 @@
+<div class="container mx-auto my-8 px-6">
+  <!-- Dropdown chọn chi nhánh -->
+  <div class="mb-6 flex items-center">
+    <label for="branch-select" class="font-medium">Chọn chi nhánh:</label>
+    <select
+      id="branch-select"
+      [(ngModel)]="selectedBranchId"
+      (change)="onBranchChange()"
+      class="border rounded px-3 py-2 ml-4"
+    >
+      <option [ngValue]="null">-- Chọn chi nhánh --</option>
+      <option *ngFor="let b of branches" [ngValue]="b.id">
+        {{ b.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Danh sách gói sau khi chọn chi nhánh -->
+  <div *ngIf="filteredPackages.length > 0; else noPackages">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        *ngFor="let pkg of filteredPackages"
+        class="border rounded p-4 flex items-start"
+      >
+        <input
+          type="checkbox"
+          [checked]="selectedPackageId === pkg.id"
+          (change)="onPackageSelect(pkg.id)"
+          id="pkg-{{ pkg.id }}"
+          class="mt-1 mr-3"
+        />
+        <label [for]="'pkg-'+pkg.id" class="cursor-pointer flex-1">
+          <p class="font-semibold">{{ pkg.packageName }}</p>
+          <p class="text-sm">Giá: {{ pkg.price | number }} VND</p>
+          <p class="text-sm">Thời gian: {{ pkg.duration }}</p>
+          <p *ngIf="pkg.describe" class="text-xs italic mt-1">{{ pkg.describe }}</p>
+        </label>
+      </div>
+    </div>
+
+    <!-- Button Thanh toán -->
+    <div class="mt-8 flex justify-end">
+      <button
+        (click)="pay()"
+        class="bg-color hover:opacity-80 text-white font-medium px-6 py-2 rounded"
+      >
+        Thanh toán
+      </button>
+    </div>
+  </div>
+
+  <!-- Khi chưa có gói nào -->
+  <ng-template #noPackages>
+    <p class="text-gray-500">Không có gói đăng ký cho chi nhánh này.</p>
+  </ng-template>
+</div>

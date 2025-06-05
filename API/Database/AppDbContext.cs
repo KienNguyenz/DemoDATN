@@ -1,9 +1,9 @@
 ﻿using DemoGym.Dtos;
 using DemoGym.Entities;
+using DemoGym.Entities.Common;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SMG.Entities;
 
 namespace Demo.Database
    
@@ -22,6 +22,9 @@ namespace Demo.Database
         public DbSet<Room> rooms { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<PTMember> PTMembers { get; set; }
+        public DbSet<EmployeeMonthlySalary> EmployeeMonthlySalaries { get; set; }
+        public DbSet<Devices> Devices { get; set; }
+        public DbSet<RevenueLog> RevenueLogs { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,13 +44,22 @@ namespace Demo.Database
                 entity.Property(e => e.Address);
                 entity.Property(e => e.PhoneNumber);
 
-                entity.HasOne(e => e.Package)
-                    .WithOne(p => p.Member)
-                    .HasForeignKey<Member>(m => m.PackageId)
-                    .OnDelete(DeleteBehavior.Restrict);
+                entity
+            .HasOne(e => e.Branch)
+            .WithMany(b => b.Members)
+            .HasForeignKey(e => e.BranchId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-                // Một Member chỉ có 1 PT (One-to-Many)
-                entity.HasOne<PTMember>()
+                
+                entity
+                .HasOne(e => e.Package)
+                .WithMany(p => p.Members)
+                .HasForeignKey(e => e.PackageId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+                // One-to-One với PTMember
+                entity
+                    .HasOne<PTMember>()
                     .WithOne(pm => pm.Member)
                     .HasForeignKey<PTMember>(pm => pm.MemberId)
                     .OnDelete(DeleteBehavior.Restrict);
