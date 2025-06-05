@@ -1,0 +1,42 @@
+/* staff.component.scss */
+
+/* Content wrapper: stretch hết chiều rộng, scroll khi cần */
+.a-content {
+  background: #fff;
+  min-height: calc(100vh - 64px); 
+  overflow: auto;
+}
+
+/* Nếu bạn giữ a-wrapper / a-container */
+.a-wrapper {
+  background: #fff;
+  width: 100%;
+}
+
+.a-container {
+  /* padding bên trong */
+  padding: 16px;
+  
+  .a-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .a-toolbar nz-select,
+  .a-toolbar input[nz-input] {
+    width: 300px !important;
+  }
+  .a-toolbar {
+    display: flex;
+    gap: 8px;
+  }
+
+  /* Pagination */
+  .pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 8px;
+  }
+}
+

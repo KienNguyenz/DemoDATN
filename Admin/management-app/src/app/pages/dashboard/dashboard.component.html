@@ -1,0 +1,253 @@
+<div class="dashboard-container">
+  <!-- === Header === -->
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">Dashboard Quản Lý</h1>
+    <p class="dashboard-subtitle">Tổng quan hệ thống và thống kê</p>
+  </div>
+
+  <!-- === Stat Cards === -->
+  <div class="flex-row stat-row mb-4">
+    <div class="col-3 mb-3">
+      <div class="stat-card stat-warning">
+        <div class="stat-header">
+          <div>
+            <div class="stat-value">{{ branches.length }}</div>
+            <div class="stat-label">Chi nhánh</div>
+          </div>
+          <div class="stat-icon warning">
+            <mat-icon>business</mat-icon>
+          </div>
+        </div>
+        <div class="stat-change">
+          <mat-icon>trending_up</mat-icon>
+          <span>5% so với tháng trước</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 mb-3">
+      <div class="stat-card stat-success">
+        <div class="stat-header">
+          <div>
+            <div class="stat-value">{{ employees.length }}</div>
+            <div class="stat-label">Nhân viên</div>
+          </div>
+          <div class="stat-icon success">
+            <mat-icon>people</mat-icon>
+          </div>
+        </div>
+        <div class="stat-change">
+          <mat-icon>trending_up</mat-icon>
+          <span>10% so với tháng trước</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 mb-3">
+      <div class="stat-card stat-danger">
+        <div class="stat-header">
+          <div>
+            <div class="stat-value">{{ getMaintenanceDevices() }}</div>
+            <div class="stat-label">Thiết bị bảo trì</div>
+          </div>
+          <div class="stat-icon danger">
+            <mat-icon>build</mat-icon>
+          </div>
+        </div>
+        <div class="stat-change stat-negative">
+          <mat-icon>trending_down</mat-icon>
+          <span>2% so với tháng trước</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 mb-3">
+      <div class="stat-card stat-info">
+        <div class="stat-header">
+          <div>
+            <div class="stat-value">{{ members.length }}</div>
+            <div class="stat-label">Thành viên</div>
+          </div>
+          <div class="stat-icon info">
+            <mat-icon>person</mat-icon>
+          </div>
+        </div>
+        <div class="stat-change">
+          <mat-icon>trending_up</mat-icon>
+          <span>8% so với tháng trước</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Dòng 1: 2 Biểu đồ cột === -->
+  <div class="flex-row mb-4">
+    <div class="col-6 mb-3">
+      <div class="chart-card">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Nhân viên theo chi nhánh</h3>
+          <span class="chart-period">Cập nhật mới</span>
+        </div>
+        <div class="chart-container chart-tall">
+          <canvas
+            baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="barChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 mb-3">
+      <div class="chart-card">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Thiết bị theo chi nhánh</h3>
+          <span class="chart-period">Cập nhật mới</span>
+        </div>
+        <div class="chart-container chart-medium">
+          <canvas
+            baseChart
+            [data]="hBarChartData"
+            [options]="hBarChartOptions"
+            [type]="hBarChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Dòng 2: 2 Biểu đồ tròn + 1 Line Chart === -->
+  <div class="flex-row mb-4">
+    <div class="col-6 mb-3">
+      <div class="chart-card">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Nhân viên Active/Inactive</h3>
+          <span class="chart-period">Tổng quát</span>
+        </div>
+        <div class="chart-container chart-small flex-row justify-center" *ngIf="doughnutChartData.labels?.length">
+          <canvas
+            baseChart
+            [data]="doughnutChartData"
+            [options]="doughnutChartOptions"
+            [type]="doughnutChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 mb-3">
+      <div class="chart-card">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Thành viên Active/Inactive</h3>
+          <span class="chart-period">Tổng quát</span>
+        </div>
+        <div class="chart-container chart-small flex-row justify-center" *ngIf="pieChartData.labels?.length">
+          <canvas
+            baseChart
+            [data]="pieChartData"
+            [options]="pieChartOptions"
+            [type]="pieChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Line Chart: Lương & Doanh thu 6 tháng gần nhất -->
+  <div class="flex-row mb-4">
+    <div class="col-12 mb-3">
+      <div class="chart-card">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Lương & Doanh thu 6 tháng gần nhất</h3>
+          <span class="chart-period">6 tháng</span>
+        </div>
+        <div class="chart-container chart-tall" *ngIf="lineChartData.labels?.length">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="lineChartType">
+          </canvas>
+        </div>
+        <div class="chart-stats flex-row justify-around mt-2">
+          <div class="chart-stat text-center">
+            <div class="chart-stat-value">{{ getTotalSalaryPaid() | number:'1.0-0' }}</div>
+            <div class="chart-stat-label">Tổng Lương</div>
+          </div>
+          <div class="chart-stat text-center">
+            <div class="chart-stat-value">{{ getTotalRevenue() | number:'1.0-0' }}</div>
+            <div class="chart-stat-label">Tổng Doanh thu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Dòng 3: Bảng chi nhánh & Hoạt động gần đây === -->
+  <div class="flex-row mb-5">
+    <div class="col-8 mb-3">
+      <div class="table-card">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Danh sách chi nhánh</h3>
+          <button mat-icon-button (click)="refreshData()" [disabled]="isRefreshing">
+            <mat-icon [class.spinning]="isRefreshing">refresh</mat-icon>
+          </button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Tên chi nhánh</th>
+                <th>Nhân viên</th>
+                <th>Thiết bị</th>
+                <th>Thành viên</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let branch of branches">
+                <td>{{ branch.name }}</td>
+                <td>{{ getEmployeesByBranch(branch.id) }}</td>
+                <td>{{ getDevicesByBranch(branch.id) }}</td>
+                <td>{{ getMembersByBranch(branch.id) }}</td>
+                <td>
+                  <span
+                    class="status-badge"
+                    [ngClass]="branch.isActive ? 'status-active' : 'status-maintenance'">
+                    {{ branch.isActive ? 'Hoạt động' : 'Ngưng hoạt động' }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 mb-3">
+      <div class="chart-card chart-full-height">
+        <div class="chart-header flex-row justify-between align-center">
+          <h3 class="chart-title">Hoạt động gần đây</h3>
+          <span class="chart-period pulse">LIVE</span>
+        </div>
+        <div class="activity-list px-2">
+          <div class="activity-item flex-row align-start mb-3" *ngFor="let act of recentActivities">
+            <div class="activity-icon me-2" [ngClass]="'activity-' + act.type">
+              <mat-icon>{{ act.icon }}</mat-icon>
+            </div>
+            <div class="activity-content">
+              <p class="activity-text mb-1">{{ act.text }}</p>
+              <p class="activity-time text-muted">{{ act.time }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nút Thao tác nhanh -->
+  <button mat-fab class="floating-action" color="primary" matTooltip="Thao tác nhanh">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

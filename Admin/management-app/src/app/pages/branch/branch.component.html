@@ -1,0 +1,190 @@
+<nz-content class="a-content">
+  <div class="a-wrapper">
+    <div class="a-container">
+      <div class="a-header">
+        <h2>Quản lý chi nhánh</h2>
+        <div class="a-toolbar">
+          <input
+            nz-input
+            placeholder="Tìm kiếm..."
+            [(ngModel)]="searchValue"
+            (ngModelChange)="search()"
+          />
+          <button nz-button nzType="primary" (click)="openCreateModal()">
+            Thêm mới
+          </button>
+        </div>
+      </div>
+
+      <!-- Bảng chi nhánh -->
+      <nz-table
+        [nzData]="filteredBranches"
+        [nzBordered]="true"
+        [nzSize]="'middle'"
+        [nzScroll]="{ x: '1000px' }"
+      >
+        <thead>
+          <tr>
+            <th style="width: 70px">STT</th>
+            <th>Tên chi nhánh</th>
+            <th>Địa chỉ</th>
+            <th style="width: 100px">Thành viên</th>
+            <th style="width: 200px">Quản lý</th>
+            <th style="width: 200px">SĐT quản lý</th>
+            <th style="width: 100px">Trạng thái</th>
+            <th style="width: 100px">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of filteredBranches; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ b.name }}</td>
+            <td>{{ b.address }}</td>
+            <td  style="text-align: center;">{{ getBranchMemberCount(b.id) }}</td>
+            <td>{{ getBranchManagerName(b.id) }}</td>
+            <td>{{ getBranchManagerPhone(b.id) }}</td>
+            <td style="text-align: center;">
+              <span
+                nz-icon
+                [nzType]="b.isActive ? 'check' : 'close'"
+                [nzTheme]="'outline'"
+                [ngStyle]="{ color: b.isActive ? 'green' : 'red' }"
+              ></span>
+            </td>
+            <td>
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nz-tooltip="Chỉnh sửa"
+                (click)="editBranch(b)"
+              >
+                <span nz-icon nzType="edit"></span>
+              </button>
+              <button
+                nz-button
+                nzType="link"
+                nzShape="circle"
+                nzDanger
+                nz-popconfirm
+                nzPopconfirmTitle="Bạn có chắc chắn muốn xoá?"
+                (nzOnConfirm)="deleteBranch(b.id)"
+                nz-tooltip="Xoá"
+              >
+                <span nz-icon nzType="delete"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+
+      <!-- Modal thêm / sửa -->
+      <nz-modal
+        [(nzVisible)]="isEditVisible"
+        [nzTitle]="isAddMode ? 'Thêm chi nhánh mới' : 'Chỉnh sửa chi nhánh'"
+        (nzOnCancel)="handleEditCancel()"
+        (nzOnOk)="handleEditOk()"
+        [nzOkDisabled]="!editingBranch?.name"
+      >
+        <!-- Đây là nơi *project* nội dung -->
+        <ng-container *nzModalContent>
+          <ng-container *ngIf="editingBranch; else loadingTpl">
+            <form nz-form nzLayout="horizontal">
+              <!-- ID
+            <nz-form-item>
+              <nz-form-label [nzSpan]="6">STT</nz-form-label>
+              <nz-form-control [nzSpan]="18">
+                <input
+                  nz-input
+                  [ngModel]="editingBranch.id"
+                  name="id"
+                  disabled
+                />
+              </nz-form-control>
+            </nz-form-item> -->
+              <!-- Tên chi nhánh -->
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Tên chi nhánh</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input
+                    nz-input
+                    [(ngModel)]="editingBranch.name"
+                    name="name"
+                    placeholder="Tên chi nhánh"
+                    required
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <!-- Hotline -->
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Hotline</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input
+                    nz-input
+                    [(ngModel)]="editingBranch.hotline"
+                    name="hotline"
+                    placeholder="Hotline"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <!-- Địa chỉ -->
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Địa chỉ</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <input
+                    nz-input
+                    [(ngModel)]="editingBranch.address"
+                    name="address"
+                    placeholder="Địa chỉ"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <!-- Mô tả -->
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Mô tả</nz-form-label>
+                <nz-form-control [nzSpan]="18">
+                  <textarea
+                    nz-input
+                    rows="8"
+                    [(ngModel)]="editingBranch.description"
+                    name="description"
+                    placeholder="Mô tả"
+                  ></textarea>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6">Trạng thái</nz-form-label>
+                <nz-form-control [nzSpan]="18" nzErrorTip="Chọn trạng thái">
+                  <nz-select
+                    nzShowSearch
+                    nzAllowClear
+                    nzPlaceHolder="Chọn trạng thái"
+                    [(ngModel)]="editingBranch.isActive"
+                    name="isActive"
+                    required
+                  >
+                    <nz-option
+                      *ngFor="let opt of statusOptions"
+                      [nzValue]="opt.value"
+                      [nzLabel]="opt.label"
+                    ></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </ng-container>
+
+          <ng-template #loadingTpl>
+            <div class="text-center py-6">
+              <nz-spin></nz-spin>
+            </div>
+          </ng-template>
+        </ng-container>
+      </nz-modal>
+    </div>
+  </div>
+</nz-content>

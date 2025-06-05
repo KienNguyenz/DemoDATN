@@ -1,0 +1,46 @@
+.full-height {
+  min-height: 100vh;
+  height: 100%;
+}
+
+nz-layout {
+  height: 100%;
+}
+
+nz-sider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+}
+
+.logo {
+  height: 40px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.09);
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+}
+
+nz-header {
+  background: #fff; display: flex; justify-content: space-between; align-items: center; padding: 0 24px;
+}
+
+.right-layout {
+  margin-left: 220px; 
+}
+
+nz-content {
+  margin: 24px 16px 0;
+  overflow: initial;
+  min-height: calc(100vh - 64px); 
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.ant-menu-dark .ant-menu-item:hover .ant-menu-item-icon,
+.ant-menu-dark .ant-menu-item:hover .ant-menu-item-content {
+  color: #fff;
+}
